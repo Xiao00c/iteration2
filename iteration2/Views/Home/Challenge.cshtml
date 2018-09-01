@@ -1,0 +1,56 @@
+﻿@model List<iteration2.Models.Question>
+@{
+    ViewBag.Title = "Joeys on the road";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.factor_desc</h2>
+<div id="ques">
+    <table border="1">
+        <tr>
+            <td colspan="3">
+                <div id="question_desc"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="option1" onclick="clickChoice1()">
+                    default choice 1 description
+                </div>
+            </td>
+            <td>
+                <div id="option2" onclick="clickChoice2()">
+                    default choice 1 description
+                </div>
+            </td>
+            <td>
+                <div id="option3" onclick="clickChoice3()">
+                    default choice 1 description
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="result" style="display:none; width:150px; height:150px; background-color:chartreuse;">
+        <p style="color:white; font-size:20px;">
+            This is the result div. only show when incorrect answer.
+        </p>
+        <button onclick="continueChallenge()">
+            next
+        </button>
+    </div>
+</div>
+<div id="finish" style="display:none; width:100%; height:100%; background-color:black;">
+    <p style="color:white; font-size:20px;">
+        <button type="button" onclick="location.href='@Url.Action("Factors", "Home")'"> Congratulation! You finished! </button>
+    </p>
+</div>
+
+
+<script>
+    var factor = "@ViewBag.factor";
+    var data = @Html.Raw(Json.Encode(Model));
+    console.log(data);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="~/Scripts/customJS/Challenge.js"></script>

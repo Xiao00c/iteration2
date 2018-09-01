@@ -151,6 +151,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\ChallengerHelper.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\SQLConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +162,26 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\Autumn.png" />
+    <Content Include="Content\images\background-q2.jpg" />
+    <Content Include="Content\images\background4.jpg" />
+    <Content Include="Content\images\Christina.jpg" />
+    <Content Include="Content\images\Distraction.png" />
+    <Content Include="Content\images\done.jpeg" />
+    <Content Include="Content\images\Drunk.png" />
+    <Content Include="Content\images\Echo.png" />
+    <Content Include="Content\images\General.png" />
+    <Content Include="Content\images\Javier.jpg" />
+    <Content Include="Content\images\Joey copy.png" />
+    <Content Include="Content\images\Joey.png" />
+    <Content Include="Content\images\JoeysOnTheRoad.png" />
+    <Content Include="Content\images\lock.jpeg" />
+    <Content Include="Content\images\Lock.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\Peter.jpg" />
+    <Content Include="Content\images\Sarvesh.jpg" />
+    <Content Include="Content\images\Speeding.png" />
+    <Content Include="Content\images\Tired.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -167,7 +191,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\remastered - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\customJS\Challenge.js" />
+    <Content Include="Scripts\customJS\homePage.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -192,10 +219,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Factors.cshtml" />
+    <Content Include="Views\Home\Challenge.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Content\customCSS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Joeys on the road";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    img {
+        width: 300px;
+        height: 200px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.8s;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        img:hover {
+            background-size: 110%;
+            filter: blur(4px);
+            filter: brightness(60%);
+        }
+
+        img:after {
+            content: attr(data-text);
+        }
+
+    table {
+        padding: 4%;
+        margin: 0px 0px 0px 0px;
+    }
+
+    td {
+        width: 400px;
+        height: 250px;
+        text-align: center;
+    }
+</style>
+
+<table align="center">
+    <tr>
+        <td></td>
+        <td width="800" rowspan="2">
+            <img src="~/Content/images/Joey copy.png" style="width:600px; height:auto;" />
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <a href="@Url.Action("Challenge", "Home", new {factor = "Distraction" })">
+                    <img src="~/Content/images/Distraction.png" />
+                </a>
+            </div>
+
+        </td>
+        <td>
+            <a href="@Url.Action("Challenge", "Home", new {factor = "Fatigue" })">
+                <img src="~/Content/images/Tired.png" />
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="@Url.Action("Challenge", "Home", new {factor = "Speeding" })">
+                <img src="~/Content/images/Speeding.png" />
+            </a>
+        </td>
+        <td>
+            <a href="@Url.Action("Challenge", "Home", new {factor = "General" })">
+                <img src="~/Content/images/General.png" />
+            </a>
+        </td>
+        <td>
+            <a href="@Url.Action("Challenge", "Home", new {factor = "Drunk" })">
+                <img src="~/Content/images/Drunk.png" />
+            </a>
+        </td>
+    </tr>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script>
+    console.log("Speeding score: " + Cookies.get("Speeding"));
+    console.log("Drunk score: " + Cookies.get("Drunk"));
+    console.log("Distraction score: " + Cookies.get("Distraction"));
+    console.log("General score: " + Cookies.get("General"));
+    console.log("Fatigue score: " + Cookies.get("Fatigue"));
+    if (Cookies.get("SpeedingFinish") == "1" && Cookies.get("DrunkFinish") == "1" &&
+        Cookies.get("DistractionFinish") == "1" && Cookies.get("GeneralFinish") == "1" && Cookies.get("FatigueFinish") == "1")
+    {
+        var score = parseInt(Cookies.get("Speeding")) +
+            parseInt(Cookies.get("Drunk")) +
+            parseInt(Cookies.get("Distraction")) +
+            parseInt(Cookies.get("General")) +
+            parseInt(Cookies.get("Fatigue"));
+        alert("Congratulation! you have done all the factors, your score is" + score + "/ 210.");
+        Cookies.set("SpeedingFinish", "0");
+        Cookies.set("DrunkFinish", "0");
+        Cookies.set("DistractionFinish", "0");
+        Cookies.set("GeneralFinish", "0");
+        Cookies.set("FatigueFinish", "0");
+    }
+</script>

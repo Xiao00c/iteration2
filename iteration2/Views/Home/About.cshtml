@@ -1,7 +1,91 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<style>
+    body {
+        background-image: url('../../Content/images/background-q2.jpg');
+    }
+
+    img {
+        width: 180px;
+        height: 200px;
+        border-radius: 0px;
+        cursor: pointer;
+        transition: 0.8s;
+    }
+
+    table {
+        padding: 4%;
+        margin: 130px 90px 0px 90px;
+    }
+
+    th {
+        font-size: 2em;
+    }
+
+    td {
+        width: 350px;
+        height: 250px;
+    }
+
+    .content-wrapper {
+        width: 20%;
+        margin: 4% 10% 5% 10%;
+        border-radius: 0px;
+        align-content: center;
+        text-align: center;
+    }
+
+    .text-wrapper {
+        width: 100%;
+        position: relative;
+        margin-top: -20%;
+    }
+
+        .text-wrapper h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+</style>
+
+<div class="body" align="center">
+    <table>
+        <tr>
+            <td class="content-wrapper"><h4>Chunhua Qiu</h4><img src="~/Content/images/Christina.jpg" /></td>
+            
+            <td class="content-wrapper">
+                <p>Major: Master of Information Technology</p>
+                <p>Skills: Data warehousing, Data visualisation, Java programming</p>
+            </td>
+            <td class="content-wrapper"><h4>Javier Riobo</h4><img src="~/Content/images/Javier.jpg"></td>
+            <td class="content-wrapper">
+                <p>Major: Master of Business Information Systems</p>
+                <p>Work Experience: worked as a Business Consultant
+                <p>Skills: Databases design , Data analysis</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="content-wrapper"><h4>Wenyao Zhao</h4><img src="~/Content/images/Echo.png"></td>
+            <td class="content-wrapper">
+                <p>Major: Master of Information Technology</p>
+                <p>Skills: Project Management, Data warehousing, Swift programming, C# programming</p>
+            </td>
+            <td class="content-wrapper"><h4>Sarveshwara Ravi Shankar</h4><img src="~/Content/images/Sarvesh.jpg"></td>
+            <td class="content-wrapper">
+                <p>Major: Master of Business Information Systems</p>
+                <p>Work Experience: worked as a Systems Analyst and as a Team Leader</p>
+                <p>Skills: in Project Management, Java Programming, System Analysis and Design</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="content-wrapper"><h4>Zaihan Xu</h4><img src="~/Content/images/Peter.jpg"></td>
+            <td class="content-wrapper">
+                <p>Major: Master of Information Technology</p>
+                <p>Skills: Data warehousing, System design, System validation and verification, test-driven development</p>
+            </td>
+            <td class="content-wrapper"></td>
+            <td class="content-wrapper"></td>
+        </tr>
+    </table>
+</div>

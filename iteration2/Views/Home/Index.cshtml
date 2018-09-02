@@ -1,21 +1,28 @@
 ﻿@{
     ViewBag.Title = "Joeys on the road";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <link href="@Url.Content("https://fonts.googleapis.com/css?family=Roboto")" rel="stylesheet" type="text/css" />
+<link href="~/Content/customCSS/index.css" rel="stylesheet" />
 
-
-<div>
-    <select>
-        <option>Caulfield 3162</option>
-        <option>Clayton 3168</option>
-    </select>
+<div class="body">
+    <div class="body-text">
+        <h1 style="font-size:50px">Are you a Safety Champion?</h1>
+        <h1 style="font-size:20px">Find out by completing our challenge</h1>
+        <h1 style="font-size:20px">Select your postcode below and click on CHALLENGE!</h1>
+    </div>
+    <div>
+        <select>
+            <option>Caulfield 3162</option>
+            <option>Clayton 3168</option>
+        </select>
+    </div>
+    <div class="mainContainer">
+        <button type="button" class="start-btn" onclick="location.href='@Url.Action("Factors", "Home")'"> Challenge </button>
+    </div>
 </div>
-<div class="mainContainer">
-    <button type="button" onclick="location.href='@Url.Action("Factors", "Home")'"> go to factors</button>
-</div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

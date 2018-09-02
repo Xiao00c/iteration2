@@ -3,10 +3,13 @@
 }
 
 body {
+    padding: 10px;
+    padding-bottom: 60px;
     font-family: 'Roboto', sans-serif;
     background-image: url('../images/background4.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
+    display: inline-block;
 }
 
 .body-text {
@@ -14,6 +17,15 @@ body {
     position: absolute;
     top: 30%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.body-selector {
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 45%;
     transform: translate(-50%, -50%);
     color: black;
 }

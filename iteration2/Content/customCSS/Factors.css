@@ -1,0 +1,142 @@
+﻿body {
+    background-image: url('../../Content/images/Autumn.png');
+}
+
+img {
+    width: 300px;
+    height: 200px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.8s;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    img:hover {
+        background-size: 110%;
+        filter: blur(4px);
+        filter: brightness(60%);
+    }
+
+    img:after {
+        content: attr(data-text);
+    }
+
+table {
+    padding: 4%;
+    margin: 0px 0px 0px 0px;
+}
+
+th {
+    font-size: 2em;
+}
+
+td {
+    width: 400px;
+    height: 250px;
+    text-align: center;
+}
+
+    td .lock-cover {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, .5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+        td .lock-cover img {
+            width: auto;
+            height: auto;
+        }
+
+.final-score {
+    width: 500px;
+    height: 300px;
+    position: fixed;
+    background-color: aqua;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.parent {
+    position: relative;
+    overflow: auto;
+    align-content: center;
+}
+
+.child {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translate(0, 0);
+    background-color: rgba(0, 0, 0, .5);
+    align-content: center;
+}
+
+.content-wrapper {
+    width: 33%;
+    margin: 4% 10% 5% 10%;
+    border: none;
+    border-radius: 100px;
+}
+
+.text-wrapper {
+    width: 100%;
+    position: relative;
+    margin-top: -20%;
+}
+
+    .text-wrapper h2 {
+        text-align: center;
+        color: #ffffff;
+    }
+
+.done {
+    position: relative;
+    height: auto;
+    width: auto;
+    transform: translate(0, 0);
+    align-content: center;
+}
+
+.challengeResult {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    border-radius: 10px;
+    width: 30%;
+    height: 40%;
+    overflow: auto;
+    left: 35%;
+    top: 45%;
+    background-color: rgba(176, 224, 230, 0.95);
+    text-align: center;
+    animation-name: modalOpen;
+}
+
+.challengeResult-btn {
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.5);
+    width: 200px;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+    .challengeResult-btn:hover {
+        background: #fff;
+        color: #000;
+    }

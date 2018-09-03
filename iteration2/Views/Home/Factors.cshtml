@@ -4,112 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
+<link href="~/Content/customCSS/Factors.css" rel="stylesheet" />
 
-    body {
-        background-image: url('../../Content/images/Autumn.png');
-    }
-
-    img {
-        width: 300px;
-        height: 200px;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: 0.8s;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-        img:hover {
-            background-size: 110%;
-            filter: blur(4px);
-            filter: brightness(60%);
-        }
-
-        img:after {
-            content: attr(data-text);
-        }
-
-    table {
-        padding: 4%;
-        margin: 0px 0px 0px 0px;
-    }
-
-    th {
-        font-size: 2em;
-    }
-
-    td {
-        width: 400px;
-        height: 250px;
-        text-align: center;
-    }
-
-        td .lock-cover {
-            position: absolute;
-            z-index: 3;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, .5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-
-            td .lock-cover img {
-                width: auto;
-                height: auto;
-            }
-
-    .final-score {
-        width: 500px;
-        height: 300px;
-        position: fixed;
-        background-color: aqua;
-        z-index: 5;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: none;
-    }
-
-    .parent {
-        position: relative;
-        overflow: auto;
-        align-content: center;
-    }
-
-    .child {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        transform: translate(0, 0);
-        background-color: rgba(0, 0, 0, .5);
-        align-content: center;
-    }
-
-    .content-wrapper {
-        width: 33%;
-        margin: 4% 10% 5% 10%;
-        border: none;
-        border-radius: 100px;
-    }
-
-    .text-wrapper {
-        width: 100%;
-        position: relative;
-        margin-top: -20%;
-    }
-
-        .text-wrapper h2 {
-            text-align: center;
-            color: #ffffff;
-        }
-</style>
 <div class="body">
     <table align="center">
         <tr>
@@ -121,7 +17,10 @@
         </tr>
         <tr>
             <td>
-                <div>
+                <div id="distractionDone" class="done">
+                    <img src="~/Content/images/done.jpeg" />
+                </div>
+                <div id="distractionFactor">
                     <a href="@Url.Action("Challenge", "Home", new {factor = "Distraction" })">
                         <img src="~/Content/images/Distraction.png" />
                     </a>
@@ -129,50 +28,63 @@
 
             </td>
             <td>
-                <a href="@Url.Action("Challenge", "Home", new {factor = "Fatigue" })">
-                    <img src="~/Content/images/Tired.png" />
-                </a>
+                <div id="fatigueDone" class="done">
+                    <img src="~/Content/images/done.jpeg" />
+                </div>
+                <div id="fatigueFactor">
+                    <a href="@Url.Action("Challenge", "Home", new {factor = "Fatigue" })">
+                        <img src="~/Content/images/Tired.png" />
+                    </a>
+                </div>
             </td>
         </tr>
         <tr>
             <td>
-                <a href="@Url.Action("Challenge", "Home", new {factor = "Speeding" })">
-                    <img src="~/Content/images/Speeding.png" />
-                </a>
+                <div id="speedingDone" class="done">
+                    <img src="~/Content/images/done.jpeg" />
+                </div>
+                <div id="speedingFactor">
+                    <a href="@Url.Action("Challenge", "Home", new {factor = "Speeding" })">
+                        <img src="~/Content/images/Speeding.png" />
+                    </a>
+                </div>
             </td>
             <td>
-                <a href="@Url.Action("Challenge", "Home", new {factor = "General" })">
-                    <img src="~/Content/images/General.png" />
-                </a>
+                <div id="generalDone" class="done">
+                    <img src="~/Content/images/done.jpeg" />
+                </div>
+                <div id="generalFactor">
+                    <a href="@Url.Action("Challenge", "Home", new {factor = "General" })">
+                        <img src="~/Content/images/General.png" />
+                    </a>
+                </div>
             </td>
             <td>
-                <a href="@Url.Action("Challenge", "Home", new {factor = "Drunk" })">
-                    <img src="~/Content/images/Drunk.png" />
-                </a>
+                <div id="drunkDone" class="done">
+                    <img src="~/Content/images/done.jpeg" />
+                </div>
+                <div id="drunkFactor">
+                    <a href="@Url.Action("Challenge", "Home", new {factor = "Drunk" })">
+                        <img src="~/Content/images/Drunk.png" />
+                    </a>
+                </div>
             </td>
         </tr>
     </table>
 </div>
+<div id="challengeResult" class="challengeResult">
+    <h2>Congratulation!</h2>
+    <p id="challengeScore" style="font-size:20px;">
+        default result.
+    </p>
+    <br />
+    <p>Do you want to restart?</p>
+    <button onclick="restartChallenge()" class="challengeResult-btn">
+        Of Course
+    </button>
+    <button onclick="notNow()" class="challengeResult-btn">
+        Not Now
+    </button>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script>
-    console.log("Speeding score: " + Cookies.get("Speeding"));
-    console.log("Drunk score: " + Cookies.get("Drunk"));
-    console.log("Distraction score: " + Cookies.get("Distraction"));
-    console.log("General score: " + Cookies.get("General"));
-    console.log("Fatigue score: " + Cookies.get("Fatigue"));
-    if (Cookies.get("SpeedingFinish") == "1" && Cookies.get("DrunkFinish") == "1" &&
-        Cookies.get("DistractionFinish") == "1" && Cookies.get("GeneralFinish") == "1" && Cookies.get("FatigueFinish") == "1")
-    {
-        var score = parseInt(Cookies.get("Speeding")) +
-            parseInt(Cookies.get("Drunk")) +
-            parseInt(Cookies.get("Distraction")) +
-            parseInt(Cookies.get("General")) +
-            parseInt(Cookies.get("Fatigue"));
-        alert("Congratulation! you have done all the factors, your score is" + score + "/ 210.");
-        Cookies.set("SpeedingFinish", "0");
-        Cookies.set("DrunkFinish", "0");
-        Cookies.set("DistractionFinish", "0");
-        Cookies.set("GeneralFinish", "0");
-        Cookies.set("FatigueFinish", "0");
-    }
-</script>
+<script src="~/Scripts/customJS/Factor.js"></script>

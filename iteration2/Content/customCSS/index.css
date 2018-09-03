@@ -3,13 +3,11 @@
 }
 
 body {
-    padding: 10px;
-    padding-bottom: 60px;
+    margin:auto;
     font-family: 'Roboto', sans-serif;
     background-image: url('../images/background4.jpg');
     background-repeat: no-repeat;
     background-size:cover;
-    display: inline-block;
 }
 
 .body-text {

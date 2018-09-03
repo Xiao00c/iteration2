@@ -4,44 +4,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.factor_desc</h2>
-<div id="ques">
-    <table border="1">
-        <tr>
-            <td colspan="3">
-                <div id="question_desc"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div id="option1" onclick="clickChoice1()">
-                    default choice 1 description
-                </div>
-            </td>
-            <td>
-                <div id="option2" onclick="clickChoice2()">
-                    default choice 1 description
-                </div>
-            </td>
-            <td>
-                <div id="option3" onclick="clickChoice3()">
-                    default choice 1 description
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div id="result" style="display:none; width:150px; height:150px; background-color:chartreuse;">
-        <p style="color:white; font-size:20px;">
-            This is the result div. only show when incorrect answer.
-        </p>
-        <button onclick="continueChallenge()">
-            next
-        </button>
-    </div>
+<link href="~/Content/customCSS/Challenge.css" rel="stylesheet" />
+
+<div id="ques" class="container">
+    <div class="title">@ViewBag.factor_desc</div>
+    <div id="question_desc" class="question"></div>
+    <label class="option" onclick="clickChoice1()"><span id="option1">Default choice 1 description</span></label>
+    <label class="option" onclick="clickChoice2()"><span id="option2">Default choice 2 description</span></label>
+    <label class="option" onclick="clickChoice3()"><span id="option3">Default choice 3 description</span></label>
+    <div class="challengeProgress" id="progress">Your Challenge Progress</div>
 </div>
+
+<div id="result" class="explanation">
+    <h2>Oops!</h2>
+    <p id="explanation" style="font-size:20px;">
+        This is the result div. only show when incorrect answer.
+    </p>
+    <button class="explanation-btn" onclick="continueChallenge()">
+        Got it!
+    </button>
+</div>
+
 <div id="finish" style="display:none; width:100%; height:100%; background-color:black;">
-    <p style="color:white; font-size:20px;">
-        <button type="button" onclick="location.href='@Url.Action("Factors", "Home")'"> Congratulation! You finished! </button>
+    <div style="color:white;font-size:20px;">
+        Congratulation! You have finished this Challenge! 
+    </div>
+    <div id="autoRedirect" style="color:white">
+        We will drive you back to Challenges in <span id="countDown" style="color:white;"></span> seconds.
+    </div>
+    <br />
+    <div style="color:white">
+        If our drivers do not come in time, here's a chance for you to drive by yourself. Don't worry, we guarantee it will be safe.
+    </div>
+    <p style="color:black; font-size:20px;">
+        <button type="button" onclick="location.href='@Url.Action("Factors", "Home")'"> Take the key, start the engine, drive back! </button>
     </p>
 </div>
 

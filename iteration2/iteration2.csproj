@@ -162,6 +162,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\customCSS\Challenge.css" />
+    <Content Include="Content\customCSS\Factors.css" />
     <Content Include="Content\customCSS\index.css" />
     <Content Include="Content\images\Autumn.png" />
     <Content Include="Content\images\background-q2.jpg" />
@@ -195,7 +197,8 @@
     <None Include="Properties\PublishProfiles\remastered - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\customJS\Challenge.js" />
-    <Content Include="Scripts\customJS\homePage.js" />
+    <Content Include="Scripts\customJS\Factor.js" />
+    <Content Include="Scripts\customJS\HomePage.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />

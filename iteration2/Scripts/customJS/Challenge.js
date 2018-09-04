@@ -43,40 +43,58 @@ function next() {
     updateProgress();
 }
 
+function displayWrong() {
+    document.getElementById("correct").style.display = "none";
+    document.getElementById("incorrect").style.display = "block";
+}
+
+function displayCorrect() {
+    document.getElementById("correct").style.display = "block";
+    document.getElementById("incorrect").style.display = "none";
+}
 
 function clickChoice1() {
-    if (data[currentEvent]["answers"][0]["correct"] == 0) {
-        //alert("good work!");
-        document.getElementById("result").style.display = "block";
-        document.getElementById("explanation").innerHTML = data[currentEvent]["answers"][0]["explanation"];
-        //next();
+    //display explanation.
+    document.getElementById("result").style.display = "block";
+    document.getElementById("explanation").innerHTML = data[currentEvent]["answers"][0]["explanation"];
+
+    if (data[currentEvent]["answers"][0]["correct"] == 0) {     
+        //incorrect
+        displayWrong();
     } else {
+        displayCorrect();
         currentScore = currentScore + 10;
-        next();
+        //next();
     }
 }
 
 function clickChoice2() {
+    //display explanation.
+    document.getElementById("result").style.display = "block";
+    document.getElementById("explanation").innerHTML = data[currentEvent]["answers"][1]["explanation"];
+
     if (data[currentEvent]["answers"][1]["correct"] == 0) {
-        //alert("good work!");
-        document.getElementById("result").style.display = "block";
-        document.getElementById("explanation").innerHTML = data[currentEvent]["answers"][1]["explanation"];
-        //next();
+        //incorrect
+        displayWrong();
     } else {
+        displayCorrect();
         currentScore = currentScore + 10;
-        next();
+        //next();
     }
 }
 
 function clickChoice3() {
-    if (data[currentEvent]["answers"][2]["correct"] == 0) {
-        //alert("good work!");
-        document.getElementById("result").style.display = "block";
-        document.getElementById("explanation").innerHTML = data[currentEvent]["answers"][2]["explanation"];
-        //next();
+    //display explanation.
+    document.getElementById("result").style.display = "block";
+    document.getElementById("explanation").innerHTML = data[currentEvent]["answers"][1]["explanation"];
+
+    if (data[currentEvent]["answers"][1]["correct"] == 0) {
+        //incorrect
+        displayWrong();
     } else {
+        displayCorrect();
         currentScore = currentScore + 10;
-        next();
+        //next();
     }
 }
 

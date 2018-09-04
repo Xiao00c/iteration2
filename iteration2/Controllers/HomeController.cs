@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using iteration2.Models;
+using Rotativa;
 
 namespace iteration2.Controllers
 {
@@ -84,6 +85,13 @@ namespace iteration2.Controllers
             }
 
             return View(questions);
+        }
+
+        //generate pdf for challenge
+        public ActionResult PrintViewToPdf()
+        {
+            var report = new ActionAsPdf("Index");
+            return report;
         }
     }
 }

@@ -23,11 +23,10 @@
 }
 
 .option {
-    display: list-item;
     padding: 10px 0 10px 15px;
     vertical-align: middle;
     background: rgba(255,255,255,1);
-    margin: 40px 0 40px 10px;
+    margin: 40px 0 40px 0px;
     color: #000;
     border-radius: 20px;
 }
@@ -60,7 +59,7 @@
     text-transform: uppercase;
     height: 100px;
     text-align: center;
-    font-size: 75;
+    font-size: 15px;
     color: #fff;
 }
 
@@ -71,18 +70,19 @@
 }
 
 .explanation {
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align: middle;
     display: none;
-    position:fixed;
-    z-index:1;
+    position: fixed;
+    z-index: 1;
     border-radius: 10px;
-    width: 30%;
     height: 40%;
-    overflow:auto;
-    left:35%;
-    top:45%;
+    overflow: auto;
+    top: 45%;
     background-color: rgba(176, 224, 230, 0.95);
-    text-align:center;
-    animation-name:modalOpen;
+    text-align: center;
+    animation-name: modalOpen;
 }
 
 .explanation-btn {

@@ -29,28 +29,29 @@ body {
 }
 
 .start-btn {
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 200px;
+    height: 150px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-70%);
-    background: rgba(255,255,255,0.5);
+    top: 40%;
+    left: 45%;
     padding: 20px;
-    box-shadow: 0 0 8px 3px #fff;
+    filter: blur(4px);
+    filter: brightness(60%);
+    cursor:pointer;
+    /*box-shadow: 0 0 8px 3px #fff;
     border-radius: 20px;
     cursor: pointer;
     font-size: 26px;
     text-transform: uppercase;
     text-align: center;
-    line-height: 4px;
+    background: rgba(255,255,255,0.5);
+    transform: translateX(-50%) translateY(-70%);
+    line-height: 4px;*/
 }
 
     .start-btn:hover {
-        background: #fff;
-        color: #000;
+        /*background: #fff;*/
+        filter: blur(4px);
+        filter: brightness(100%);
     }
 
 select {

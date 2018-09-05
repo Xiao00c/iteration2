@@ -14,7 +14,7 @@ namespace iteration2.Models
         public static DataTable getQuestions()
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 

@@ -52,7 +52,7 @@ namespace iteration2.Models
         public static DataTable getAlcoholQuestions()
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 
@@ -71,7 +71,7 @@ namespace iteration2.Models
         public static DataTable getQuestionsByFactor(string factor)
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 

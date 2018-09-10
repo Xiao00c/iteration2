@@ -13,6 +13,13 @@ namespace iteration2.Controllers
         //home page
         public ActionResult Index()
         {
+            //test
+            System.Diagnostics.Debug.WriteLine(SQLConnection.getLGAByPostcode("3008"));
+            return View();
+        }
+
+        public ActionResult Explore()
+        {
             return View();
         }
 
@@ -38,59 +45,160 @@ namespace iteration2.Controllers
             return View();
         }
 
-        //reuse view.
-        public ActionResult Challenge(string factor)
+        //new version: map, challenge all in one page.
+        public ActionResult Challenge(string postcode)
         {
-            //give different questions based on given factor.
-            //Distraction, Speeding, Fatigue, Drunk, General
-
-            //test
-            System.Diagnostics.Debug.WriteLine(factor);
-
-            List<Question> questions = new List<Question>();
-            if (factor == "Drunk")
+            //if no postcode
+            if (null == postcode)
             {
-                questions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsByFactor("alcohol"));
-                ViewBag.factor_desc = "Driving after drinking alcohol is against the Law!";
-                ViewBag.factor = "Drunk";
-                System.Diagnostics.Debug.WriteLine(factor);
-            }
-            else if (factor == "Speeding")
-            {
-                questions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsByFactor("speeding"));
-                ViewBag.factor_desc = "the Faster the Cooler?";
-                ViewBag.factor = "Speeding";
-                System.Diagnostics.Debug.WriteLine(factor);
-            }
-            else if (factor == "Fatigue")
-            {
-                questions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsByFactor("fatigue"));
-                ViewBag.factor_desc = "A tired and sleepy driver is bound to crash his car!";
-                ViewBag.factor = "Fatigue";
-                System.Diagnostics.Debug.WriteLine(factor);
-            }
-            else if (factor == "Distraction")
-            {
-                questions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsByFactor("distraction"));
-                ViewBag.factor_desc = "Did you know distracted drivers cause the most accidents in Australia?";
-                ViewBag.factor = "Distraction";
-                System.Diagnostics.Debug.WriteLine(factor);
+                return View();
             }
             else
             {
-                questions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsByFactor("general"));
-                ViewBag.factor_desc = "Be Smart, Be Safe!";
-                ViewBag.factor = "General";
-                System.Diagnostics.Debug.WriteLine(factor);
+
             }
 
-            return View(questions);
+            //get LGA by postcode
+            string[] LGAs = SQLConnection.getLGAByPostcode(postcode).Split(',');
+            
+            
+
+            //hardcoded postcode and LGA
+            string LGA = "Glen Eira";
+
+            //get alcohol related %
+            string alcohol_imp = SQLConnection.comparePercentage(
+                SQLConnection.getAlhocolPercentageByLGA(LGA),
+                SQLConnection.getAverageAlcoholPercentage());
+
+            //get Speeding from Queensland
+            string[] speeding = SQLConnection.getSpeedingCrashes().Split(',');
+            
+            string speeding_imp =  ChallengerHelper.calcualteWeightBasedOnYear(speeding);
+
+            //get Fatigue from Queensland
+            string[] fatigue = SQLConnection.getFatigueCrashes().Split(',');
+            string fatigue_imp = ChallengerHelper.calcualteWeightBasedOnYear(fatigue);
+
+
+            //get distribution
+            string distributions = SQLConnection.getDistribution(alcohol_imp, speeding_imp, "m");
+
+            //four factors and get weight for specific factor.
+            string[] weights = distributions.Split(',');
+        
+            //sort factor distributions with value of factor name.
+            //SortedList<int, string> disDic = new SortedList<int, string>();
+            //disDic.Add(Int32.Parse(weights[0]) / 10, "drunk");
+            //disDic.Add(Int32.Parse(weights[1]) / 10, "speeding");
+            //disDic.Add(Int32.Parse(weights[2]) / 10, "distraction");
+            //disDic.Add(Int32.Parse(weights[3]) / 10, "fatigue");
+            //disDic.Add(Int32.Parse(weights[4]) / 10, "general");
+
+            //get questions based on distribution
+            List<Question> orderedQuestions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsOrderByFactor());
+            List<Question> drunkQuestions = new List<Question>();
+            List<Question> speedingQuestions = new List<Question>();
+            List<Question> fatigueQuestions = new List<Question>();
+            List<Question> generalQuestions = new List<Question>();
+            List<Question> distractionQuestions = new List<Question>();
+
+            //separate questions.
+            for (int i = 0; i < orderedQuestions.Count; i++)
+            {
+                if(orderedQuestions[i].related_factor == "alcohol")
+                {
+                    drunkQuestions.Add(orderedQuestions[i]);
+                }
+                else if (orderedQuestions[i].related_factor == "speeding")
+                {
+                    speedingQuestions.Add(orderedQuestions[i]);
+                }
+                else if (orderedQuestions[i].related_factor == "distraction")
+                {
+                    distractionQuestions.Add(orderedQuestions[i]);
+                }
+                else if (orderedQuestions[i].related_factor == "general")
+                {
+                    generalQuestions.Add(orderedQuestions[i]);
+                }
+                else if (orderedQuestions[i].related_factor == "fatigue")
+                {
+                    fatigueQuestions.Add(orderedQuestions[i]);
+                }
+            }
+
+            //shuffle all questions lists.
+            drunkQuestions = ChallengerHelper.shuffleQuestions(drunkQuestions);
+            speedingQuestions = ChallengerHelper.shuffleQuestions(speedingQuestions);
+            distractionQuestions = ChallengerHelper.shuffleQuestions(distractionQuestions);
+            generalQuestions = ChallengerHelper.shuffleQuestions(generalQuestions);
+            fatigueQuestions = ChallengerHelper.shuffleQuestions(fatigueQuestions);
+
+            //get top distribution number of question from each question lists.
+
+            drunkQuestions = drunkQuestions.GetRange(0,Int32.Parse(weights[0]) / 10);
+            speedingQuestions = speedingQuestions.GetRange(0, Int32.Parse(weights[1]) / 10);
+            distractionQuestions = distractionQuestions.GetRange(0, Int32.Parse(weights[2]) / 10);
+            fatigueQuestions = fatigueQuestions.GetRange(0, Int32.Parse(weights[3]) / 10);
+            generalQuestions = generalQuestions.GetRange(0, Int32.Parse(weights[4]) / 10);
+
+            //sort all questionlists
+            //List<List<Question>> shuffledQuestions = new List<List<Question>>();
+            //string[] descs = { };
+            //for (int i = 4; i > -1; i--)
+            //{
+            //    if (disDic.Values[i] == "drunk")
+            //    {
+            //        shuffledQuestions.Add(drunkQuestions);
+            //        descs[5 - i] = "drunk";
+            //    }
+            //    else if (disDic.Values[i] == "speeding")
+            //    {
+            //        shuffledQuestions.Add(speedingQuestions);
+            //        descs[5 - i] = "speeding";
+            //    }
+            //    else if (disDic.Values[i] == "distraction")
+            //    {
+            //        shuffledQuestions.Add(distractionQuestions);
+            //        descs[5 - i] = "distraction";
+            //    }
+            //    else if (disDic.Values[i] == "fatigue")
+            //    {
+            //        shuffledQuestions.Add(fatigueQuestions);
+            //        descs[5 - i] = "fatigue";
+            //    }
+            //    else if (disDic.Values[i] == "general")
+            //    {
+            //        shuffledQuestions.Add(generalQuestions);
+            //        descs[5 - i] = "general";
+            //    }
+            //}
+
+            //hardcoded
+            List<List<Question>> shuffledQuestions = new List<List<Question>>();
+            shuffledQuestions.Add(drunkQuestions);
+            shuffledQuestions.Add(speedingQuestions);
+            shuffledQuestions.Add(distractionQuestions);
+            shuffledQuestions.Add(fatigueQuestions);
+            shuffledQuestions.Add(generalQuestions);
+            string[] descs = {"drunk", "speeding", "distraction", "fatigue", "general" };
+
+            //create MappedQuestions
+            MappedQuestions mappedQuestions = new MappedQuestions(shuffledQuestions, descs);
+
+
+            return View(mappedQuestions);
         }
 
         //generate pdf for challenge
         public ActionResult PrintViewToPdf()
         {
-            var report = new ActionAsPdf("Index");
+            var report = new ActionAsPdf("Challenge")
+            {
+                PageOrientation = Rotativa.Options.Orientation.Landscape,
+                FileName = "Safety_Champion_Certificate.pdf"
+            };
             return report;
         }
     }

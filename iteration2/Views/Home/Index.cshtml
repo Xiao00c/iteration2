@@ -1,31 +1,320 @@
 ﻿@{
-    ViewBag.Title = "Joeys on the road";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Young Safety Champion Home";
+    Layout = "";
 }
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="~/Content/images/gallery/challenge.jpg" type="image/png" />
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+<!-- CSS -->
+<link href="~/Content/customCSS/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/customCSS/bootstrap-responsive.css" rel="stylesheet" />
+<link href="~/Content/customCSS/style.css" rel="stylesheet" />
+<link href="~/Content/customCSS/font-awesome.css" rel="stylesheet" />
+
+<!--[if lt IE 8]>
+    <div><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"/></a></div>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+<![endif]-->
+<style type="text/css">
+
+    .circle {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #000;
+        position: absolute;
+        border-radius: 15px;
+    }
+</style>
 
 
-<link href="@Url.Content("https://fonts.googleapis.com/css?family=Roboto")" rel="stylesheet" type="text/css" />
-<link href="~/Content/customCSS/index.css" rel="stylesheet" />
 
-<div class="body" style="height:700px" align="center">
-    <div class="body-text">
-        <h1 style="font-size:50px">Are you a Safety Champion?</h1>
-        <h1 style="font-size:20px">Find out by completing our challenge</h1>
-        <h1 style="font-size:20px">Select your postcode below and click on CHALLENGE!</h1>
-    </div>
-    <div class="body-selector">
-        <select>
-            <option>Caulfield 3162</option>
-            <option>Clayton 3168</option>
-        </select>
-    </div>
-    <div class="mainContainer">
-        <img src="~/Content/images/trophy.png" class="start-btn" onclick="location.href='@Url.Action("Factors", "Home")'" />
-        @*<button type="button" class="start-btn" onclick="location.href='@Url.Action("Factors", "Home")'"> Challenge </button>*@
-    </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script src="~/Scripts/customJS/HomePage.js"></script>
+<body class="main">
+    <div class="mountainbg">
+        <div class="mountaincover">
+            <div class="mountain">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="mountain-two">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="mountain-three">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="cloud"></div>
+            <div class="hot-air-balloon">
+                <img src="~/Content/images/gallery/bicycle.png" alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- END MOUNTAIN EFFECT -->
+    <div id="inner">
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <div class="box1">
+                            <header>
+                                <!-- START LOGO -->
+                                <div class="logo_wrapper">
+                                    <a href="location.href='@Url.Action("Index", "Home")'" class="logo">
+                                        <img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo (test)" />
+                                    </a>
+                                </div>
+                                <!-- END LOGO -->
+                            </header>
+                            <!-- START NAVIGATION MENU -->
+                            <nav>
+                                <div class="menu_wrapper">
+                                    <div class="navbar navbar_">
+                                        <div class="navbar-inner navbar-inner_">
+                                            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+                                            <div class="nav-collapse nav-collapse_ collapse">
+                                                <ul class="nav sf-menu clearfix">
+                                                    <li class="active"><a href="/Home/Index">Home<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Contact">Contact Us<span class="over1"></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- END NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <div class="span8 offset1">
+                        <!-- START CAROUFREDSEL SLIDER -->
+                        <div class="box2">
+                            <div class="caroufredsel_slider1_wrapper">
+                                <a class="prev1" href="index.html#"></a>
+                                <a class="next1" href="index.html#"></a>
+                                <ul id="caroufredsel_slider1" class="clearfix">
+                                    <li>
+                                        <div class="caroufredsel_slide1">
+                                            <img src="~/Content/images/homeHome6.jpg" alt="Slider2" class="img" />
+                                            <div class="txt1">Hello There!</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="pagination1" id="caroufredsel_pag1"></div>
+                            </div>
+                        </div>
+                        <!-- END CAROUFREDSEL SLIDER -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- START WELCOME -->
+        <div class="welcome_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="welcome">
+                            <div class="row" align="center">
+                                <div class="span6" style="text-align:center; float:none;">
+                                    <div class="welcome_title">Welcome</div>
+                                    <h5>Welcome to YoungSafetyChampion website</h5>
+                                    <p>Our website focusing on the children like you.</p>
+                                    <p>Guess what, that's all.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END WELCOME -->
+        <!-- START BANNERS -->
+        <div id="banners" style="margin-top:0px;">
+            <div class="container">
+                <div class="row" style="margin-bottom:50px;">
+                    <div class="span5 offset1">
+                        <!-- START NEWS -->
+                        <div class="news">
+                            <div class="news_title">Start your Challege!</div>
+                            <div class="date1 clearfix">
+                                    <img src="~/Content/images/gallery/challenge.jpg" />
+                            </div>
+                            <div class="date1 clearfix">
+                                <div class="txt1 c2">
+                                    16
+                                    <br><span>feb</span>
+                                </div>
+                                <div class="txt2">
+                                    <p>What about tell us your postcode so that we can provide question relate to you?</p>
+                                    <input id="postcodeText" type="text"/>
+                                    @Html.ActionLink("skip","Challenge", new { postcode = "3162"})<button type="button" onclick="checkPostcode()">start challenge</button>
+                                    @*<h5><a href="#">Convallis inter</a></h5>*@
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- END NEWS -->
+                    </div>
+                    <div class="span5">
+                        <div class="span5 ">
+                            <!-- START ANNOUNCEMENTS -->
+                            <div class="announcements">
+                                <div class="announcements_title">Explore Neighbourhood</div>
+                                <div class="date1 clearfix">
+                                    <a href="/Home/Explore">
+                                        <img src="~/Content/images/gallery/exploration.jpg" />
+                                    </a>
+                                </div>
+                                <div class="date1 clearfix">
+                                    <div class="txt1 c2">
+                                        16
+                                        <br><span>feb</span>
+                                    </div>
+                                    <div class="txt2">
+                                        <h5><a href="#">Convallis inter</a></h5>
+                                        <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END ANNOUNCEMENTS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END BANNERS -->
+            <!-- START FOOTER -->
+            <footer>
+                <div class="social_wrapper">
+                    <ul class="social clearfix">
+                        <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyright">Joeys on the road © 2018</div>
+            </footer>
+            <!-- END FOOTER -->
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/templateJS/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/templateJS/superfish.js"></script>
+    <script src="~/Scripts/templateJS/jquery.ui.totop.js"></script>
+    <script src="~/Scripts/templateJS/jquery.caroufredsel.js"></script>
+    <script src="~/Scripts/templateJS/jquery.touchSwipe.min.js"></script>
+    <script src="~/Scripts/templateJS/bootstrap.js"></script>
+    <script>
+        // CAROUFSEDSEL SLIDER
+        $(document).ready(function () {
+            $('#caroufredsel_slider1').carouFredSel({
+                auto: {
+                    timeoutDuration: 9000
+                }
+                , responsive: true
+                , direction: "left"
+                , width: '100%'
+                , scroll: {
+                    items: 1
+                    , duration: 1000
+                    , easing: "easeOutExpo"
+                    , fx: "fade"
+                }
+                , items: {
+                    width: '1000'
+                    , height: 'variable'
+                    , visible: {
+                        min: 1
+                        , max: 1
+                    }
+                }
+                , mousewheel: false
+                , swipe: {
+                    onMouse: true
+                    , onTouch: true
+                }
+                , pagination: ".pagination1"
+            });
+            $(window).bind("resize", updateSizes_vat).bind("load", updateSizes_vat);
+
+            function updateSizes_vat() {
+                $('#caroufredsel_slider1').trigger("updateSizes");
+            }
+            updateSizes_vat();
+        });
+        $(window).on('load', function () { });
+    </script>
+    <script type="text/javascript">
+
+        document.onmousemove = animateCircles;
+
+        var colors = ['#ccc', '#6cf', '#eba13a'];
+
+        function animateCircles(event) {
+            let circle = document.createElement("div");
+            circle.setAttribute("class", "circle");
+            document.body.appendChild(circle);
+
+            circle.style.left = event.clientX + 'px';
+            circle.style.top = event.clientY + 'px';
+
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            circle.style.borderColor = color;
+
+            circle.style.transition = "all 0.5s linear 0s";
+
+            circle.style.left = circle.offsetLeft - 20 + 'px';
+            circle.style.top = circle.offsetTop - 20 + 'px';
+
+            circle.style.width = "50px";
+            circle.style.height = "50px";
+            circle.style.borderWidth = "5px";
+            circle.style.opacity = 0;
+
+            setTimeout(function () {
+                circle.remove();
+            }, 500);
+        }
+    </script>
+    <script src="~/Scripts/customJS/postcodes.js"></script>
+    <script>
+        function checkPostcode() {
+            var text = document.getElementById("postcodeText").value;
+            if (text == null) {
+                window.location = "/Home/Challenge?postcode=3162"
+            }
+            else {
+                if (postcodes.includes(parseInt(text))){
+                    console.log("yes");
+                    window.location = "/Home/Challenge?postcode=" + text
+                }
+                else {
+                    console.log("no");
+                    console.log(text);
+                    window.location = "/Home/Challenge?postcode=3162"
+                }
+            }
+        }
+    </script>
+</body>
 

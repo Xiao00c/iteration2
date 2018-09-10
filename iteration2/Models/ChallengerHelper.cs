@@ -58,5 +58,52 @@ namespace iteration2.Models
             }
             return questions;
         }
+
+        //shuffle questions
+        public static List<Question> shuffleQuestions(List<Question> questions)
+        {
+            Random rng = new Random();
+            int n = questions.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Question value = questions[k];
+                questions[k] = questions[n];
+                questions[n] = value;
+            }
+            return questions;
+        }
+
+        //get weight from string[]
+        public static string calcualteWeightBasedOnYear(string[] data)
+        {
+            //if no received data
+            if (data.Length == 0)
+            {
+                return "h";
+            }
+
+            //if data exists
+            if(data.Length > 0)
+            {
+                //if avg > current * 105%
+                if (Int32.Parse(data[0]) > Int32.Parse(data[1]) * 1.05)
+                {
+                    return "l";
+                //if avg < current * 95%
+                }else if (Int32.Parse(data[0]) < Int32.Parse(data[1]) * 0.95)
+                {
+                    return "h";
+                }
+                else
+                {
+                    return "m";
+                }
+            }
+
+            //default
+            return "m";
+        }
     }
 }

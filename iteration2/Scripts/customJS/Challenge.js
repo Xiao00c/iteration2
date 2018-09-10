@@ -31,14 +31,14 @@ function next() {
         document.getElementById("finish").style.display = "block";
 
         //return to factors page after 5 seconds
-        var time = 5;
-        setInterval(function () {
-            time--;
-            document.getElementById("countDown").innerHTML = time;
-            if (time == 0) {
-                window.location = "Factors";
-            }
-        }, 1000);
+        //var time = 5;
+        //setInterval(function () {
+        //    time--;
+        //    document.getElementById("countDown").innerHTML = time;
+        //    if (time == 0) {
+        //        window.location = "Factors";
+        //    }
+        //}, 1000);
     }
     updateProgress();
 }

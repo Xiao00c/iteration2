@@ -1,0 +1,131 @@
+﻿@model iteration2.Models.MappedQuestions
+@{
+    ViewBag.Title = "Joeys on the road";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/customCSS/Challenge.css" rel="stylesheet" />
+
+<div id="map" class="container">
+    <table>
+        <tr>
+            <td>
+                <button id="level1" onclick="level1()"> Level 1</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <button id="treasure" onclick="treasure()">treasure</button>
+            </td>
+            <td></td>
+            <td>
+                <button id="level5" onclick="level5()"> Level 5</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button id="level2" onclick="level2()"> Level 2</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button id="level4" onclick="level4()"> Level 4</button>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <button id="level3" onclick="level3()"> Level 3</button>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<div id="ques" class="container">
+    <div id="title" class="title">title</div>
+    <div id="question_desc" class="question"></div>
+    <div class="option" onclick="clickChoice1()"><span id="option1">Default choice 1 description</span></div>
+    <div class="option" onclick="clickChoice2()"><span id="option2">Default choice 2 description</span></div>
+    <div class="option" onclick="clickChoice3()"><span id="option3">Default choice 3 description</span></div>
+    <div class="challengeProgress" id="progress">Your Challenge Progress</div>
+</div>
+
+<div id="result" class="explanation container">
+    <h2>Check This Out</h2>
+    <div style="display:inline-block;">
+        <div id="correct" style="display:block;">
+            <img style="height:200px;" src="~/Content/GIFs/smile.gif" />
+        </div>
+        <div id="incorrect" style="display:block;">
+            <img style="height:200px;" src="~/Content/GIFs/NONONO.gif" />
+        </div>
+    </div>
+    <div style="display:inline-block;">
+        <p id="explanation" style="font-size:20px;width:400px">
+            This is the result div. only show when incorrect answer.
+        </p>
+        <button class="explanation-btn" onclick="continueChallenge()">
+            Got it!
+        </button>
+    </div>
+
+</div>
+
+<div id="finish" style="display:none; width:100%; height:100%; background-color:black;">
+    <div style="color:white;font-size:20px;">
+        Congratulation! You have finished this Challenge!
+    </div>
+    <div id="autoRedirect" style="color:white">
+        We will drive you back to Challenges in <span id="countDown" style="color:white;"></span> seconds.
+    </div>
+    @Html.ActionLink("pdfTest", "PrintViewToPdf");
+    <br />
+    <div style="color:white">
+        If our drivers do not come in time, here's a chance for you to drive by yourself. Don't worry, we guarantee it will be safe.
+    </div>
+    <p style="color:black; font-size:20px;">
+        <button type="button" onclick="backToMap()"> Take the key, start the engine, drive back! </button>
+    </p>
+</div>
+
+<div id="challengeResult" class="challengeResult">
+    <h2>Congratulation!</h2>
+    <p id="challengeScore" style="font-size:20px;">
+        default result.
+    </p>
+    <br />
+    <p>Do you want to restart?</p>
+    <button onclick="restartChallenge()" class="challengeResult-btn">
+        Of Course
+    </button>
+    <button onclick="notNow()" class="challengeResult-btn">
+        Not Now
+    </button>
+</div>
+
+<script>
+    var factor = "@ViewBag.factor";
+    var data = @Html.Raw(Json.Encode(Model));
+    //console.log(data);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+@*<script src="~/Scripts/customJS/Challenge.js"></script>*@
+<script src="~/Scripts/customJS/module1.js"></script>

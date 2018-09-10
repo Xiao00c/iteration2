@@ -19,6 +19,11 @@ namespace iteration2
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
+            routes.MapRoute(
+                name: "ChallengeWithPostcode",
+                url: "{controller}/{action}/{postcode}",
+                defaults: new { controller = "Home", action = "Challenge", postcode = UrlParameter.Optional }
+            );
         }
     }
 }

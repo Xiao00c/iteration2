@@ -1,19 +1,4 @@
-﻿body {
-    margin:auto;
-    font-family: 'Roboto', sans-serif;
-    background-image: url('../images/background-q2.jpg');
-    background-repeat:no-repeat;
-    background-size:cover;
-}
-
-.title {
-    padding: 20px;
-    text-align: center;
-    font-size: 30px;
-    color: rgb(0,0,0);
-}
-
-.question {
+﻿.question {
     padding: 50px;
     font-size: 22px;
     background: #fff;
@@ -102,7 +87,7 @@
     }
 
 .challengeProgress {
-    color: white;
+    color: black;
 }
 
 .continue-btn {
@@ -120,3 +105,35 @@
     background: #fff;
     color: #000;
 }
+
+.challengeResult {
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    display: none;
+    position: fixed;
+    z-index: 2;
+    border-radius: 10px;
+    height: 40%;
+    overflow: auto;
+    top: 45%;
+    background-color: rgba(176, 224, 230, 0.95);
+    text-align: center;
+    animation-name: modalOpen;
+}
+
+.challengeResult-btn {
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.5);
+    width: 200px;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+    .challengeResult-btn:hover {
+        background: #fff;
+        color: #000;
+    }

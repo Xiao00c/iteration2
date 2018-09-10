@@ -14,7 +14,7 @@ namespace iteration2.Models
         public static DataTable getQuestions()
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 
@@ -53,7 +53,7 @@ namespace iteration2.Models
         public static DataTable getQuestionsOrderByFactor()
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 
@@ -73,7 +73,7 @@ namespace iteration2.Models
         public static DataTable getQuestionsByFactor(string factor)
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 
@@ -95,10 +95,8 @@ namespace iteration2.Models
 
             //get count for alcohol related
             double percentage = 0;
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
-                //"server=localhost;user id=root;password=Peter@1993;database=carcrashes;"
-                //"server=saferchampion.mysql.database.azure.com;user id=peter@saferchampion;password=Xiao00c.xu;database=carcrashes;SslMode = MySqlSslMode.Preferred;"
                 conn.Open();
 
                 var cmd = new SqlCommand(query, conn);
@@ -120,10 +118,9 @@ namespace iteration2.Models
 
             //get count for alcohol related
             double percentage = 0;
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
-                //"server=localhost;user id=root;password=Peter@1993;database=carcrashes;"
-                //"server=saferchampion.mysql.database.azure.com;user id=peter@saferchampion;password=Xiao00c.xu;database=carcrashes;SslMode = MySqlSslMode.Preferred;"
+
                 conn.Open();
 
                 var cmd = new SqlCommand(query, conn);
@@ -162,7 +159,7 @@ namespace iteration2.Models
                 "from carcrashes.dbo.distribution d, carcrashes.dbo.importanceDistribution i " +
                 "where d.distribution_ID = i.distribution_ID and alcohol_imp = '" + alcohol_imp + "' and speeding_imp = '" + speeding_imp + "';";
 
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 
@@ -189,7 +186,7 @@ namespace iteration2.Models
             string result = "";
             string query = "select LGA from carcrashes.dbo.LGApostcode where postcode = " + postcode + ";";
 
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 
@@ -216,7 +213,7 @@ namespace iteration2.Models
                 "where Involving_Driver_Speed = 'Yes' " +
                 "and Crash_Year < (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes);";
 
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 
@@ -243,7 +240,7 @@ namespace iteration2.Models
                 "where Involving_Fatigued_Driver = 'Yes' " +
                 "and Crash_Year < (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes);";
 
-            using (SqlConnection conn = new SqlConnection("Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 conn.Open();
 

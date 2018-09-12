@@ -3,7 +3,10 @@
 function protect() {
     var pwd = "safetychampion";
     while (true) {
-        var pass = prompt('Please Enter Your Password', ' ');
+        if (Cookies.get("pass") == "1") {
+            break;
+        }
+        var pass = prompt('Please Enter Your Password', '');
         if (pass != pwd) {
             window.open("https://www.google.com");
         }
@@ -11,7 +14,9 @@ function protect() {
             window.open("https://www.google.com");
         }
         if (pass == pwd) {
+            Cookies.set("pass", "1");
             break;
         }
     }
 }
+

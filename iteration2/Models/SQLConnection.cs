@@ -9,12 +9,14 @@ namespace iteration2.Models
 {
     public static class SQLConnection
     {
+        public static string CONNECTION_STRING = "";
+
 
         //get all questions
         public static DataTable getQuestions()
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
 
@@ -53,7 +55,7 @@ namespace iteration2.Models
         public static DataTable getQuestionsOrderByFactor()
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
 
@@ -73,7 +75,7 @@ namespace iteration2.Models
         public static DataTable getQuestionsByFactor(string factor)
         {
             DataTable data = new DataTable();
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
 
@@ -91,12 +93,24 @@ namespace iteration2.Models
 
         public static double getAlhocolPercentageByLGA(string lga)
         {
-            string query = "select count(*), (select count(*) from carcrashes.dbo.crashes where lga_name = '" + lga + "') from carcrashes.dbo.crashes c where c.alcohol_related = 'Yes' and c.lga_name = '" + lga + "';";
+            string query = "";
+            if (lga == "")
+            {
+                //average
+                query = "select count(*), (select count(*) from carcrashes.dbo.crashes) from carcrashes.dbo.crashes c where c.alcohol_related = 'Yes';";
+            }
+            else
+            {
+                //by lga
+                query = "select count(*), (select count(*) from carcrashes.dbo.crashes where lga_name = '" + lga + "') from carcrashes.dbo.crashes c where c.alcohol_related = 'Yes' and c.lga_name = '" + lga + "';";
+            }
 
             //get count for alcohol related
             double percentage = 0;
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
+                //"server=localhost;user id=root;password=Peter@1993;database=carcrashes;"
+                //"server=saferchampion.mysql.database.azure.com;user id=peter@saferchampion;password=Xiao00c.xu;database=carcrashes;SslMode = MySqlSslMode.Preferred;"
                 conn.Open();
 
                 var cmd = new SqlCommand(query, conn);
@@ -111,45 +125,8 @@ namespace iteration2.Models
             return percentage * 100;
         }
 
-        // get average % for alcohol
-        public static double getAverageAlcoholPercentage()
-        {
-            string query = "select count(*), (select count(*) from carcrashes.dbo.crashes) from carcrashes.dbo.crashes c where c.alcohol_related = 'Yes';";
 
-            //get count for alcohol related
-            double percentage = 0;
-            using (SqlConnection conn = new SqlConnection(""))
-            {
-
-                conn.Open();
-
-                var cmd = new SqlCommand(query, conn);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    percentage = Double.Parse(reader[0].ToString()) / Double.Parse(reader[1].ToString());
-                }
-            }
-            return percentage * 100;
-        }
-
-        public static string comparePercentage(double factor, double all)
-        {
-            //if high
-            if (factor > all * 1.1)
-            {
-                return "h";
-            }
-            //if low
-            else if (factor < all * 0.9)
-            {
-                return "l";
-            }
-            //if mid
-            return "m";
-        }
+        
 
         //get distribution
         public static string getDistribution(string alcohol_imp, string speeding_imp, string fatigue_imp)
@@ -159,7 +136,7 @@ namespace iteration2.Models
                 "from carcrashes.dbo.distribution d, carcrashes.dbo.importanceDistribution i " +
                 "where d.distribution_ID = i.distribution_ID and alcohol_imp = '" + alcohol_imp + "' and speeding_imp = '" + speeding_imp + "';";
 
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
 
@@ -186,7 +163,7 @@ namespace iteration2.Models
             string result = "";
             string query = "select LGA from carcrashes.dbo.LGApostcode where postcode = " + postcode + ";";
 
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
 
@@ -213,7 +190,7 @@ namespace iteration2.Models
                 "where Involving_Driver_Speed = 'Yes' " +
                 "and Crash_Year < (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes);";
 
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
 
@@ -240,7 +217,7 @@ namespace iteration2.Models
                 "where Involving_Fatigued_Driver = 'Yes' " +
                 "and Crash_Year < (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes);";
 
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
 

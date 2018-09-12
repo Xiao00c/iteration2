@@ -51,25 +51,24 @@ namespace iteration2.Controllers
             //if no postcode
             if (null == postcode)
             {
-                return View();
+                //default
+                postcode = "3162";
             }
-            else
-            {
 
-            }
+            double alcohol_lga = 0.00;
+            double alcohol_total = SQLConnection.getAlhocolPercentageByLGA("");
 
             //get LGA by postcode
             string[] LGAs = SQLConnection.getLGAByPostcode(postcode).Split(',');
             
-            
+            //get each alcohol related by each lga.
+            for (int i = 0; i < LGAs.Length; i++)
+            {
+                alcohol_lga = alcohol_lga + SQLConnection.getAlhocolPercentageByLGA(LGAs[i]);
+            }
+            alcohol_lga = alcohol_lga / LGAs.Length;
 
-            //hardcoded postcode and LGA
-            string LGA = "Glen Eira";
-
-            //get alcohol related %
-            string alcohol_imp = SQLConnection.comparePercentage(
-                SQLConnection.getAlhocolPercentageByLGA(LGA),
-                SQLConnection.getAverageAlcoholPercentage());
+            string alcohol_imp = ChallengerHelper.comparePercentage(alcohol_lga, alcohol_total);
 
             //get Speeding from Queensland
             string[] speeding = SQLConnection.getSpeedingCrashes().Split(',');
@@ -82,7 +81,20 @@ namespace iteration2.Controllers
 
 
             //get distribution
-            string distributions = SQLConnection.getDistribution(alcohol_imp, speeding_imp, "m");
+            string distributions = SQLConnection.getDistribution(alcohol_imp, speeding_imp, fatigue_imp);
+
+            //put data in viewbag
+            ViewBag.LGAs = string.Join(",", LGAs);
+            ViewBag.alcohol_lga = String.Format("{0:0.00}", alcohol_lga) + "%";
+            ViewBag.alcohol_total = String.Format("{0:0.00}", alcohol_total) + "%";
+            ViewBag.alcohol_imp = ChallengerHelper.getFullImportanceName(alcohol_imp);
+            ViewBag.speeding_imp = ChallengerHelper.getFullImportanceName(speeding_imp);
+            ViewBag.speedingPrevious = speeding[0];
+            ViewBag.speedingCurrent = speeding[1];
+            ViewBag.fatigue_imp = ChallengerHelper.getFullImportanceName(fatigue_imp);
+            ViewBag.fatiguePrevious = fatigue[0];
+            ViewBag.fatigueCurrent = fatigue[1];
+
 
             //four factors and get weight for specific factor.
             string[] weights = distributions.Split(',');
@@ -194,12 +206,17 @@ namespace iteration2.Controllers
         //generate pdf for challenge
         public ActionResult PrintViewToPdf()
         {
-            var report = new ActionAsPdf("Challenge")
+            var report = new ActionAsPdf("Certificate")
             {
                 PageOrientation = Rotativa.Options.Orientation.Landscape,
                 FileName = "Safety_Champion_Certificate.pdf"
             };
             return report;
+        }
+
+        public ActionResult Certificate()
+        {
+            return View();
         }
     }
 }

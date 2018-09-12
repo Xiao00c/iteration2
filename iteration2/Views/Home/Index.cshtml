@@ -96,7 +96,7 @@
                                                     <li class="active"><a href="/Home/Index">Home<span class="over1"></span></a></li>
                                                     <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
                                                     <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Contact">Contact Us<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -160,13 +160,12 @@
                                     <img src="~/Content/images/gallery/challenge.jpg" />
                             </div>
                             <div class="date1 clearfix">
-                                <div class="txt1 c2">
-                                    16
-                                    <br><span>feb</span>
-                                </div>
-                                <div class="txt2">
+                                <div class="txt2" ng-app="myapp" ng-controller="postcodeController">
                                     <p>What about tell us your postcode so that we can provide question relate to you?</p>
-                                    <input id="postcodeText" type="text"/>
+                                    <input id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)"/>
+                                    <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+                                        <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
+                                    </ul>
                                     @Html.ActionLink("skip","Challenge", new { postcode = "3162"})<button type="button" onclick="checkPostcode()">start challenge</button>
                                     @*<h5><a href="#">Convallis inter</a></h5>*@
                                 </div>
@@ -186,13 +185,9 @@
                                     </a>
                                 </div>
                                 <div class="date1 clearfix">
-                                    <div class="txt1 c2">
-                                        16
-                                        <br><span>feb</span>
-                                    </div>
                                     <div class="txt2">
-                                        <h5><a href="#">Convallis inter</a></h5>
-                                        <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                        <h5><a href="#"> Explore by yourself. </a></h5>
+                                        <p>Exploration page for data visualization.</p>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +201,7 @@
             <footer>
                 <div class="social_wrapper">
                     <ul class="social clearfix">
-                        <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.facebook.com/pg/Young-Safety-Champions-326344201469443/about/?ref=page_internal"><i class="fa fa-facebook"></i></a></li>
                     </ul>
                 </div>
                 <div class="copyright">Joeys on the road © 2018</div>
@@ -224,6 +219,31 @@
     <script src="~/Scripts/templateJS/jquery.caroufredsel.js"></script>
     <script src="~/Scripts/templateJS/jquery.touchSwipe.min.js"></script>
     <script src="~/Scripts/templateJS/bootstrap.js"></script>
+
+    <script src="~/Scripts/angular.min.js"></script>
+
+    <script src="~/Scripts/customJS/postcodes.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("postcodeController", function ($scope) {
+            $scope.postcodeList = postcodeString;
+            $scope.complete = function (string) {
+                var output = [];
+                angular.forEach($scope.postcodeList, function (input) {
+                    if (input.indexOf(string) >= 0) {
+                        output.push(input);
+                    }
+                });
+                $scope.filterPostcode = output;
+            }
+            $scope.fillTextbox = function (string) {
+                $scope.postcode = string;
+                $scope.hidethis = true;
+            }
+        })
+
+    </script>
+
     <script>
         // CAROUFSEDSEL SLIDER
         $(document).ready(function () {

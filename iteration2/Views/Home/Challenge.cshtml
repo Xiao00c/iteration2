@@ -146,7 +146,7 @@
                                                 <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
                                                 <li class="active"><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
                                                 <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
-                                                <li><a href="/Home/Contact">Contact Us<span class="over1"></span></a></li>
+                                                <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -346,12 +346,77 @@
                     </div>
 
                     <div id="ques" class="container">
-                        <div id="title" class="title">title</div>
                         <div id="question_desc" class="question"></div>
                         <div class="option" onclick="clickChoice1()"><span id="option1">Default choice 1 description</span></div>
                         <div class="option" onclick="clickChoice2()"><span id="option2">Default choice 2 description</span></div>
                         <div class="option" onclick="clickChoice3()"><span id="option3">Default choice 3 description</span></div>
                         <div class="challengeProgress" id="progress">Your Challenge Progress</div>
+                    </div>
+
+                    <div id="introduction" class="container" style="display:none">
+                        <div>
+                            <h5 id="introduction_line1">Introduction to </h5>
+                            <p id="introduction_line2">Your Council is @ViewBag.LGAs</p>
+                            <p id="introduction_line3"> is </p>
+                            <table id="drunk" style="display:block">
+                                <tr>
+                                    <td>
+                                        Drunk total
+                                    </td>
+                                    <td>
+                                        @ViewBag.alcohol_total
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Drunk in your council
+                                    </td>
+                                    <td>
+                                        @ViewBag.alcohol_lga
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="speeding" style="display:none">
+                                <tr>
+                                    <td>
+                                        previous year average
+                                    </td>
+                                    <td>
+                                        @ViewBag.speedingPrevious
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        current year
+                                    </td>
+                                    <td>
+                                        @ViewBag.speedingCurrent
+                                    </td>
+                                </tr>
+                            </table>
+                            <div id="distraction" style="display:none">Distraction statistics</div>
+                            <table id="fatigue" style="display:none">
+                                <tr>
+                                    <td>
+                                        previous year average
+                                    </td>
+                                    <td>
+                                        @ViewBag.fatiguePrevious
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        current year
+                                    </td>
+                                    <td>
+                                        @ViewBag.fatigueCurrent
+                                    </td>
+                                </tr>
+                            </table>
+                            <div id="general" style="display:none">General statistics</div>
+                            <button type="button" onclick="continueToChallenge()"> Continue </button>
+                        </div>
+                        
                     </div>
 
                     <div id="result" class="explanation container">
@@ -409,7 +474,7 @@
     <footer>
         <div class="social_wrapper">
             <ul class="social clearfix">
-                <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.facebook.com/pg/Young-Safety-Champions-326344201469443/about/?ref=page_internal"><i class="fa fa-facebook"></i></a></li>
             </ul>
         </div>
         <div class="copyright">Joeys on the road © 2018</div>
@@ -537,7 +602,9 @@
 <link href="~/Content/customCSS/Challenge.css" rel="stylesheet" />
 
 <script>
-    var factor = "@ViewBag.factor";
+    var alcohol_imp = "@ViewBag.alcohol_imp";
+    var speeding_imp = "@ViewBag.speeding_imp";
+    var fatigue_imp = "@ViewBag.fatigue_imp";
     var data = @Html.Raw(Json.Encode(Model));
     console.log(data);
 </script>

@@ -38,7 +38,7 @@ namespace iteration2.Models
                 Answer answer = new Answer(aid, adesc, acorr, aexp);
                 answers.Add(answer);
 
-                System.Diagnostics.Debug.WriteLine(answer.answer_desc);
+                //System.Diagnostics.Debug.WriteLine(answer.answer_desc);
 
                 //loop 3 based on 3 choices
                 if (i % 3 == 2)
@@ -52,7 +52,7 @@ namespace iteration2.Models
                     questions.Add(ques);
                     answers = new List<Answer>();
 
-                    System.Diagnostics.Debug.WriteLine(qid + "", qdesc, qfactor);
+                    //System.Diagnostics.Debug.WriteLine(qid + "", qdesc, qfactor);
                 }
 
             }
@@ -104,6 +104,46 @@ namespace iteration2.Models
 
             //default
             return "m";
+        }
+
+        public static string comparePercentage(double factor, double all)
+        {
+            //if high
+            if (factor > all * 1.1)
+            {
+                return "h";
+            }
+            //if low
+            else if (factor < all * 0.9)
+            {
+                return "l";
+            }
+            //if mid
+            return "m";
+        }
+
+        //get alcoholImportance from postcode
+        public static string getDrunkImportanceByPostcode()
+        {
+
+            return "";
+        }
+
+        //get full name of importance
+        public static string getFullImportanceName(string imp)
+        {
+            if (imp == "h")
+            {
+                return "High";
+            }
+            else if (imp == "m")
+            {
+                return "Middle";
+            }
+            else
+            {
+                return "Low";
+            }
         }
     }
 }

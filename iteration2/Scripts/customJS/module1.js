@@ -8,42 +8,82 @@ var maxEvent;
 
 //hide questions
 document.getElementById("ques").style.display = "none";
+document.getElementById("introduction").style.display = "none";
+
 
 //hide map and display challenge
-function hideMap() {
+function hideMap(factor) {
     document.getElementById("map").style.display = "none";
+    document.getElementById("introduction").style.display = "block";
+    document.getElementsByClassName("factor").innerHTML = factor;
+}
+
+//intro page
+function continueToChallenge() {
+    document.getElementById("introduction").style.display = "none";
     document.getElementById("ques").style.display = "block";
 }
 
 //level 1 - 5
 function level1() {
     flag = 1;
-    hideMap();
+    hideMap("Drunk");
     initQuestions(flag);
+    document.getElementById("introduction_line3").innerHTML = "Factor of Drunk is " + alcohol_imp;
+    document.getElementById("drunk").style.display = "block";
+    document.getElementById("speeding").style.display = "none";
+    document.getElementById("distraction").style.display = "none";
+    document.getElementById("fatigue").style.display = "none";
+    document.getElementById("general").style.display = "none";
 }
 
 function level2() {
     flag = 2;
-    hideMap();
+    hideMap("Speeding");
     initQuestions(flag);
+    document.getElementById("introduction_line3").innerHTML = "Factor of Speeding is " + speeding_imp;
+    document.getElementById("drunk").style.display = "none";
+    document.getElementById("speeding").style.display = "block";
+    document.getElementById("distraction").style.display = "none";
+    document.getElementById("fatigue").style.display = "none";
+    document.getElementById("general").style.display = "none";
 }
+
 
 function level3() {
     flag = 3;
-    hideMap();
+    hideMap("Distraction");
     initQuestions(flag);
+    document.getElementById("introduction_line3").innerHTML = "Factor of Distraction is high";
+    document.getElementById("drunk").style.display = "none";
+    document.getElementById("speeding").style.display = "none";
+    document.getElementById("distraction").style.display = "block";
+    document.getElementById("fatigue").style.display = "none";
+    document.getElementById("general").style.display = "none";
 }
 
 function level4() {
     flag = 4;
-    hideMap();
+    hideMap("Fatigue");
     initQuestions(flag);
+    document.getElementById("introduction_line3").innerHTML = "Factor of Fatigue is " + fatigue_imp;
+    document.getElementById("drunk").style.display = "none";
+    document.getElementById("speeding").style.display = "none";
+    document.getElementById("distraction").style.display = "none";
+    document.getElementById("fatigue").style.display = "block";
+    document.getElementById("general").style.display = "none";
 }
 
 function level5() {
     flag = 5;
-    hideMap();
+    hideMap("General");
     initQuestions(flag);
+    document.getElementById("introduction_line3").innerHTML = "Factor of General is Middle";
+    document.getElementById("drunk").style.display = "none";
+    document.getElementById("speeding").style.display = "none";
+    document.getElementById("distraction").style.display = "none";
+    document.getElementById("fatigue").style.display = "none";
+    document.getElementById("general").style.display = "block";
 }
 
 function getQuestions(flag) {

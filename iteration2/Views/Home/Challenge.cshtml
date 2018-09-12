@@ -377,45 +377,12 @@
                                     </tr>
                                 </table>
                                 <div id="speeding" style="display:none; width:400px; height:400px;">
-                                    <canvas id="myChart" width="100" height="100"></canvas>
+                                    <canvas id="speedingChart" width="100" height="100"></canvas>
                                 </div>
-                                <table id="speeding" style="display:none">
-                                    <tr>
-                                        <td>
-                                            previous year average
-                                        </td>
-                                        <td>
-                                            @ViewBag.speedingData
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            current year
-                                        </td>
-                                        <td>
-                                            @ViewBag.speedingData
-                                        </td>
-                                    </tr>
-                                </table>
+                                <div id="fatigue" style="display:none; width:400px; height:400px;">
+                                    <canvas id="fatigueChart" width="100" height="100"></canvas>
+                                </div>
                                 <div id="distraction" style="display:none">Distraction statistics</div>
-                                <table id="fatigue" style="display:none">
-                                    <tr>
-                                        <td>
-                                            previous year average
-                                        </td>
-                                        <td>
-                                            @ViewBag.fatigueData
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            current year
-                                        </td>
-                                        <td>
-                                            @ViewBag.fatigueData
-                                        </td>
-                                    </tr>
-                                </table>
                                 <div id="general" style="display:none">General statistics</div>
                                 <button type="button" onclick="continueToChallenge()"> Continue </button>
                             </div>
@@ -610,7 +577,7 @@
         var fatigue_imp = "@ViewBag.fatigue_imp";
         var data = @Html.Raw(Json.Encode(Model));
         var speedingData = @Html.Raw(Json.Encode(ViewBag.speedingData)) + "";
-        
+
         var speedingDataArray = speedingData.split(',').map(Number);
         var speedingData = @Html.Raw(Json.Encode(ViewBag.fatigueData));
         console.log(speedingDataArray);
@@ -618,30 +585,69 @@
     console.log(data);
     </script>
     <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
+        var ctx = document.getElementById("speedingChart").getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ["2013", "2014", "2015", "2016", "2017"],
                 datasets: [{
-                    label: 'Number of car accidents',
+                    label: 'Number of car accidents related to factor',
                     data: speedingDataArray,//[12, 19, 3, 5, 2],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
+                    backgroundColor: 
+                        'rgba(255, 99, 132, 1)'//,
+                        //'rgba(54, 162, 235, 0.2)',
+                        //'rgba(255, 206, 86, 0.2)',
+                        //'rgba(75, 192, 192, 0.2)',
+                        //'rgba(153, 102, 255, 0.2)',
+                        //'rgba(255, 159, 64, 0.2)'
+                    ,
+                    borderColor: 
+                        'rgba(255,99,132,1)'//,
+                        //'rgba(54, 162, 235, 1)',
+                        //'rgba(255, 206, 86, 1)',
+                        //'rgba(75, 192, 192, 1)',
+                        //'rgba(153, 102, 255, 1)',
+                        //'rgba(255, 159, 64, 1)'
+                    ,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById("fatigueChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["2013", "2014", "2015", "2016", "2017"],
+                datasets: [{
+                    label: 'Number of car accidents related to factor',
+                    data: speedingDataArray,//[12, 19, 3, 5, 2],
+                    backgroundColor: 
+                        'rgba(255, 99, 132, 1)'
+                        //'rgba(54, 162, 235, 0.2)',
+                        //'rgba(255, 206, 86, 0.2)',
+                        //'rgba(75, 192, 192, 0.2)',
+                        //'rgba(153, 102, 255, 0.2)',
+                        //'rgba(255, 159, 64, 0.2)'
+                    ,
+                    borderColor: 
+                        'rgba(255,99,132,1)'
+                        //'rgba(54, 162, 235, 1)',
+                        //'rgba(255, 206, 86, 1)',
+                        //'rgba(75, 192, 192, 1)',
+                        //'rgba(153, 102, 255, 1)',
+                        //'rgba(255, 159, 64, 1)'
+                    ,
                     borderWidth: 1
                 }]
             },

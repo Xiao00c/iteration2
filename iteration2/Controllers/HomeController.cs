@@ -100,10 +100,12 @@ namespace iteration2.Controllers
             ViewBag.alcohol_lga = String.Format("{0:0.00}", alcohol_lga) + "%";
             ViewBag.alcohol_total = String.Format("{0:0.00}", alcohol_total) + "%";
             ViewBag.alcohol_imp = ChallengerHelper.getFullImportanceName(alcohol_imp);
+
             ViewBag.speeding_imp = ChallengerHelper.getFullImportanceName(speeding_imp);
             ViewBag.speedingData = speeding.Skip(13);
+
             ViewBag.fatigue_imp = ChallengerHelper.getFullImportanceName(fatigue_imp);
-            ViewBag.fatigueData = string.Join(",", fatigue.Skip(1));
+            ViewBag.fatigueData = fatigue.Skip(13);
 
 
             //four factors and get weight for specific factor.

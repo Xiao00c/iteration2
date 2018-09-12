@@ -1,316 +1,319 @@
-﻿@{
-    Layout = "";
-}
+﻿<!DOCTYPE html>
+<html lang="zxx">
 
-<title>Joeys on the road</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="~/Content/images/favicon.png" type="image/png">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-<!-- CSS -->
-<link href="~/Content/customCSS/bootstrap.css" rel="stylesheet" />
-<link href="~/Content/customCSS/bootstrap-responsive.css" rel="stylesheet" />
-<link href="~/Content/customCSS/style.css" rel="stylesheet" />
-<link href="~/Content/customCSS/font-awesome.css" rel="stylesheet" />
-<!--[if lt IE 8]>
-    <div><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"/></a></div>
-<![endif]-->
-<!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-<![endif]-->
-<style type="text/css">
+<head>
+    <title>Champion - explore fun</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Content/images/favicon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <!-- CSS -->
+    <link href="~/Content/customCSS/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/customCSS/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/customCSS/style.css" rel="stylesheet" />
+    <link href="~/Content/customCSS/font-awesome.css" rel="stylesheet" />
+    <!--[if lt IE 8]>
+        <div><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"/></a></div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+    <![endif]-->
+    <style type="text/css">
 
-    .circle {
-        width: 20px;
-        height: 20px;
-        border: 1px solid #000;
-        position: absolute;
-        border-radius: 15px;
-    }
-</style>
-
-<!-- START MOUNTAIN EFFECT -->
-<div class="mountainbg">
-    <div class="mountaincover">
-        <div class="mountain">
-            <div class="mountain-top">
-                <div class="mountain-cap-1"></div>
-                <div class="mountain-cap-2"></div>
-                <div class="mountain-cap-3"></div>
-            </div>
-        </div>
-        <div class="mountain-two">
-            <div class="mountain-top">
-                <div class="mountain-cap-1"></div>
-                <div class="mountain-cap-2"></div>
-                <div class="mountain-cap-3"></div>
-            </div>
-        </div>
-        <div class="mountain-three">
-            <div class="mountain-top">
-                <div class="mountain-cap-1"></div>
-                <div class="mountain-cap-2"></div>
-                <div class="mountain-cap-3"></div>
-            </div>
-        </div>
-        <div class="cloud"></div>
-        <div class="hot-air-balloon"><img src="~/Content/images/gallery/bicycle.png" alt=""></div>
-    </div>
-</div>
-<!-- END MOUNTAIN EFFECT -->
-<div id="inner">
-    <div id="content">
-        <div class="container">
-            <div class="row">
-                <div class="span3">
-                    <div class="box1">
-                        <header>
-                            <!-- START LOGO -->
-                            <div class="logo_wrapper">
-                                <a href="index.html" class="logo"><img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo"></a>
-                            </div>
-                            <!-- END LOGO -->
-                        </header>
-                        <!-- START NAVIGATION MENU -->
-                        <nav>
-                            <div class="menu_wrapper">
-                                <div class="navbar navbar_">
-                                    <div class="navbar-inner navbar-inner_">
-                                        <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-                                        <div class="nav-collapse nav-collapse_ collapse">
-                                            <ul class="nav sf-menu clearfix">
-                                                <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
-                                                <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
-                                                <li class="active"><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
-                                                <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                        <!-- END NAVIGATION MENU -->
-                    </div>
-                </div>
-                <div class="span8 offset1">
-                    <!-- START CAROUFREDSEL SLIDER -->
-                    <div class="box2">
-                        <div class="caroufredsel_slider1_wrapper">
-                            <a class="prev1" href="index.html#"></a>
-                            <a class="next1" href="index.html#"></a>
-                            <ul id="caroufredsel_slider1" class="clearfix">
-                                <li>
-                                    <div class="caroufredsel_slide1">
-                                        <img src="~/Content/images/exploration/exploreHome.jpg" alt="Slider2" class="img">
-                                        <div class="txt1">Scroll down to explore Fuuuun! </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="pagination1" id="caroufredsel_pag1"></div>
-                        </div>
-                    </div>
-                    <!-- END CAROUFREDSEL SLIDER -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="pages_wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="span3">
-                    <!-- START NEWS -->
-                    <div class="news">
-                        <div class="news_title">Control Board</div>
-                        <div class="date1 clearfix">
-                            <div class="txt1 c4">
-                                12
-                                <br><span>jan</span>
-                            </div>
-                            <div class="txt2">
-                                <h5><a href="#">Curabitur conva</a></h5>
-                                <p>Maecenas ac est hendrerit magi aliquam erat.</p>
-                            </div>
-                        </div>
-                        <div class="date1 clearfix">
-                            <div class="txt1 c2">
-                                16
-                                <br><span>feb</span>
-                            </div>
-                            <div class="txt2">
-                                <h5><a href="#">Convallis inter</a></h5>
-                                <p>Maecenas ac est hendrerit magi aliquam erat.</p>
-                            </div>
-                        </div>
-                        <div class="date1 clearfix">
-                            <div class="txt1 c3">
-                                18
-                                <br><span>mar</span>
-                            </div>
-                            <div class="txt2">
-                                <h5><a href="#">Interdum hednd</a></h5>
-                                <p>Maecenas ac est hendrerit magi aliquam erat.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END NEWS -->
-
-                </div>
-                <div class="span8 offset1">
-                    <div class="row">
-                        <div class="col-md-12">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- START ANNOUNCEMENTS -->
-                            <div class="announcements">
-                                <div class="announcements_title">Visualization</div>
-                                <div class="thumb1">
-                                    <div class="thumbnail clearfix">
-                                        <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
-                                        <div class="caption">
-                                            <h5><a href="#">Aliquam erat</a></h5>
-                                            <p> Veniam, quis nostrud exercitation ullamco labor. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="thumb1">
-                                    <div class="thumbnail clearfix">
-                                        <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
-                                        <div class="caption">
-                                            <h5><a href="#">Aliquam volua</a></h5>
-                                            <p> Veniam, quis nostrud exercitation ullamco labor. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="thumb1">
-                                    <div class="thumbnail clearfix">
-                                        <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
-                                        <div class="caption">
-                                            <h5><a href="#">Veniam nisi</a></h5>
-                                            <p> Veniam, quis nostrud exercitation ullamco labor. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END ANNOUNCEMENTS -->
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class='tableauPlaceholder' id='viz1536578783013' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 2 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Ti&#47;TimePeriod&#47;Dashboard2&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TimePeriod&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Ti&#47;TimePeriod&#47;Dashboard2&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-    <script type='text/javascript'>var divElement = document.getElementById('viz1536578783013'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px';                    var scriptElement = document.createElement('script');                       scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                           vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-    <div class='tableauPlaceholder' id='viz1536578872265' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 1 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Li&#47;LightCondition&#47;Dashboard1&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='LightCondition&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Li&#47;LightCondition&#47;Dashboard1&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-    <script type='text/javascript'>var divElement = document.getElementById('viz1536578872265'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px';                    var scriptElement = document.createElement('script');                       scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                           vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-    <div class='tableauPlaceholder' id='viz1536578896385' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 3 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Da&#47;DayofWeek_1&#47;Dashboard3&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DayofWeek_1&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Da&#47;DayofWeek_1&#47;Dashboard3&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-    <script type='text/javascript'>var divElement = document.getElementById('viz1536578896385'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px';                    var scriptElement = document.createElement('script');                       scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                           vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-    <div class='tableauPlaceholder' id='viz1536578925281' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 4 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Al&#47;AlcoholRelated&#47;Dashboard4&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AlcoholRelated&#47;Dashboard4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Al&#47;AlcoholRelated&#47;Dashboard4&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-    <script type='text/javascript'>var divElement = document.getElementById('viz1536578925281'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px';                    var scriptElement = document.createElement('script');                       scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                           vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-
-    <!-- START FOOTER -->
-    <footer>
-        <div class="social_wrapper">
-            <ul class="social clearfix">
-                <li><a href="https://www.facebook.com/pg/Young-Safety-Champions-326344201469443/about/?ref=page_internal"><i class="fa fa-facebook"></i></a></li>
-            </ul>
-        </div>
-        <div class="copyright">Joeys on the road © 2018</div>
-    </footer>
-    <!-- END FOOTER -->
-</div>
-
-<!-- JS -->
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/templateJS/jquery.easing.1.3.js"></script>
-<script src="~/Scripts/templateJS/superfish.js"></script>
-<script src="~/Scripts/templateJS/jquery.ui.totop.js"></script>
-<script src="~/Scripts/templateJS/jquery.caroufredsel.js"></script>
-<script src="~/Scripts/templateJS/jquery.touchSwipe.min.js"></script>
-<script src="~/Scripts/templateJS/bootstrap.js"></script>
-
-<script>
-    // CAROUFSEDSEL SLIDER
-    $(document).ready(function () {
-        $('#caroufredsel_slider1').carouFredSel({
-            auto: {
-                timeoutDuration: 9000
-            }
-            , responsive: true
-            , direction: "left"
-            , width: '100%'
-            , scroll: {
-                items: 1
-                , duration: 1000
-                , easing: "easeOutExpo"
-                , fx: "fade"
-            }
-            , items: {
-                width: '1000'
-                , height: 'variable'
-                , visible: {
-                    min: 1
-                    , max: 1
-                }
-            }
-            , mousewheel: false
-            , swipe: {
-                onMouse: true
-                , onTouch: true
-            }
-            , pagination: ".pagination1"
-        });
-
-        $(window).bind("resize", updateSizes_vat).bind("load", updateSizes_vat);
-
-        function updateSizes_vat() {
-            $('#caroufredsel_slider1').trigger("updateSizes");
-            $('#slider3 .carousel.main ul').trigger("updateSizes");
+        .circle {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            position: absolute;
+            border-radius: 15px;
         }
-        updateSizes_vat();
-    });
-    $(window).on('load', function () { });
-</script>
-<script type="text/javascript">
+    </style>
+    </head>
+<body class="main">
+    <!-- START MOUNTAIN EFFECT -->
+    <div class="mountainbg">
+        <div class="mountaincover">
+            <div class="mountain">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="mountain-two">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="mountain-three">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="cloud"></div>
+            <div class="hot-air-balloon"><img src="~/Content/images/gallery/bicycle.png" alt=""></div>
+        </div>
+    </div>
+    <!-- END MOUNTAIN EFFECT -->
+    <div id="inner">
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <div class="box1">
+                            <header>
+                                <!-- START LOGO -->
+                                <div class="logo_wrapper">
+                                    <a href="index.html" class="logo"><img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo"></a>
+                                </div>
+                                <!-- END LOGO -->
+                            </header>
+                            <!-- START NAVIGATION MENU -->
+                            <nav>
+                                <div class="menu_wrapper">
+                                    <div class="navbar navbar_">
+                                        <div class="navbar-inner navbar-inner_">
+                                            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+                                            <div class="nav-collapse nav-collapse_ collapse">
+                                                <ul class="nav sf-menu clearfix">
+                                                    <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
+                                                    <li class="active"><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- END NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <div class="span8 offset1">
+                        <!-- START CAROUFREDSEL SLIDER -->
+                        <div class="box2">
+                            <div class="caroufredsel_slider1_wrapper">
+                                <a class="prev1" href="index.html#"></a>
+                                <a class="next1" href="index.html#"></a>
+                                <ul id="caroufredsel_slider1" class="clearfix">
+                                    <li>
+                                        <div class="caroufredsel_slide1">
+                                            <img src="~/Content/images/exploration/exploreHome.jpg" alt="Slider2" class="img">
+                                            <div class="txt1">Scroll down to explore Fuuuun! </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="pagination1" id="caroufredsel_pag1"></div>
+                            </div>
+                        </div>
+                        <!-- END CAROUFREDSEL SLIDER -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pages_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <!-- START NEWS -->
+                        <div class="news">
+                            <div class="news_title">Control Board</div>
+                            <div class="date1 clearfix">
+                                <div class="txt1 c4">
+                                    12
+                                    <br><span>jan</span>
+                                </div>
+                                <div class="txt2">
+                                    <h5><a href="#">Curabitur conva</a></h5>
+                                    <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                </div>
+                            </div>
+                            <div class="date1 clearfix">
+                                <div class="txt1 c2">
+                                    16
+                                    <br><span>feb</span>
+                                </div>
+                                <div class="txt2">
+                                    <h5><a href="#">Convallis inter</a></h5>
+                                    <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                </div>
+                            </div>
+                            <div class="date1 clearfix">
+                                <div class="txt1 c3">
+                                    18
+                                    <br><span>mar</span>
+                                </div>
+                                <div class="txt2">
+                                    <h5><a href="#">Interdum hednd</a></h5>
+                                    <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END NEWS -->
 
-    document.onmousemove = animateCircles;
+                    </div>
+                    <div class="span8 offset1">
+                        <div class="row">
+                            <div class="col-md-12">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- START ANNOUNCEMENTS -->
+                                <div class="announcements">
+                                    <div class="announcements_title">Visualization</div>
+                                    <div class="thumb1">
+                                        <div class="thumbnail clearfix">
+                                            <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
+                                            <div class="caption">
+                                                <h5><a href="#">Aliquam erat</a></h5>
+                                                <p> Veniam, quis nostrud exercitation ullamco labor. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thumb1">
+                                        <div class="thumbnail clearfix">
+                                            <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
+                                            <div class="caption">
+                                                <h5><a href="#">Aliquam volua</a></h5>
+                                                <p> Veniam, quis nostrud exercitation ullamco labor. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thumb1">
+                                        <div class="thumbnail clearfix">
+                                            <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
+                                            <div class="caption">
+                                                <h5><a href="#">Veniam nisi</a></h5>
+                                                <p> Veniam, quis nostrud exercitation ullamco labor. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END ANNOUNCEMENTS -->
+                            </div>
+                        </div>
+                    </div>
 
-    var colors = ['#ccc', '#6cf', '#eba13a'];
+                </div>
+            </div>
+        </div>
 
-    function animateCircles(event) {
-        let circle = document.createElement("div");
-        circle.setAttribute("class", "circle");
-        document.body.appendChild(circle);
+        <div class='tableauPlaceholder' id='viz1536578783013' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 2 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Ti&#47;TimePeriod&#47;Dashboard2&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TimePeriod&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Ti&#47;TimePeriod&#47;Dashboard2&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+        <script type='text/javascript'>var divElement = document.getElementById('viz1536578783013'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
 
-        circle.style.left = event.clientX + 'px';
-        circle.style.top = event.clientY + 'px';
+        <div class='tableauPlaceholder' id='viz1536578872265' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 1 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Li&#47;LightCondition&#47;Dashboard1&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='LightCondition&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Li&#47;LightCondition&#47;Dashboard1&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+        <script type='text/javascript'>var divElement = document.getElementById('viz1536578872265'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
 
-        var color = colors[Math.floor(Math.random() * colors.length)];
-        circle.style.borderColor = color;
+        <div class='tableauPlaceholder' id='viz1536578896385' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 3 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Da&#47;DayofWeek_1&#47;Dashboard3&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DayofWeek_1&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Da&#47;DayofWeek_1&#47;Dashboard3&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+        <script type='text/javascript'>var divElement = document.getElementById('viz1536578896385'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
 
-        circle.style.transition = "all 0.5s linear 0s";
+        <div class='tableauPlaceholder' id='viz1536578925281' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 4 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Al&#47;AlcoholRelated&#47;Dashboard4&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AlcoholRelated&#47;Dashboard4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Al&#47;AlcoholRelated&#47;Dashboard4&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+        <script type='text/javascript'>var divElement = document.getElementById('viz1536578925281'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
 
-        circle.style.left = circle.offsetLeft - 20 + 'px';
-        circle.style.top = circle.offsetTop - 20 + 'px';
 
-        circle.style.width = "50px";
-        circle.style.height = "50px";
-        circle.style.borderWidth = "5px";
-        circle.style.opacity = 0;
+        <!-- START FOOTER -->
+        <footer>
+            <div class="social_wrapper">
+                <ul class="social clearfix">
+                    <li><a href="https://www.facebook.com/pg/Young-Safety-Champions-326344201469443/about/?ref=page_internal"><i class="fa fa-facebook"></i></a></li>
+                </ul>
+            </div>
+            <div class="copyright">Joeys on the road © 2018</div>
+        </footer>
+        <!-- END FOOTER -->
+    </div>
 
-        setTimeout(function () {
-            circle.remove();
-        }, 500);
-    }
-</script>
+    <!-- JS -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/templateJS/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/templateJS/superfish.js"></script>
+    <script src="~/Scripts/templateJS/jquery.ui.totop.js"></script>
+    <script src="~/Scripts/templateJS/jquery.caroufredsel.js"></script>
+    <script src="~/Scripts/templateJS/jquery.touchSwipe.min.js"></script>
+    <script src="~/Scripts/templateJS/bootstrap.js"></script>
+
+    <script>
+        // CAROUFSEDSEL SLIDER
+        $(document).ready(function () {
+            $('#caroufredsel_slider1').carouFredSel({
+                auto: {
+                    timeoutDuration: 9000
+                }
+                , responsive: true
+                , direction: "left"
+                , width: '100%'
+                , scroll: {
+                    items: 1
+                    , duration: 1000
+                    , easing: "easeOutExpo"
+                    , fx: "fade"
+                }
+                , items: {
+                    width: '1000'
+                    , height: 'variable'
+                    , visible: {
+                        min: 1
+                        , max: 1
+                    }
+                }
+                , mousewheel: false
+                , swipe: {
+                    onMouse: true
+                    , onTouch: true
+                }
+                , pagination: ".pagination1"
+            });
+
+            $(window).bind("resize", updateSizes_vat).bind("load", updateSizes_vat);
+
+            function updateSizes_vat() {
+                $('#caroufredsel_slider1').trigger("updateSizes");
+                $('#slider3 .carousel.main ul').trigger("updateSizes");
+            }
+            updateSizes_vat();
+        });
+        $(window).on('load', function () { });
+    </script>
+    <script type="text/javascript">
+
+        document.onmousemove = animateCircles;
+
+        var colors = ['#ccc', '#6cf', '#eba13a'];
+
+        function animateCircles(event) {
+            let circle = document.createElement("div");
+            circle.setAttribute("class", "circle");
+            document.body.appendChild(circle);
+
+            circle.style.left = event.clientX + 'px';
+            circle.style.top = event.clientY + 'px';
+
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            circle.style.borderColor = color;
+
+            circle.style.transition = "all 0.5s linear 0s";
+
+            circle.style.left = circle.offsetLeft - 20 + 'px';
+            circle.style.top = circle.offsetTop - 20 + 'px';
+
+            circle.style.width = "50px";
+            circle.style.height = "50px";
+            circle.style.borderWidth = "5px";
+            circle.style.opacity = 0;
+
+            setTimeout(function () {
+                circle.remove();
+            }, 500);
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,8 @@
 function protect() {
     var pwd = "safetychampion";
     while (true) {
-        if (Cookies.get("pass") == "1") {
+        console.log(document.cookie.indexOf("pass=1"));
+        if (document.cookie.indexOf("pass=1") != -1) {
             break;
         }
         var pass = prompt('Please Enter Your Password', '');

@@ -9,7 +9,7 @@ namespace iteration2.Models
 {
     public static class SQLConnection
     {
-        public static string CONNECTION_STRING = "";
+        public static string CONNECTION_STRING = "Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;";
 
 
         //get all questions
@@ -228,6 +228,39 @@ namespace iteration2.Models
                 while (reader.Read())
                 {
                     result = reader[0] + "," + reader[1];
+                }
+            }
+
+            return result;
+        }
+
+        //get accident by years by factor
+        public static string getCrashesByFactor(string factor)
+        {
+            string result = "";
+            string query = "";
+            //branch if factor is speeding or fatigue
+            if (factor == "speeding")
+            {
+                query = "select sum(Count_Crashes) as crashes from dbo.factorsinroadcrashes where Involving_Driver_Speed = 'Yes' group by Crash_Year order by Crash_Year;";
+            }
+            else
+            {
+                query = "select sum(Count_Crashes) as crashes from dbo.factorsinroadcrashes where Involving_Fatigued_Driver = 'Yes' group by Crash_Year order by Crash_Year;";
+            }
+            
+
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result = result + "," + reader[0];
                 }
             }
 

@@ -1,44 +1,46 @@
-﻿@{
-    ViewBag.Title = "Young Safety Champion Home";
-    Layout = "";
-}
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="~/Content/images/gallery/challenge.jpg" type="image/png" />
+﻿<!DOCTYPE html>
+<html lang="zxx">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-<!-- CSS -->
-<link href="~/Content/customCSS/bootstrap.css" rel="stylesheet" />
-<link href="~/Content/customCSS/bootstrap-responsive.css" rel="stylesheet" />
-<link href="~/Content/customCSS/style.css" rel="stylesheet" />
-<link href="~/Content/customCSS/font-awesome.css" rel="stylesheet" />
+<head>
+    <title>Young Safety Champion Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Content/images/gallery/challenge.jpg" type="image/png" />
 
-<!--[if lt IE 8]>
-    <div><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"/></a></div>
-<![endif]-->
-<!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-<![endif]-->
-<style type="text/css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <!-- CSS -->
+    <link href="~/Content/customCSS/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/customCSS/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/customCSS/style.css" rel="stylesheet" />
+    <link href="~/Content/customCSS/font-awesome.css" rel="stylesheet" />
 
-    .circle {
-        width: 20px;
-        height: 20px;
-        border: 1px solid #000;
-        position: absolute;
-        border-radius: 15px;
-    }
-</style>
+    <!--[if lt IE 8]>
+        <div><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"/></a></div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+    <![endif]-->
+    <style type="text/css">
 
-
-
+        .circle {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            position: absolute;
+            border-radius: 15px;
+        }
+    </style>
 
 
-<script src="~/Scripts/customJS/HomePage.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="~/Scripts/customJS/HomePage.js"></script>
+</head>
 <body class="main">
     <div class="mountainbg">
         <div class="mountaincover">
@@ -157,16 +159,16 @@
                         <div class="news">
                             <div class="news_title">Start your Challege!</div>
                             <div class="date1 clearfix">
-                                    <img src="~/Content/images/gallery/challenge.jpg" />
+                                <img src="~/Content/images/gallery/challenge.jpg" />
                             </div>
                             <div class="date1 clearfix">
                                 <div class="txt2" ng-app="myapp" ng-controller="postcodeController">
                                     <p>What about tell us your postcode so that we can provide question relate to you?</p>
-                                    <input id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)"/>
+                                    <input id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" />
                                     <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
                                         <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
                                     </ul>
-                                    @Html.ActionLink("skip","Challenge", new { postcode = "3162"})<button type="button" onclick="checkPostcode()">start challenge</button>
+                                    @Html.ActionLink("skip", "Challenge", new { postcode = "3162" })<button type="button" onclick="checkPostcode()">start challenge</button>
                                     @*<h5><a href="#">Convallis inter</a></h5>*@
                                 </div>
                             </div>
@@ -324,7 +326,7 @@
                 window.location = "/Home/Challenge?postcode=3162"
             }
             else {
-                if (postcodes.includes(parseInt(text))){
+                if (postcodes.includes(parseInt(text))) {
                     console.log("yes");
                     window.location = "/Home/Challenge?postcode=" + text
                 }
@@ -338,3 +340,4 @@
     </script>
 </body>
 
+</html>

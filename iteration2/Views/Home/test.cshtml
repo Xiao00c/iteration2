@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Champion - play game</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Content/images/favicon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/Content/customCSS/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/customCSS/bootstrap-responsive.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/customCSS/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/customCSS/font-awesome.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/customCSS/isotope.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/customCSS/touchTouch.css" type="text/css" media="screen">
+    <!--[if lt IE 8]>
+        <div><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"/></a></div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+    <![endif]-->
+    <style type="text/css">
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            position: absolute;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body class="main">
+    <!-- START MOUNTAIN EFFECT -->
+    <div class="mountainbg">
+        <div class="mountaincover">
+            <div class="mountain">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="mountain-two">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="mountain-three">
+                <div class="mountain-top">
+                    <div class="mountain-cap-1"></div>
+                    <div class="mountain-cap-2"></div>
+                    <div class="mountain-cap-3"></div>
+                </div>
+            </div>
+            <div class="cloud"></div>
+            <div class="hot-air-balloon"><img src="~/Content/images/gallery/bicycle.png" alt=""></div>
+        </div>
+    </div>
+    <!-- END MOUNTAIN EFFECT -->
+    <div id="inner">
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <div class="box1">
+                            <header>
+                                <!-- START LOGO -->
+                                <div class="logo_wrapper">
+                                    <a href="index.html" class="logo"><img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo"></a>
+                                </div>
+                                <!-- END LOGO -->
+                            </header>
+                            <!-- START NAVIGATION MENU -->
+                            <nav>
+                                <div class="menu_wrapper">
+                                    <div class="navbar navbar_">
+                                        <div class="navbar-inner navbar-inner_">
+                                            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+                                            <div class="nav-collapse nav-collapse_ collapse">
+                                                <ul class="nav sf-menu clearfix">
+                                                    <li><a href="index.html">Home<span class="over1"></span></a></li>
+                                                    <li class="active"><a href="challenge.html">Challenge<span class="over1"></span></a></li>
+                                                    <li><a href="explore.html">Exploration<span class="over1"></span></a></li>
+                                                    <li><a href="contact.html">About Us<span class="over1"></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- END NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <div class="span8 offset1">
+                        <!-- START CAROUFREDSEL SLIDER -->
+                        <div class="box2">
+                            <div class="caroufredsel_slider1_wrapper">
+                                <a class="prev1" href="index.html#"></a>
+                                <a class="next1" href="index.html#"></a>
+                                <ul id="caroufredsel_slider1" class="clearfix">
+                                    <li>
+                                        <div class="caroufredsel_slide1">
+                                            <img src="~/Content/images/challenge/challengeHome.jpg" alt="Slider2" class="img">
+                                            <div class="txt1">Scroll Down and Play!</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="pagination1" id="caroufredsel_pag1"></div>
+                            </div>
+                        </div>
+                        <!-- END CAROUFREDSEL SLIDER -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pages_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <!-- START GALLERY -->
+                        <div class="full-page">
+                            <div class="pages_title">CHALLENGES</div>
+                            <h5>Lorem ipsum dolor sit amet conse ctetur adipisicing elit labore et dolore magna.</h5>
+                            <p>Wuqsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat consectetuer adipiscing elitarcu. Aenean semper aliquet libero. Qupsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut laboreet dolore magna aliqua.</p>
+                            <!-- Blog -->
+                            <div id="isotope-options">
+                                <ul id="isotope-filters" class="clearfix">
+                                    <li><a href="gallery.html#" class="selected" data-filter="*">SHOW ALL</a></li>
+                                    <li><a href="gallery.html#" data-filter=".isotope-filter1">Play Group</a></li>
+                                    <li><a href="gallery.html#" data-filter=".isotope-filter2">Pre-Primary</a></li>
+                                    <li><a href="gallery.html#" data-filter=".isotope-filter3">Kids</a></li>
+                                </ul>
+                            </div>
+                            <ul class="thumbnails thumbnails-iisotope" id="isotope-items">
+                                <li class="isotope-element isotope-filter1">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <a href="~/Content/images/gallery/1.jpg">
+                                                <figure> <img src="~/Content/images/challenge/level1.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter3">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <!-- <a href="images/gallery/2.jpg"> -->
+                                            <figure> <img src="~/Content/images/challenge/sun.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter2">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <a href="~/Content/images/gallery/1.jpg">
+                                                <figure> <img src="~/Content/images/challenge/final.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter1">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <!-- <a href="images/gallery/2.jpg"> -->
+                                            <figure> <img src="~/Content/images/challenge/background.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter2">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <!-- <a href="images/gallery/1.jpg"> -->
+                                            <figure> <img src="~/Content/images/challenge/beach.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter3">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <a href="~/Content/images/gallery/2.jpg">
+                                                <figure> <img src="~/Content/images/challenge/level2.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter2">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <!-- <a href="images/gallery/1.jpg"> -->
+                                            <figure> <img src="~/Content/images/challenge/background.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter1">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <a href="~/Content/images/gallery/2.jpg">
+                                                <figure> <img src="~/Content/images/challenge/level5.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter3">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <!-- <a href="images/gallery/1.jpg"> -->
+                                            <figure> <img src="~/Content/images/challenge/background.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter1">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <a href="~/Content/images/gallery/2.jpg">
+                                                <figure> <img src="~/Content/images/challenge/level3.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter2">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <a href="~/Content/images/gallery/1.jpg">
+                                                <figure> <img src="~/Content/images/challenge/level4.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="isotope-element isotope-filter3">
+                                    <div class="thumb-isotope">
+                                        <div class="thumbnail clearfix">
+                                            <!-- <a href="images/gallery/2.jpg"> -->
+                                            <figure> <img src="~/Content/images/challenge/tree.jpg" alt="Lorem"><em></em> </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- End Gallery -->
+                            <!-- End Blog -->
+                        </div>
+                        <!-- END GALLERY -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- START FOOTER -->
+        <footer>
+            <div class="social_wrapper">
+                <ul class="social clearfix">
+                    <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+                </ul>
+            </div>
+            <div class="copyright">Joeys on the road © 2018</div>
+        </footer>
+        <!-- END FOOTER -->
+    </div>
+
+    <!-- JS -->
+    <script type="text/javascript" src="~/Scripts/templateJS//jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//superfish.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//jquery.ui.totop.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//touchTouch.jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//jquery.caroufredsel.js"></script>
+    <script type="text/javascript" src="~/Scripts/templateJS//jquery.touchSwipe.min.js"></script>
+    <script>
+        // CAROUFSEDSEL SLIDER 1
+        $(document).ready(function () {
+            $('#caroufredsel_slider1').carouFredSel({
+                auto: {
+                    timeoutDuration: 9000
+                }
+                , responsive: true
+                , direction: "left"
+                , width: '100%'
+                , scroll: {
+                    items: 1
+                    , duration: 1000
+                    , easing: "easeOutExpo"
+                    , fx: "fade"
+                }
+                , items: {
+                    width: '1000'
+                    , height: 'variable'
+                    , visible: {
+                        min: 1
+                        , max: 1
+                    }
+                }
+                , mousewheel: false
+                , swipe: {
+                    onMouse: true
+                    , onTouch: true
+                }
+                , pagination: ".pagination1"
+            });
+            $(window).bind("resize", updateSizes_vat).bind("load", updateSizes_vat);
+
+            function updateSizes_vat() {
+                $('#caroufredsel_slider1').trigger("updateSizes");
+                $('#slider3 .carousel.main ul').trigger("updateSizes");
+            }
+            updateSizes_vat();
+        });
+        $(window).load(function () {});
+        // ISOTOP
+        $(window).load(function () {
+            var $container = $('#isotope-items')
+                , $optionSet = $('#isotope-options')
+                , $optionSets = $('#isotope-filters')
+                , $optionLinks = $optionSets.find('a');
+            $container.isotope({
+                filter: '*'
+                , layoutMode: 'fitRows'
+            });
+            $optionLinks.click(function () {
+                var $this = $(this);
+                if ($this.hasClass('selected')) {
+                    return false;
+                }
+                $optionSet.find('.selected').removeClass('selected');
+                $this.addClass('selected');
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector
+                });
+                return false;
+            });
+            $(window).on("resize", function (event) {
+                $container.isotope('reLayout');
+            });
+            $('.thumb-isotope .thumbnail a').touchTouch();
+        });
+    </script>
+    <script type="text/javascript">
+
+		document.onmousemove = animateCircles;
+
+		var colors = ['#ccc','#6cf','#eba13a'];
+
+		function animateCircles (event) {
+			let circle = document.createElement("div");
+			circle.setAttribute("class", "circle");
+			document.body.appendChild(circle);
+
+			circle.style.left = event.clientX + 'px';
+			circle.style.top = event.clientY + 'px';
+
+			var color = colors[Math.floor(Math.random() * colors.length)];
+			circle.style.borderColor = color;
+
+			circle.style.transition = "all 0.5s linear 0s";
+
+			circle.style.left = circle.offsetLeft - 20 + 'px';
+			circle.style.top = circle.offsetTop - 20 + 'px';
+
+			circle.style.width = "50px";
+			circle.style.height = "50px";
+			circle.style.borderWidth = "5px";
+			circle.style.opacity = 0;
+
+			setTimeout(function() {
+                circle.remove();
+            }, 500);
+		}
+    </script>
+</body>
+
+</html>

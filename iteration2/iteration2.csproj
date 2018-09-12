@@ -169,7 +169,6 @@
     <Content Include="Content\customCSS\bootstrap-responsive.css" />
     <Content Include="Content\customCSS\bootstrap.css" />
     <Content Include="Content\customCSS\Challenge.css" />
-    <Content Include="Content\customCSS\Factors.css" />
     <Content Include="Content\customCSS\font-awesome.css" />
     <Content Include="Content\customCSS\ie.css" />
     <Content Include="Content\customCSS\index.css" />
@@ -345,6 +344,8 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\remastered - Web Deploy.pubxml" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -360,7 +361,6 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\customJS\Challenge.js" />
-    <Content Include="Scripts\customJS\Factor.js" />
     <Content Include="Scripts\customJS\HomePage.js" />
     <Content Include="Scripts\customJS\module1.js" />
     <Content Include="Scripts\customJS\postcodes.js" />
@@ -1144,6 +1144,7 @@
     <Content Include="Views\Home\Explore.cshtml" />
     <Content Include="Views\Home\Certificate.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

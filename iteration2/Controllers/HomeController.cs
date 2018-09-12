@@ -71,13 +71,25 @@ namespace iteration2.Controllers
             string alcohol_imp = ChallengerHelper.comparePercentage(alcohol_lga, alcohol_total);
 
             //get Speeding from Queensland
-            string[] speeding = SQLConnection.getSpeedingCrashes().Split(',');
-            
-            string speeding_imp =  ChallengerHelper.calcualteWeightBasedOnYear(speeding);
+            string[] speeding = SQLConnection.getCrashesByFactor("speeding").Split(',');
+            int speedingPrevious = 0;
+            int speedingCurrent = int.Parse(speeding[speeding.Length - 1]);
+            for (int i  = 1; i < speeding.Length - 1; i++)
+            {
+                speedingPrevious = int.Parse(speeding[i]) + speedingPrevious;
+            }
+            string speeding_imp =  ChallengerHelper.calcualteWeightBasedOnYear(speedingPrevious, speedingCurrent);
+
 
             //get Fatigue from Queensland
-            string[] fatigue = SQLConnection.getFatigueCrashes().Split(',');
-            string fatigue_imp = ChallengerHelper.calcualteWeightBasedOnYear(fatigue);
+            string[] fatigue = SQLConnection.getCrashesByFactor("fatigue").Split(',');
+            int fatiguePrevious = 0;
+            int fatigueCurrent = int.Parse(fatigue[fatigue.Length - 1]);
+            for (int i = 1; i < fatigue.Length - 1; i++)
+            {
+                fatiguePrevious = int.Parse(fatigue[i]) + fatiguePrevious;
+            }
+            string fatigue_imp = ChallengerHelper.calcualteWeightBasedOnYear(fatiguePrevious, fatigueCurrent);
 
 
             //get distribution
@@ -89,11 +101,9 @@ namespace iteration2.Controllers
             ViewBag.alcohol_total = String.Format("{0:0.00}", alcohol_total) + "%";
             ViewBag.alcohol_imp = ChallengerHelper.getFullImportanceName(alcohol_imp);
             ViewBag.speeding_imp = ChallengerHelper.getFullImportanceName(speeding_imp);
-            ViewBag.speedingPrevious = speeding[0];
-            ViewBag.speedingCurrent = speeding[1];
+            ViewBag.speedingData = speeding.Skip(13);
             ViewBag.fatigue_imp = ChallengerHelper.getFullImportanceName(fatigue_imp);
-            ViewBag.fatiguePrevious = fatigue[0];
-            ViewBag.fatigueCurrent = fatigue[1];
+            ViewBag.fatigueData = string.Join(",", fatigue.Skip(1));
 
 
             //four factors and get weight for specific factor.
@@ -215,6 +225,11 @@ namespace iteration2.Controllers
         }
 
         public ActionResult Certificate()
+        {
+            return View();
+        }
+
+        public ActionResult Test()
         {
             return View();
         }

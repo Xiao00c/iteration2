@@ -75,24 +75,15 @@ namespace iteration2.Models
             return questions;
         }
 
-        //get weight from string[]
-        public static string calcualteWeightBasedOnYear(string[] data)
+        //get weight from previous and current
+        public static string calcualteWeightBasedOnYear(int previous, int current)
         {
-            //if no received data
-            if (data.Length == 0)
-            {
-                return "h";
-            }
-
-            //if data exists
-            if(data.Length > 0)
-            {
                 //if avg > current * 105%
-                if (Int32.Parse(data[0]) > Int32.Parse(data[1]) * 1.05)
+                if (previous > current * 1.05)
                 {
                     return "l";
                 //if avg < current * 95%
-                }else if (Int32.Parse(data[0]) < Int32.Parse(data[1]) * 0.95)
+                }else if (previous < current * 0.95)
                 {
                     return "h";
                 }
@@ -100,10 +91,6 @@ namespace iteration2.Models
                 {
                     return "m";
                 }
-            }
-
-            //default
-            return "m";
         }
 
         public static string comparePercentage(double factor, double all)

@@ -9,7 +9,7 @@ namespace iteration2.Models
 {
     public static class SQLConnection
     {
-        public static string CONNECTION_STRING = "Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;";
+        public static string CONNECTION_STRING = "";
 
 
         //get all questions

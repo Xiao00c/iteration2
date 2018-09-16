@@ -31,12 +31,12 @@ namespace iteration2.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public ActionResult Factors()
         {
@@ -48,6 +48,7 @@ namespace iteration2.Controllers
         //new version: map, challenge all in one page.
         public ActionResult Challenge(string postcode)
         {
+            ViewBag.postcode = postcode;
             //if no postcode
             if (null == postcode)
             {
@@ -97,8 +98,8 @@ namespace iteration2.Controllers
 
             //put data in viewbag
             ViewBag.LGAs = string.Join(",", LGAs);
-            ViewBag.alcohol_lga = String.Format("{0:0.00}", alcohol_lga) + "%";
-            ViewBag.alcohol_total = String.Format("{0:0.00}", alcohol_total) + "%";
+            ViewBag.alcohol_lga = String.Format("{0:0.00}", alcohol_lga);
+            ViewBag.alcohol_total = String.Format("{0:0.00}", alcohol_total);
             ViewBag.alcohol_imp = ChallengerHelper.getFullImportanceName(alcohol_imp);
 
             ViewBag.speeding_imp = ChallengerHelper.getFullImportanceName(speeding_imp);
@@ -218,12 +219,15 @@ namespace iteration2.Controllers
         //generate pdf for challenge
         public ActionResult PrintViewToPdf()
         {
-            var report = new ActionAsPdf("Certificate")
+            string customSwitches = "--no-stop-slow-scripts --javascript-delay 1000 ";
+            var view = new ViewAsPdf("Certificate")
             {
+                CustomSwitches = customSwitches,
                 PageOrientation = Rotativa.Options.Orientation.Landscape,
                 FileName = "Safety_Champion_Certificate.pdf"
             };
-            return report;
+            view.Cookies = Request.Cookies.AllKeys.ToDictionary(k => k, k => Request.Cookies[k].Value);
+            return view;
         }
 
         public ActionResult Certificate()

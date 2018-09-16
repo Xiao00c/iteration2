@@ -9,7 +9,7 @@ namespace iteration2.Models
 {
     public static class SQLConnection
     {
-        public static string CONNECTION_STRING = "Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;";
+        public static string CONNECTION_STRING = "";
 
 
         //get all questions
@@ -91,6 +91,7 @@ namespace iteration2.Models
             return data;
         }
 
+        //get Drunk numbers
         public static double getAlhocolPercentageByLGA(string lga)
         {
             string query = "";
@@ -180,59 +181,6 @@ namespace iteration2.Models
             return result;
         }
 
-        //get speeding accidents from Queensland, before, current
-        public static string getSpeedingCrashes()
-        {
-            string result = "";
-            string query = "select sum(Count_Crashes)/(select count(distinct(Crash_Year)) - 1 from carcrashes.dbo.factorsinroadcrashes)  as beforeAverage, " +
-                "(select sum(Count_Crashes) from carcrashes.dbo.factorsinroadcrashes where Crash_Year = (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes) and Involving_Driver_Speed = 'Yes') as lastYear " +
-                "from carcrashes.dbo.factorsinroadcrashes " +
-                "where Involving_Driver_Speed = 'Yes' " +
-                "and Crash_Year < (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes);";
-
-            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
-            {
-                conn.Open();
-
-                var cmd = new SqlCommand(query, conn);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    result = reader[0] + "," + reader[1];
-                }
-            }
-
-            return result;
-        }
-
-        //get Fatigue accident from Queensland, before current
-        public static string getFatigueCrashes()
-        {
-            string result = "";
-            string query = "select sum(Count_Crashes)/(select count(distinct(Crash_Year)) - 1 from carcrashes.dbo.factorsinroadcrashes)  as beforeAverage, " +
-                "(select sum(Count_Crashes) from carcrashes.dbo.factorsinroadcrashes where Crash_Year = (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes) and Involving_Fatigued_Driver = 'Yes') as lastYear " +
-                "from carcrashes.dbo.factorsinroadcrashes " +
-                "where Involving_Fatigued_Driver = 'Yes' " +
-                "and Crash_Year < (select Max(distinct(Crash_Year)) from carcrashes.dbo.factorsinroadcrashes);";
-
-            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
-            {
-                conn.Open();
-
-                var cmd = new SqlCommand(query, conn);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    result = reader[0] + "," + reader[1];
-                }
-            }
-
-            return result;
-        }
 
         //get accident by years by factor
         public static string getCrashesByFactor(string factor)
@@ -266,5 +214,6 @@ namespace iteration2.Models
 
             return result;
         }
+
     }
 }

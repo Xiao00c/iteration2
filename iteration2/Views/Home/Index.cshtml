@@ -81,7 +81,7 @@
                             <header>
                                 <!-- START LOGO -->
                                 <div class="logo_wrapper">
-                                    <a href="location.href='@Url.Action("Index", "Home")'" class="logo">
+                                    <a href="/Home/Index" class="logo">
                                         <img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo (test)" />
                                     </a>
                                 </div>
@@ -96,9 +96,9 @@
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
                                                     <li class="active"><a href="/Home/Index">Home<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
+                                                    <li><a onclick='window.scrollTo(0,1100);' style="cursor: pointer;">Challenge<span class="over1"></span></a></li>
                                                     <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
+                                                    @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
                                             </div>
                                         </div>
@@ -138,10 +138,10 @@
                         <div class="welcome">
                             <div class="row" align="center">
                                 <div class="span6" style="text-align:center; float:none;">
-                                    <div class="welcome_title">Welcome</div>
+                                    <div class="welcome_title"><i>"The price of independence is responsibility."</i></div>
                                     <h5>Welcome to YoungSafetyChampion website</h5>
-                                    <p>Our website focusing on the children like you.</p>
-                                    <p>Guess what, that's all.</p>
+                                    <p>Children today are more responsible than they are given credit for. This is a place for children to learn about safe practices on the road and prove that they are champions of road safety.</p>
+                                    <p>Explore our website and begin your journey to becoming an independent and safe road user.</p>
                                 </div>
                             </div>
                         </div>
@@ -153,24 +153,33 @@
         <!-- START BANNERS -->
         <div id="banners" style="margin-top:0px;">
             <div class="container">
-                <div class="row" style="margin-bottom:50px;">
+                <div name="autoScroll" class="row" style="margin-bottom:50px;">
                     <div class="span5 offset1">
                         <!-- START NEWS -->
+                        <div style="text-align:center;">
+                            <p>Are you a Safety Champion?</p>
+                            <p>Take up our challenge to find out.</p>
+                            <p>Complete all levels to unlock your prize!</p>
+                        </div>
                         <div class="news">
-                            <div class="news_title">Start your Challege!</div>
+                            <div class="news_title">Start the Safety Challenge</div>
                             <div class="date1 clearfix">
                                 <img src="~/Content/images/gallery/challenge.jpg" />
                             </div>
-                            <div class="date1 clearfix">
-                                <div class="txt2" ng-app="myapp" ng-controller="postcodeController">
-                                    <p>What about tell us your postcode so that we can provide question relate to you?</p>
-                                    <input id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" />
+                            <div class="date1 clearfix" id="postcodeInput">
+                                <div class="txt2" style="text-align:center;" ng-app="myapp" ng-controller="postcodeController">
+                                    <p>Enter a postcode below and we will try and personalize this challenge for you.</p>
+                                    <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" />
                                     <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
                                         <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
                                     </ul>
-                                    @Html.ActionLink("skip", "Challenge", new { postcode = "3162" })<button type="button" onclick="checkPostcode()">start challenge</button>
+                                    <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" > start challenge </a>
                                     @*<h5><a href="#">Convallis inter</a></h5>*@
                                 </div>
+                            </div>
+                            <div class="date1 clearfix" id="postcodeValidation" style="display:none">
+                                <p id="postcode_line1">Well, we have found out that your input postcode is invalid. Would you like to input again? or use a default postcode instead? (default postcode is 3162, which is caulfield campus)</p>
+                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="inputAgain()"> Input Again </a><a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="useDefault()"> Use Default </a>
                             </div>
 
                         </div>
@@ -179,17 +188,26 @@
                     <div class="span5">
                         <div class="span5 ">
                             <!-- START ANNOUNCEMENTS -->
+                            <div style="text-align:center">
+                                <p>How well do you know your neighbourhood?</p>
+                                <p>Explore you locality with our data services.</p>
+                                <br />
+                            </div>
                             <div class="announcements">
-                                <div class="announcements_title">Explore Neighbourhood</div>
+                                <div class="announcements_title">Explore your Neighbourhood</div>
                                 <div class="date1 clearfix">
                                     <a href="/Home/Explore">
                                         <img src="~/Content/images/gallery/exploration.jpg" />
                                     </a>
                                 </div>
                                 <div class="date1 clearfix">
-                                    <div class="txt2">
-                                        <h5><a href="#"> Explore by yourself. </a></h5>
-                                        <p>Exploration page for data visualization.</p>
+                                    <div class="txt2" style="text-align:center;">
+                                        @*<h5><a href="#"> Explore by yourself. </a></h5>*@
+                                        <a style="color:#ffeed4; cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" href="/Home/Explore">Click here and find out more about your neighborhood!</a>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
                                     </div>
                                 </div>
                             </div>
@@ -322,20 +340,36 @@
     <script>
         function checkPostcode() {
             var text = document.getElementById("postcodeText").value;
-            if (text == null) {
-                window.location = "/Home/Challenge?postcode=3162"
+            if (text == "") {
+                document.getElementById("postcode_line1").innerHTML = "Hey, you gave us nothing! We need a postcode! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
+                document.getElementById("postcodeInput").style.display = "none";
+                document.getElementById("postcodeValidation").style.display = "block";
             }
             else {
                 if (postcodes.includes(parseInt(text))) {
                     console.log("yes");
                     window.location = "/Home/Challenge?postcode=" + text
+                    Cookies.set("currentPostcode", text);
                 }
                 else {
-                    console.log("no");
-                    console.log(text);
-                    window.location = "/Home/Challenge?postcode=3162"
+                    document.getElementById("postcode_line1").innerHTML = "Hey, the postcode you gave us is invalid! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
+                    document.getElementById("postcodeInput").style.display = "none";
+                    document.getElementById("postcodeValidation").style.display = "block";
                 }
             }
+        }
+
+        function inputAgain() {
+            document.getElementById("postcodeText").value = "";
+            document.getElementById("postcodeInput").style.display = "block";
+            document.getElementById("postcodeValidation").style.display = "none";
+        }
+
+        function useDefault() {
+            document.getElementById("postcodeInput").style.display = "block";
+            document.getElementById("postcodeValidation").style.display = "none";
+            window.location = "/Home/Challenge?postcode=3162";
+            Cookies.set("currentPostcode", 3162);
         }
     </script>
 </body>

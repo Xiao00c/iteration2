@@ -129,7 +129,7 @@
                             <header>
                                 <!-- START LOGO -->
                                 <div class="logo_wrapper">
-                                    <a href="index.html" class="logo">
+                                    <a href="/Home/Index" class="logo">
                                         <img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo (test)" />
                                     </a>
                                 </div>
@@ -146,7 +146,7 @@
                                                     <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
                                                     <li class="active"><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
                                                     <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
+                                                    @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
                                             </div>
                                         </div>
@@ -165,7 +165,7 @@
                                 <ul id="caroufredsel_slider1" class="clearfix">
                                     <li>
                                         <div class="caroufredsel_slide1">
-                                            <img src="~/Content/images/challenge/challengeHome.jpg" alt="Slider2" class="img" />
+                                            <img src="~/Content/images/challenge/challengeHome2.jpg" alt="Slider2" class="img" />
                                             <div class="txt1">Scroll Down and Play!</div>
                                         </div>
                                     </li>
@@ -184,17 +184,11 @@
                     <div class="span12">
                         <!-- START GALLERY -->
                         <div class="full-page">
-                            <div class="pages_title">CHALLENGES</div>
-                            <h5>Lorem ipsum dolor sit amet conse ctetur adipisicing elit labore et dolore magna.</h5>
-                            <p>Wuqsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat consectetuer adipiscing elitarcu. Aenean semper aliquet libero. Qupsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut laboreet dolore magna aliqua.</p>
-                            <!-- Blog -->
-                            <div id="isotope-options">
-                                <ul id="isotope-filters" class="clearfix">
-                                    <li><a href="gallery.html#" class="selected" data-filter="*">SHOW ALL</a></li>
-                                    <li><a href="gallery.html#" data-filter=".isotope-filter1">Play Group</a></li>
-                                    <li><a href="gallery.html#" data-filter=".isotope-filter2">Pre-Primary</a></li>
-                                    <li><a href="gallery.html#" data-filter=".isotope-filter3">Kids</a></li>
-                                </ul>
+                            <div class="box2">
+                                <div class="pages_title" style="color:white;">SAFETY CHALLENGE</div>
+                                <h5>Click on the dancing cars below to know what factors contributes to car accidents in your neighbourhood. Complete the questions that follow each factor to <b>unlock your prize!</b></h5>
+                                <p>To restart the challenge, go to the HOME page and enter in a postcode</p>
+                                <p>Remember, it is important to <i>think and act responsibly</i> while on the road</p>
                             </div>
                             <div id="map" style="height:600px;">
                                 <ul class="thumbnails thumbnails-iisotope" id="isotope-items">
@@ -202,9 +196,15 @@
                                         <div class="thumb-isotope">
                                             <div class="thumbnail clearfix">
                                                 @*<a href="~/Content/images/gallery/1.jpg">*@
-                                                <figure onclick="level1()">
+                                                <figure id="1Factor" onclick="level1()">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/level1.jpg" alt="Lorem" />
+                                                        <img src="~/Content/images/challenge/1drunk.jpg" alt="Lorem" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="1Done" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/1trophy.jpg" alt="Lorem" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
@@ -228,9 +228,15 @@
                                         <div class="thumb-isotope">
                                             <div class="thumbnail clearfix">
                                                 @*<a href="~/Content/images/gallery/1.jpg">*@
-                                                <figure onclick="getTreasure()">
+                                                <figure id="6Locked" style="display:block;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/5trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="final" onclick="getTreasure()">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/final.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/5trophy.jpg" alt="Lorem">
                                                     </span>
                                                     <em></em>
                                                 </figure>
@@ -260,11 +266,23 @@
                                         <div class="thumb-isotope">
                                             <div class="thumbnail clearfix">
                                                 @*<a href="~/Content/images/gallery/2.jpg">*@
-                                                <figure onclick="level2()">
+                                                <figure id="2Locked" style="display:block;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/2speeding.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="2Factor" onclick="level2()" style="display:none;">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/level2.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/2speeding.jpg" alt="Lorem">
                                                         <em></em>
                                                     </span>
+                                                </figure>
+                                                <figure id="2Done" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/2trophy.jpg" alt="Lorem" />
+                                                    </span>
+                                                    <em></em>
                                                 </figure>
                                                 </a>
                                             </div>
@@ -283,11 +301,23 @@
                                         <div class="thumb-isotope">
                                             <div class="thumbnail clearfix">
                                                 @*<a href="~/Content/images/gallery/2.jpg">*@
-                                                <figure onclick="level5()">
+                                                <figure id="5Locked" style="display:block;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/5general.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="5Factor" onclick="level5()" style="display:none;">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/level5.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/5general.jpg" alt="Lorem">
                                                         <em></em>
                                                     </span>
+                                                </figure>
+                                                <figure id="5Done" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/5trophy.jpg" alt="Lorem" />
+                                                    </span>
+                                                    <em></em>
                                                 </figure>
                                                 </a>
                                             </div>
@@ -306,11 +336,23 @@
                                         <div class="thumb-isotope">
                                             <div class="thumbnail clearfix">
                                                 @*<a href="~/Content/images/gallery/2.jpg">*@
-                                                <figure onclick="level3()">
-                                                    <span class="fasize">
-                                                        <img src="~/Content/images/challenge/level3.jpg" alt="Lorem">
+                                                <figure id="3Locked" style="display:block;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="3Factor" onclick="level3()" style="display:none;">
+                                                    <span id="3Factor" class="fasize">
+                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Lorem">
                                                         <em></em>
                                                     </span>
+                                                </figure>
+                                                <figure id="3Done" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/3trophy.jpg" alt="Lorem" />
+                                                    </span>
+                                                    <em></em>
                                                 </figure>
                                                 </a>
                                             </div>
@@ -320,11 +362,23 @@
                                         <div class="thumb-isotope">
                                             <div class="thumbnail clearfix">
                                                 @*<a href="~/Content/images/gallery/1.jpg">*@
-                                                <figure onclick="level4()">
+                                                <figure id="4Locked" style="display:block;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/4fatigue.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="4Factor" onclick="level4()" style="display:none;">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/level4.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/4fatigue.jpg" alt="Lorem">
                                                         <em></em>
                                                     </span>
+                                                </figure>
+                                                <figure id="4Done" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/4trophy.jpg" alt="Lorem" />
+                                                    </span>
+                                                    <em></em>
                                                 </figure>
                                                 </a>
                                             </div>
@@ -342,49 +396,35 @@
                                 </ul>
                             </div>
                             <!-- End Gallery -->
-                            <!-- End Blog -->
                         </div>
 
                         <div id="ques" class="container">
                             <div id="question_desc" class="question"></div>
-                            <div class="option" onclick="clickChoice1()"><span id="option1">Default choice 1 description</span></div>
-                            <div class="option" onclick="clickChoice2()"><span id="option2">Default choice 2 description</span></div>
-                            <div class="option" onclick="clickChoice3()"><span id="option3">Default choice 3 description</span></div>
+                            <div class="option" onclick="clickChoice1()" style="cursor:pointer;"><span id="option1">Default choice 1 description</span></div>
+                            <div class="option" onclick="clickChoice2()" style="cursor:pointer;"><span id="option2">Default choice 2 description</span></div>
+                            <div class="option" onclick="clickChoice3()" style="cursor:pointer;"><span id="option3">Default choice 3 description</span></div>
                             <div class="challengeProgress" id="progress">Your Challenge Progress</div>
                         </div>
 
                         <div id="introduction" class="container" style="display:none">
-                            <div>
+                            <div style="align-content:center;text-align:center;">
                                 <h5 id="introduction_line1">Introduction to </h5>
-                                <p id="introduction_line2">Your Council is @ViewBag.LGAs</p>
+                                <p id="introduction_line2">Your Council is </p>
                                 <p id="introduction_line3"> is </p>
-                                <table id="drunk" style="display:block">
-                                    <tr>
-                                        <td>
-                                            Drunk total
-                                        </td>
-                                        <td>
-                                            @ViewBag.alcohol_total
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Drunk in your council
-                                        </td>
-                                        <td>
-                                            @ViewBag.alcohol_lga
-                                        </td>
-                                    </tr>
-                                </table>
-                                <div id="speeding" style="display:none; width:400px; height:400px;">
+                                <p id="introduction_line4"></p>
+                                <p id="introduction_line5"></p>
+                                <div id="drunk" style="display:none; width:400px; height:400px; margin: 0 auto;">
+                                    <canvas id="drunkChart" width="100" height="100"></canvas>
+                                </div>
+                                <div id="speeding" style="display:none; width:400px; height:400px; margin: 0 auto;">
                                     <canvas id="speedingChart" width="100" height="100"></canvas>
                                 </div>
-                                <div id="fatigue" style="display:none; width:400px; height:400px;">
+                                <div id="fatigue" style="display:none; width:400px; height:400px; margin: 0 auto;">
                                     <canvas id="fatigueChart" width="100" height="100"></canvas>
                                 </div>
-                                <div id="distraction" style="display:none">Distraction statistics</div>
-                                <div id="general" style="display:none">General statistics</div>
-                                <button type="button" onclick="continueToChallenge()"> Continue </button>
+                                @*<div id="distraction" style="display:none; margin: 0 auto;">Distraction statistics</div>
+                                <div id="general" style="display:none; margin: 0 auto;">General statistics</div>*@
+                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="continueToChallenge()"> Continue </a>
                             </div>
 
                         </div>
@@ -403,9 +443,9 @@
                                 <p id="explanation" style="font-size:20px;width:400px">
                                     This is the result div. only show when incorrect answer.
                                 </p>
-                                <button class="explanation-btn" onclick="continueChallenge()">
+                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" class="explanation-btn" onclick="continueChallenge()">
                                     Got it!
-                                </button>
+                                </a>
                             </div>
 
                         </div>
@@ -416,8 +456,8 @@
                             </div>
                             <br />
                             <p style="color:black; font-size:20px;">
-                                <button type="button" onclick="location.href='@Url.Action("PrintViewToPdf", "Home")'"> Download Certificate </button>
-                                <button type="button" onclick="backToMap()"> Go Back </button>
+                                @**@
+                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="backToMap()"> Go Back </a>
                             </p>
                         </div>
 
@@ -428,12 +468,15 @@
                             </p>
                             <br />
                             <p>Do you want to restart?</p>
-                            <button onclick="restartChallenge()" class="challengeResult-btn">
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="restartChallenge()" class="challengeResult-btn">
                                 Of Course
-                            </button>
-                            <button onclick="notNow()" class="challengeResult-btn">
+                            </a>
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="notNow()" class="challengeResult-btn">
                                 Not Now
-                            </button>
+                            </a>
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" class="challengeResult-btn" onclick="location.href='@Url.Action("PrintViewToPdf", "Home")'">
+                                Download Certificate 
+                            </a>
                         </div>
                         <!-- END GALLERY -->
                     </div>
@@ -577,10 +620,19 @@
         var fatigue_imp = "@ViewBag.fatigue_imp";
         var data = @Html.Raw(Json.Encode(Model));
         var speedingData = @Html.Raw(Json.Encode(ViewBag.speedingData)) + "";
-
         var speedingDataArray = speedingData.split(',').map(Number);
-        var speedingData = @Html.Raw(Json.Encode(ViewBag.fatigueData));
-        console.log(speedingDataArray);
+
+        var fatigueData = @Html.Raw(Json.Encode(ViewBag.fatigueData)) + "";
+        var fatigueDataArray = fatigueData.split(',').map(Number);
+
+        var drunk_lga = @ViewBag.alcohol_lga;
+        var drunk_total = @ViewBag.alcohol_total;
+
+        var LGAs = "@ViewBag.LGAs";
+        LGAs = LGAs.slice(0, -1);
+        var postcode = @ViewBag.postcode;
+        //console.log(postcode)
+        //console.log(speedingDataArray);
 
     console.log(data);
     </script>
@@ -593,21 +645,21 @@
                 datasets: [{
                     label: 'Number of car accidents related to factor',
                     data: speedingDataArray,//[12, 19, 3, 5, 2],
-                    backgroundColor: 
+                    backgroundColor:
                         'rgba(255, 99, 132, 1)'//,
-                        //'rgba(54, 162, 235, 0.2)',
-                        //'rgba(255, 206, 86, 0.2)',
-                        //'rgba(75, 192, 192, 0.2)',
-                        //'rgba(153, 102, 255, 0.2)',
-                        //'rgba(255, 159, 64, 0.2)'
+                    //'rgba(54, 162, 235, 0.2)',
+                    //'rgba(255, 206, 86, 0.2)',
+                    //'rgba(75, 192, 192, 0.2)',
+                    //'rgba(153, 102, 255, 0.2)',
+                    //'rgba(255, 159, 64, 0.2)'
                     ,
-                    borderColor: 
+                    borderColor:
                         'rgba(255,99,132,1)'//,
-                        //'rgba(54, 162, 235, 1)',
-                        //'rgba(255, 206, 86, 1)',
-                        //'rgba(75, 192, 192, 1)',
-                        //'rgba(153, 102, 255, 1)',
-                        //'rgba(255, 159, 64, 1)'
+                    //'rgba(54, 162, 235, 1)',
+                    //'rgba(255, 206, 86, 1)',
+                    //'rgba(75, 192, 192, 1)',
+                    //'rgba(153, 102, 255, 1)',
+                    //'rgba(255, 159, 64, 1)'
                     ,
                     borderWidth: 1
                 }]
@@ -631,22 +683,61 @@
                 labels: ["2013", "2014", "2015", "2016", "2017"],
                 datasets: [{
                     label: 'Number of car accidents related to factor',
-                    data: speedingDataArray,//[12, 19, 3, 5, 2],
-                    backgroundColor: 
+                    data: fatigueDataArray,//[12, 19, 3, 5, 2],
+                    backgroundColor:
                         'rgba(255, 99, 132, 1)'
-                        //'rgba(54, 162, 235, 0.2)',
-                        //'rgba(255, 206, 86, 0.2)',
-                        //'rgba(75, 192, 192, 0.2)',
-                        //'rgba(153, 102, 255, 0.2)',
-                        //'rgba(255, 159, 64, 0.2)'
+                    //'rgba(54, 162, 235, 0.2)',
+                    //'rgba(255, 206, 86, 0.2)',
+                    //'rgba(75, 192, 192, 0.2)',
+                    //'rgba(153, 102, 255, 0.2)',
+                    //'rgba(255, 159, 64, 0.2)'
                     ,
-                    borderColor: 
+                    borderColor:
                         'rgba(255,99,132,1)'
-                        //'rgba(54, 162, 235, 1)',
-                        //'rgba(255, 206, 86, 1)',
-                        //'rgba(75, 192, 192, 1)',
-                        //'rgba(153, 102, 255, 1)',
-                        //'rgba(255, 159, 64, 1)'
+                    //'rgba(54, 162, 235, 1)',
+                    //'rgba(255, 206, 86, 1)',
+                    //'rgba(75, 192, 192, 1)',
+                    //'rgba(153, 102, 255, 1)',
+                    //'rgba(255, 159, 64, 1)'
+                    ,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById("drunkChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Victoria", "Current Council(s)"],
+                datasets: [{
+                    label: 'Percentage',
+                    data: [drunk_total, drunk_lga],
+                    backgroundColor:
+                        'rgba(255, 99, 132, 1)'
+                    //'rgba(54, 162, 235, 0.2)',
+                    //'rgba(255, 206, 86, 0.2)',
+                    //'rgba(75, 192, 192, 0.2)',
+                    //'rgba(153, 102, 255, 0.2)',
+                    //'rgba(255, 159, 64, 0.2)'
+                    ,
+                    borderColor:
+                        'rgba(255,99,132,1)'
+                    //'rgba(54, 162, 235, 1)',
+                    //'rgba(255, 206, 86, 1)',
+                    //'rgba(75, 192, 192, 1)',
+                    //'rgba(153, 102, 255, 1)',
+                    //'rgba(255, 159, 64, 1)'
                     ,
                     borderWidth: 1
                 }]
@@ -664,6 +755,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     @*<script src="~/Scripts/customJS/Challenge.js"></script>*@
-    <script src="~/Scripts/customJS/module1.js"></script>
+    <script src="~/Scripts/customJS/Challenge.js"></script>
 </body>
 </html>

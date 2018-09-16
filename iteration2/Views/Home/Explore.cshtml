@@ -31,6 +31,10 @@
             position: absolute;
             border-radius: 15px;
         }
+
+        .exp_hover:hover {
+            color: #c2d1b8;
+        }
     </style>
     </head>
 <body class="main">
@@ -72,7 +76,7 @@
                             <header>
                                 <!-- START LOGO -->
                                 <div class="logo_wrapper">
-                                    <a href="index.html" class="logo"><img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo"></a>
+                                    <a href="/Home/Index" class="logo"><img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo"></a>
                                 </div>
                                 <!-- END LOGO -->
                             </header>
@@ -87,7 +91,7 @@
                                                     <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
                                                     <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
                                                     <li class="active"><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
+                                                    @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
                                             </div>
                                         </div>
@@ -122,7 +126,7 @@
         <div class="pages_wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="span3">
+                    @*<div class="span3">
                         <!-- START NEWS -->
                         <div class="news">
                             <div class="news_title">Control Board</div>
@@ -159,8 +163,8 @@
                         </div>
                         <!-- END NEWS -->
 
-                    </div>
-                    <div class="span8 offset1">
+                    </div>*@
+                    <div class="span8 offset1" style="width:1000px;">
                         <div class="row">
                             <div class="col-md-12">
                             </div>
@@ -169,33 +173,17 @@
                             <div class="col-md-12">
                                 <!-- START ANNOUNCEMENTS -->
                                 <div class="announcements">
-                                    <div class="announcements_title">Visualization</div>
-                                    <div class="thumb1">
-                                        <div class="thumbnail clearfix">
-                                            <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
-                                            <div class="caption">
-                                                <h5><a href="#">Aliquam erat</a></h5>
-                                                <p> Veniam, quis nostrud exercitation ullamco labor. </p>
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <div id="heatMapTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #ffeed4; color: #dc948b;margin:10px 0 0px 0" onclick="displayMap('heatMap')">Heat Map </div>
+                                        <div id="StatisticsTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #dc948b; color: #ffeed4;margin:10px 0 0px 0" onclick="displayMap('Statistics')">Statistics </div>
                                     </div>
-                                    <div class="thumb1">
-                                        <div class="thumbnail clearfix">
-                                            <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
-                                            <div class="caption">
-                                                <h5><a href="#">Aliquam volua</a></h5>
-                                                <p> Veniam, quis nostrud exercitation ullamco labor. </p>
-                                            </div>
-                                        </div>
+                                    <div id="heatMap" style="display:block;">
+                                        <div class='tableauPlaceholder' id='viz1537087692268' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinAustralia&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ExploringNumberofInjuredorFatalityinAustralia&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinAustralia&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                        <script type='text/javascript'>var divElement = document.getElementById('viz1537087692268'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '800px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                     </div>
-                                    <div class="thumb1">
-                                        <div class="thumbnail clearfix">
-                                            <figure><img src="~/Content/images/teacher/a.jpg" alt="Aliquam erat volutpat" class="news_img"></figure>
-                                            <div class="caption">
-                                                <h5><a href="#">Veniam nisi</a></h5>
-                                                <p> Veniam, quis nostrud exercitation ullamco labor. </p>
-                                            </div>
-                                        </div>
+                                    <div id="Statistics" style="display:none;">
+                                        <div class='tableauPlaceholder' id='viz1537089655497' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;Percentage_10&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Percentage_10&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;Percentage_10&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                        <script type='text/javascript'>var divElement = document.getElementById('viz1537089655497'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                     </div>
                                 </div>
                                 <!-- END ANNOUNCEMENTS -->
@@ -207,19 +195,7 @@
             </div>
         </div>
 
-        <div class='tableauPlaceholder' id='viz1536578783013' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 2 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Ti&#47;TimePeriod&#47;Dashboard2&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TimePeriod&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Ti&#47;TimePeriod&#47;Dashboard2&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-        <script type='text/javascript'>var divElement = document.getElementById('viz1536578783013'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-        <div class='tableauPlaceholder' id='viz1536578872265' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 1 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Li&#47;LightCondition&#47;Dashboard1&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='LightCondition&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Li&#47;LightCondition&#47;Dashboard1&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-        <script type='text/javascript'>var divElement = document.getElementById('viz1536578872265'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-        <div class='tableauPlaceholder' id='viz1536578896385' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 3 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Da&#47;DayofWeek_1&#47;Dashboard3&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DayofWeek_1&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Da&#47;DayofWeek_1&#47;Dashboard3&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-        <script type='text/javascript'>var divElement = document.getElementById('viz1536578896385'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-        <div class='tableauPlaceholder' id='viz1536578925281' style='position: relative'><noscript>< a href=' '>< img alt='Dashboard 4 ' src='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Al&#47;AlcoholRelated&#47;Dashboard4&#47;1_;1_rss.png' style='border: none' /></ a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2F%2Fpublic.tableau.com%2F' %2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AlcoholRelated&#47;Dashboard4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;47;public.tableau.com&#47&#47;static&#47;images&#47;Al&#47;AlcoholRelated&#47;Dashboard4&#47;47;1.png' />' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-        <script type='text/javascript'>var divElement = document.getElementById('viz1536578925281'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-
+        
         <!-- START FOOTER -->
         <footer>
             <div class="social_wrapper">
@@ -241,6 +217,24 @@
     <script src="~/Scripts/templateJS/jquery.touchSwipe.min.js"></script>
     <script src="~/Scripts/templateJS/bootstrap.js"></script>
 
+    <script>
+        function displayMap(id) {
+            //display tab
+            document.getElementById("heatMapTab").style.backgroundColor = "#dc948b";
+            document.getElementById("StatisticsTab").style.backgroundColor = "#dc948b";
+            document.getElementById(id + "Tab").style.backgroundColor = "#ffeed4";
+
+            //display text
+            document.getElementById("heatMapTab").style.color = "#ffeed4";
+            document.getElementById("StatisticsTab").style.color = "#ffeed4";
+            document.getElementById(id + "Tab").style.color = "#dc948b";
+
+            //display tableau
+            document.getElementById("heatMap").style.display = "none";
+            document.getElementById("Statistics").style.display = "none";
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
     <script>
         // CAROUFSEDSEL SLIDER
         $(document).ready(function () {

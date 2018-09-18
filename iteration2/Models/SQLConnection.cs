@@ -9,8 +9,7 @@ namespace iteration2.Models
 {
     public static class SQLConnection
     {
-        
-        //"Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"
+       
 
         //get all questions
         public static DataTable getQuestions()

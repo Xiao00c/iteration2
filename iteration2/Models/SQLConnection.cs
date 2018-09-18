@@ -9,8 +9,8 @@ namespace iteration2.Models
 {
     public static class SQLConnection
     {
-        public static string CONNECTION_STRING = "";
-
+        
+        //"Server = carcrashes.database.windows.net; Initial Catalog = carcrashes;User ID = peter; Password = Xiao00c.xu;"
 
         //get all questions
         public static DataTable getQuestions()
@@ -20,7 +20,7 @@ namespace iteration2.Models
             {
                 conn.Open();
 
-                string query = "select * from carcrashes.dbo.question q, carcrashes.dbo.answer a where q.question_id = a.question_id";
+                string query = "select * from " + DATABASE + ".dbo.question q, " + DATABASE + ".dbo.answer a where q.question_id = a.question_id";
 
                 var cmd = new SqlCommand(query, conn);
 
@@ -59,7 +59,7 @@ namespace iteration2.Models
             {
                 conn.Open();
 
-                string query = "select * from carcrashes.dbo.question q, carcrashes.dbo.answer a " +
+                string query = "select * from " + DATABASE + ".dbo.question q, " + DATABASE + ".dbo.answer a " +
                     "where q.question_id = a.question_id order by q.related_factor;";
 
                 var cmd = new SqlCommand(query, conn);
@@ -79,7 +79,7 @@ namespace iteration2.Models
             {
                 conn.Open();
 
-                string query = "select * from carcrashes.dbo.question q, carcrashes.dbo.answer a " +
+                string query = "select * from " + DATABASE + ".dbo.question q, " + DATABASE + ".dbo.answer a " +
                     "where q.question_id = a.question_id and q.related_factor = '" + factor + "' ;";
 
                 var cmd = new SqlCommand(query, conn);
@@ -98,20 +98,20 @@ namespace iteration2.Models
             if (lga == "")
             {
                 //average
-                query = "select count(*), (select count(*) from carcrashes.dbo.crashes) from carcrashes.dbo.crashes c where c.alcohol_related = 'Yes';";
+                query = "select count(*), (select count(*) from " + DATABASE + ".dbo.crashes) from " + DATABASE + ".dbo.crashes c where c.alcohol_related = 'Yes';";
             }
             else
             {
                 //by lga
-                query = "select count(*), (select count(*) from carcrashes.dbo.crashes where lga_name = '" + lga + "') from carcrashes.dbo.crashes c where c.alcohol_related = 'Yes' and c.lga_name = '" + lga + "';";
+                query = "select count(*), (select count(*) from " + DATABASE + ".dbo.crashes where lga_name = '" + lga + "') from " + DATABASE + ".dbo.crashes c where c.alcohol_related = 'Yes' and c.lga_name = '" + lga + "';";
             }
 
             //get count for alcohol related
             double percentage = 0;
             using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
-                //"server=localhost;user id=root;password=Peter@1993;database=carcrashes;"
-                //"server=saferchampion.mysql.database.azure.com;user id=peter@saferchampion;password=Xiao00c.xu;database=carcrashes;SslMode = MySqlSslMode.Preferred;"
+                //"server=localhost;user id=root;password=Peter@1993;database=" + DATABASE + ";"
+                //"server=saferchampion.mysql.database.azure.com;user id=peter@saferchampion;password=Xiao00c.xu;database=" + DATABASE + ";SslMode = MySqlSslMode.Preferred;"
                 conn.Open();
 
                 var cmd = new SqlCommand(query, conn);
@@ -134,8 +134,8 @@ namespace iteration2.Models
         {
             string result = "";
             string query = "select alcohol_weight, speeding_weight, distraction_weight, fatigue_weight, general_weight " +
-                "from carcrashes.dbo.distribution d, carcrashes.dbo.importanceDistribution i " +
-                "where d.distribution_ID = i.distribution_ID and alcohol_imp = '" + alcohol_imp + "' and speeding_imp = '" + speeding_imp + "';";
+                "from " + DATABASE + ".dbo.distribution d, " + DATABASE + ".dbo.importanceDistribution i " +
+                "where d.distribution_ID = i.distribution_ID and alcohol_imp = '" + alcohol_imp + "' and speeding_imp = '" + speeding_imp + "' and fatigue_imp = '" + fatigue_imp + "';";
 
             using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
@@ -162,7 +162,7 @@ namespace iteration2.Models
         public static string getLGAByPostcode(string postcode)
         {
             string result = "";
-            string query = "select LGA from carcrashes.dbo.LGApostcode where postcode = " + postcode + ";";
+            string query = "select LGA from " + DATABASE + ".dbo.LGApostcode where postcode = " + postcode + ";";
 
             using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {

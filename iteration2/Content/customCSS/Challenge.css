@@ -55,6 +55,7 @@
 }
 
 .explanation {
+    position: absolute;
     margin-left:auto;
     margin-right:auto;
     vertical-align: middle;
@@ -65,7 +66,7 @@
     height: 40%;
     overflow: auto;
     top: 40%;
-    background-color: rgba(176, 224, 230, 0.95);
+    background-color: #fff3e0;
     text-align: center;
     animation-name: modalOpen;
 }
@@ -87,7 +88,7 @@
     }
 
 .challengeProgress {
-    color: black;
+    color: #dc948b;
 }
 
 .continue-btn {

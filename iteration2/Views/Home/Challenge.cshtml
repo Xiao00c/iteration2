@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="~/Content/images/favicon.png" type="image/png">
+    <link rel="icon" href="~/Content/images/gallery/challenge.jpg" type="image/png" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
@@ -86,9 +86,47 @@
                 transform: translate(1px, -2px) rotate(-1deg);
             }
         }
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #dc948b;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+            #myBtn:hover {
+                background-color: #aec5a5;
+            }
     </style>
 </head>
 <body class="main">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
     <!-- START MOUNTAIN EFFECT -->
     <div class="mountainbg">
         <div class="mountaincover">
@@ -144,7 +182,7 @@
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
                                                     <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
-                                                    <li class="active"><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
+                                                    <li class="active" style="cursor:pointer;"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
                                                     <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
                                                     @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
@@ -400,9 +438,9 @@
 
                         <div id="ques" class="container">
                             <div id="question_desc" class="question"></div>
-                            <div class="option" onclick="clickChoice1()" style="cursor:pointer;"><span id="option1">Default choice 1 description</span></div>
-                            <div class="option" onclick="clickChoice2()" style="cursor:pointer;"><span id="option2">Default choice 2 description</span></div>
-                            <div class="option" onclick="clickChoice3()" style="cursor:pointer;"><span id="option3">Default choice 3 description</span></div>
+                            <div class="button4" onclick="clickChoice1()" style="cursor:pointer;"><span id="option1">Default choice 1 description</span></div>
+                            <div class="button4" onclick="clickChoice2()" style="cursor:pointer;"><span id="option2">Default choice 2 description</span></div>
+                            <div class="button4" onclick="clickChoice3()" style="cursor:pointer;"><span id="option3">Default choice 3 description</span></div>
                             <div class="challengeProgress" id="progress">Your Challenge Progress</div>
                         </div>
 
@@ -413,8 +451,9 @@
                                 <p id="introduction_line3"> is </p>
                                 <p id="introduction_line4"></p>
                                 <p id="introduction_line5"></p>
-                                <div id="drunk" style="display:none; width:400px; height:400px; margin: 0 auto;">
-                                    <canvas id="drunkChart" width="100" height="100"></canvas>
+                                <div id="drunk" style="display:none; width:auto; height:auto; margin: 0 auto;">
+                                    <div class='tableauPlaceholder' id='viz1537176328691' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbySpeeding&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarCrashesbySpeeding&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbySpeeding&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                    <script type='text/javascript'>var divElement = document.getElementById('viz1537176328691'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                 </div>
                                 <div id="speeding" style="display:none; width:400px; height:400px; margin: 0 auto;">
                                     <canvas id="speedingChart" width="100" height="100"></canvas>
@@ -422,8 +461,8 @@
                                 <div id="fatigue" style="display:none; width:400px; height:400px; margin: 0 auto;">
                                     <canvas id="fatigueChart" width="100" height="100"></canvas>
                                 </div>
-                                @*<div id="distraction" style="display:none; margin: 0 auto;">Distraction statistics</div>
-                                <div id="general" style="display:none; margin: 0 auto;">General statistics</div>*@
+                                <div id="distraction" style="display:none; margin: 0 auto;"></div>
+                                    <div id="general" style="display:none; margin: 0 auto;"></div>
                                 <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="continueToChallenge()"> Continue </a>
                             </div>
 
@@ -433,10 +472,10 @@
                             <h2>Check This Out</h2>
                             <div style="display:inline-block;">
                                 <div id="correct" style="display:block;">
-                                    <img style="height:200px;" src="~/Content/GIFs/smile.gif" />
+                                    <img style="height:200px;" src="~/Content/GIFs/quiz-good.gif" />
                                 </div>
                                 <div id="incorrect" style="display:block;">
-                                    <img style="height:200px;" src="~/Content/GIFs/NONONO.gif" />
+                                    <img style="height:200px;" src="~/Content/GIFs/quiz-hide.gif" />
                                 </div>
                             </div>
                             <div style="display:inline-block;">
@@ -452,7 +491,7 @@
 
                         <div id="finish" style="display:none; width:100%; height:600px;">
                             <div style="color:black;font-size:20px;">
-                                Congratulation! You have finished this Challenge!
+                                Congratulation! You have finished this Factor!
                             </div>
                             <br />
                             <p style="color:black; font-size:20px;">
@@ -475,7 +514,7 @@
                                 Not Now
                             </a>
                             <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" class="challengeResult-btn" onclick="location.href='@Url.Action("PrintViewToPdf", "Home")'">
-                                Download Certificate 
+                                Download Certificate
                             </a>
                         </div>
                         <!-- END GALLERY -->
@@ -634,6 +673,12 @@
         //console.log(postcode)
         //console.log(speedingDataArray);
 
+        //test
+        //var test = @Html.Raw(Json.Encode(ViewBag.test));
+        console.log(alcohol_imp);
+        console.log(speeding_imp);
+        console.log(fatigue_imp);
+        //console.log(test);
     console.log(data);
     </script>
     <script>
@@ -756,5 +801,12 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     @*<script src="~/Scripts/customJS/Challenge.js"></script>*@
     <script src="~/Scripts/customJS/Challenge.js"></script>
+    <script>
+        function backHome() {
+            Cookies.set("scrollDown", "1");
+            window.location = "/Home/Index";
+
+        }
+    </script>
 </body>
 </html>

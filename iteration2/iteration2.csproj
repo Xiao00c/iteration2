@@ -162,6 +162,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -171,12 +172,18 @@
     <Content Include="Content\customCSS\Challenge.css" />
     <Content Include="Content\customCSS\font-awesome.css" />
     <Content Include="Content\customCSS\ie.css" />
+    <Content Include="Content\customCSS\imagehover.css" />
     <Content Include="Content\customCSS\index.css" />
     <Content Include="Content\customCSS\isotope.css" />
     <Content Include="Content\customCSS\style.css" />
     <Content Include="Content\customCSS\touchTouch.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\GIFs\NONONO.gif" />
+    <Content Include="Content\GIFs\quiz-dancing.gif" />
+    <Content Include="Content\GIFs\quiz-good.gif" />
+    <Content Include="Content\GIFs\quiz-happy.gif" />
+    <Content Include="Content\GIFs\quiz-hide.gif" />
+    <Content Include="Content\GIFs\quiz-no.gif" />
     <Content Include="Content\GIFs\smile.gif" />
     <Content Include="Content\images\Autumn.png" />
     <Content Include="Content\images\background-q2.jpg" />
@@ -370,6 +377,7 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <None Include="Properties\PublishProfiles\safetychampion - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\customJS\Challenge_old.js" />
     <Content Include="Scripts\customJS\HomePage.js" />

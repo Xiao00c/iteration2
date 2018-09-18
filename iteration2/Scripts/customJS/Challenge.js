@@ -131,7 +131,7 @@ function level4() {
     document.getElementById("introduction_line1").innerHTML = "FATIGUE";
     document.getElementById("introduction_line2").innerHTML = "";
     document.getElementById("introduction_line3").innerHTML = "Accidents are caused when drivers are tired and sleepy. People who are affected by fatigue could be anyone you know. Someone driving home after a whole night of studying, after working day and night without a break. But when a someone who is sleepy drives, they are at risk of sleeping behind the wheel!";
-    document.getElementById("introduction_line4").innerHTML = "It looks like problems due to Distraction is " + fatigue_imp + " compared to the other factors in your area.";
+    document.getElementById("introduction_line4").innerHTML = "It looks like problems due to Fatigue is " + fatigue_imp + " compared to the other factors in your area.";
     document.getElementById("introduction_line5").innerHTML = "";
 
     document.getElementById("drunk").style.display = "none";

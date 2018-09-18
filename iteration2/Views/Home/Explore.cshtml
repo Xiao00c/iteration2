@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="~/Content/images/favicon.png" type="image/png">
+    <link rel="icon" href="~/Content/images/gallery/challenge.jpg" type="image/png" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
@@ -35,9 +35,48 @@
         .exp_hover:hover {
             color: #c2d1b8;
         }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #dc948b;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+            #myBtn:hover {
+                background-color: #aec5a5;
+            }
     </style>
-    </head>
+</head>
 <body class="main">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
     <!-- START MOUNTAIN EFFECT -->
     <div class="mountainbg">
         <div class="mountaincover">
@@ -89,7 +128,7 @@
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
                                                     <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
                                                     <li class="active"><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
                                                     @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
@@ -126,44 +165,47 @@
         <div class="pages_wrapper">
             <div class="container">
                 <div class="row">
-                    @*<div class="span3">
+                    <div class="span12">
                         <!-- START NEWS -->
                         <div class="news">
-                            <div class="news_title">Control Board</div>
+                            <div class="news_title">Let's warm up first!</div>
                             <div class="date1 clearfix">
                                 <div class="txt1 c4">
-                                    12
-                                    <br><span>jan</span>
+                                    1
+                                    <br><span>data</span>
                                 </div>
                                 <div class="txt2">
-                                    <h5><a href="#">Curabitur conva</a></h5>
-                                    <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                    <h5><a href="#">Do you know DATA can tell STORIES?</a></h5>
+                                    <p>In this session, we use the open data from <a href="https://vicroadsopendata-vicroadsmaps.opendata.arcgis.com/">Vicroad Opendata</a> (explore more dataset by clicking)</p>
+                                    <p>The data can tell you what are possible influence factors that may cause accidents while driving.</p>
                                 </div>
                             </div>
                             <div class="date1 clearfix">
                                 <div class="txt1 c2">
-                                    16
-                                    <br><span>feb</span>
+                                    2
+                                    <br><span>map</span>
                                 </div>
                                 <div class="txt2">
-                                    <h5><a href="#">Convallis inter</a></h5>
-                                    <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                    <h5><a href="#">Explore your territory on the map!</a></h5>
+                                    <p>Click on the "Heat Map" session below, we will find the data change while the location changes.</p>
+                                    <p>Find out more by yourself!</p>
                                 </div>
                             </div>
                             <div class="date1 clearfix">
                                 <div class="txt1 c3">
-                                    18
-                                    <br><span>mar</span>
+                                    3
+                                    <br><span>pie</span>
                                 </div>
                                 <div class="txt2">
-                                    <h5><a href="#">Interdum hednd</a></h5>
-                                    <p>Maecenas ac est hendrerit magi aliquam erat.</p>
+                                    <h5><a href="#">Pie Chart is more than a PIE!</a></h5>
+                                    <p>Who doesn't love pie?! But do you know what is a "Pie Chart"?  (hint: it is related to Percentage %)</p>
+                                    <p>Click on the "Pie Charts" below, have a taste of each slice!</p>
                                 </div>
                             </div>
                         </div>
                         <!-- END NEWS -->
 
-                    </div>*@
+                    </div>
                     <div class="span8 offset1" style="width:1000px;">
                         <div class="row">
                             <div class="col-md-12">
@@ -176,14 +218,19 @@
                                     <div>
                                         <div id="heatMapTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #ffeed4; color: #dc948b;margin:10px 0 0px 0" onclick="displayMap('heatMap')">Heat Map </div>
                                         <div id="StatisticsTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #dc948b; color: #ffeed4;margin:10px 0 0px 0" onclick="displayMap('Statistics')">Statistics </div>
+                                        <div id="bubbleMapTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #dc948b; color: #ffeed4;margin:10px 0 0px 0" onclick="displayMap('bubbleMap')">Bubble Map </div>
                                     </div>
                                     <div id="heatMap" style="display:block;">
-                                        <div class='tableauPlaceholder' id='viz1537087692268' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinAustralia&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ExploringNumberofInjuredorFatalityinAustralia&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinAustralia&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-                                        <script type='text/javascript'>var divElement = document.getElementById('viz1537087692268'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '800px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                                        <div class='tableauPlaceholder' id='viz1537171141239' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinAustralia_0&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ExploringNumberofInjuredorFatalityinAustralia_0&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinAustralia_0&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                        <script type='text/javascript'>var divElement = document.getElementById('viz1537171141239'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                     </div>
                                     <div id="Statistics" style="display:none;">
-                                        <div class='tableauPlaceholder' id='viz1537089655497' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;Percentage_10&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Percentage_10&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;Percentage_10&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-                                        <script type='text/javascript'>var divElement = document.getElementById('viz1537089655497'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                                        <div class='tableauPlaceholder' id='viz1537171179560' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;PercentageofCarCrashesbyDifferentSituation&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PercentageofCarCrashesbyDifferentSituation&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;PercentageofCarCrashesbyDifferentSituation&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                        <script type='text/javascript'>var divElement = document.getElementById('viz1537171179560'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                                    </div>
+                                    <div id="bubbleMap" style="display:none;">
+                                        <div class='tableauPlaceholder' id='viz1537171211771' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinYourCouncil&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ExploringNumberofInjuredorFatalityinYourCouncil&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinYourCouncil&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                        <script type='text/javascript'>var divElement = document.getElementById('viz1537171211771'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                     </div>
                                 </div>
                                 <!-- END ANNOUNCEMENTS -->
@@ -195,7 +242,7 @@
             </div>
         </div>
 
-        
+
         <!-- START FOOTER -->
         <footer>
             <div class="social_wrapper">
@@ -222,16 +269,19 @@
             //display tab
             document.getElementById("heatMapTab").style.backgroundColor = "#dc948b";
             document.getElementById("StatisticsTab").style.backgroundColor = "#dc948b";
+            document.getElementById("bubbleMapTab").style.backgroundColor = "#dc948b";
             document.getElementById(id + "Tab").style.backgroundColor = "#ffeed4";
 
             //display text
             document.getElementById("heatMapTab").style.color = "#ffeed4";
             document.getElementById("StatisticsTab").style.color = "#ffeed4";
+            document.getElementById("bubbleMapTab").style.color = "#ffeed4";
             document.getElementById(id + "Tab").style.color = "#dc948b";
 
             //display tableau
             document.getElementById("heatMap").style.display = "none";
             document.getElementById("Statistics").style.display = "none";
+            document.getElementById("bubbleMap").style.display = "none";
             document.getElementById(id).style.display = "block";
         }
     </script>
@@ -307,6 +357,14 @@
             setTimeout(function () {
                 circle.remove();
             }, 500);
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+        function backHome() {
+            Cookies.set("scrollDown", "1");
+            window.location = "/Home/Index";
+
         }
     </script>
 </body>

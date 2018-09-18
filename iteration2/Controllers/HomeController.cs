@@ -122,6 +122,7 @@ namespace iteration2.Controllers
 
             //get questions based on distribution
             List<Question> orderedQuestions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsOrderByFactor());
+            ViewBag.test = orderedQuestions;
             List<Question> drunkQuestions = new List<Question>();
             List<Question> speedingQuestions = new List<Question>();
             List<Question> fatigueQuestions = new List<Question>();

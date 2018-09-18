@@ -16,6 +16,7 @@
     <link href="~/Content/customCSS/bootstrap-responsive.css" rel="stylesheet" />
     <link href="~/Content/customCSS/style.css" rel="stylesheet" />
     <link href="~/Content/customCSS/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/customCSS/imagehover.css" rel="stylesheet" />
 
     <!--[if lt IE 8]>
         <div><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"/></a></div>
@@ -33,6 +34,43 @@
             position: absolute;
             border-radius: 15px;
         }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #dc948b;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+            #myBtn:hover {
+                background-color: #aec5a5;
+            }
+
+        .list-group {
+            z-index: 999;
+            position: absolute;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .list-group-item {
+            
+            
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
     </style>
 
 
@@ -42,6 +80,25 @@
     <script src="~/Scripts/customJS/HomePage.js"></script>
 </head>
 <body class="main">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
     <div class="mountainbg">
         <div class="mountaincover">
             <div class="mountain">
@@ -164,16 +221,25 @@
                         <div class="news">
                             <div class="news_title">Start the Safety Challenge</div>
                             <div class="date1 clearfix">
-                                <img src="~/Content/images/gallery/challenge.jpg" />
+                                <div class="imageHoverContainer">
+                                    <img src="~/Content/images/gallery/challenge.jpg" alt="Avatar" class="image1" />
+                                    <div class="overlay  overlayLeft">
+                                        <div class="textLeft">
+                                            <h6>1. Enter a postcode below</h6>
+                                            <h6>2. Click "start challenge"</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="date1 clearfix" id="postcodeInput">
+                                <br />
                                 <div class="txt2" style="text-align:center;" ng-app="myapp" ng-controller="postcodeController">
-                                    <p>Enter a postcode below and we will try and personalize this challenge for you.</p>
                                     <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" />
+                                    <br />
                                     <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
                                         <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
                                     </ul>
-                                    <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" > start challenge </a>
+                                    <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" class="button1"> start challenge </a>
                                     @*<h5><a href="#">Convallis inter</a></h5>*@
                                 </div>
                             </div>
@@ -196,21 +262,26 @@
                             <div class="announcements">
                                 <div class="announcements_title">Explore your Neighbourhood</div>
                                 <div class="date1 clearfix">
-                                    <a href="/Home/Explore">
-                                        <img src="~/Content/images/gallery/exploration.jpg" />
-                                    </a>
-                                </div>
-                                <div class="date1 clearfix">
-                                    <div class="txt2" style="text-align:center;">
-                                        @*<h5><a href="#"> Explore by yourself. </a></h5>*@
-                                        <a style="color:#ffeed4; cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" href="/Home/Explore">Click here and find out more about your neighborhood!</a>
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <br />
+                                    <div class="imageHoverContainer">
+                                        <img src="~/Content/images/gallery/exploration.jpg" alt="Avatar" class="image1" />
+                                        <div class="overlay  overlayRight">
+                                            <div class="textRight">
+                                                <h6>1. Ready to play with numbers</h6>
+                                                <h6>2. Click "Start Exploration"</h6>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="date1 clearfix">
+                                        <div class="txt2" style="text-align:center;">
+                                            @*<h5><a href="#"> Explore by yourself. </a></h5>*@
+                                            <br />
+                                            <br />
+                                            <a href="/Home/Explore" class="button3" style="font-size:22px;font-family: 'Baloo Bhaijaan', cursive;"> Explore Now!</a>
+                                            <br />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             <!-- END ANNOUNCEMENTS -->
                         </div>
                     </div>
@@ -263,7 +334,24 @@
         })
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
 
+        window.onload = autoScrollDown;
+
+        function autoScrollDown() {
+            //first time home
+            if (Cookies.get("scrollDown") == 'undefined') {
+                //Cookies.set("scrollDown", "1");
+            }
+            //second time
+            else if (Cookies.get("scrollDown") == "1") {
+                console.log("not from home");
+                window.scrollTo(0, 1100);
+                Cookies.set("scrollDown", 'undefined');
+            }
+        }
+    </script>
     <script>
         // CAROUFSEDSEL SLIDER
         $(document).ready(function () {

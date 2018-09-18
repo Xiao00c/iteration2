@@ -758,11 +758,38 @@ h6 {
     -moz-transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
+    
+    
 }
 
 .button1:hover {
     background: #dc948b;
     color: #ffeed4;
+}
+
+.button3 {
+    justify-content: center;
+    background: #aec5a5;
+    color: #ffeed4;
+    font-family: 'Baloo Bhaijaan', cursive;
+    border-radius: 30px;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+    white-space: nowrap;
+    letter-spacing: 0px;
+    transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+
+}
+
+.button3:hover {
+    background: #ffeed4;
+    color: #aec5a5;
 }
 
 .button2 {
@@ -784,6 +811,20 @@ h6 {
 
 .button2:hover {
     color: #aec5a5;
+}
+
+.button4 {
+    padding: 10px 0 10px 15px;
+    vertical-align: middle;
+    background: #fff3e0;
+    color:#dc948b;
+    margin: 40px 0 40px 0px;
+    border-radius: 20px;
+}
+
+.button4:hover {
+    background: #dc948b;
+    color: #fff3e0;
 }
 
 .page_image {

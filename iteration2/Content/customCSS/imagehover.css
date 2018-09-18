@@ -1,0 +1,71 @@
+.imageHoverContainer {
+    position: relative;
+}
+
+.textLeft {
+    color: darkslategray;
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.textRight {
+    color: darkslategray;
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.overlayFade{
+    height: 100%;
+    width:100%;
+    top:0;
+    left:0;
+    background-color: #ff946bbd;
+}
+
+.overlay {
+    position: absolute;
+    opacity: 0;
+    transition:all .3s ease;
+    background: rgba(241, 241, 189, 0.9);
+    
+}
+.imageHoverContainer:hover .overlay,.imageHoverContainer:hover .overlayLeft {
+    opacity: 1;
+}
+
+.overlayLeft{
+    height: 100%;
+    width:0;
+    top:0;
+    left:0;
+    background: rgba(#dc948b, #dc948b, #dc948b, 0.3);
+}
+
+.overlayRight{
+    height: 100%;
+    width: 0;
+    top:0;
+    right:0;
+    background-color: rgba(204, 241, 207, 0.9);
+}
+
+.imageHoverContainer:hover .overlayLeft ,.imageHoverContainer:hover .overlayRight {
+    width: 100%;
+}
+
+.imageHoverContainer:hover .overlayTop ,.imageHoverContainer:hover .overlayBottom {
+    height: 100%;
+}
+
+.imageHoverContainer:hover .overlayCross {
+    height: 100%;
+    width: 100%;
+}

@@ -153,7 +153,7 @@
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
                                                     <li class="active"><a href="/Home/Index">Home<span class="over1"></span></a></li>
-                                                    <li><a onclick='window.scrollTo(0,1100);' style="cursor: pointer;">Challenge<span class="over1"></span></a></li>
+                                                    <li><a onclick='scrollDown()' style="cursor: pointer;">Challenge<span class="over1"></span></a></li>
                                                     <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
                                                     @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
@@ -340,6 +340,8 @@
         window.onload = autoScrollDown;
 
         function autoScrollDown() {
+            document.getElementById("postcodeText").disabled = false;
+
             //first time home
             if (Cookies.get("scrollDown") == 'undefined') {
                 //Cookies.set("scrollDown", "1");
@@ -347,9 +349,18 @@
             //second time
             else if (Cookies.get("scrollDown") == "1") {
                 console.log("not from home");
-                window.scrollTo(0, 1100);
+                $('html, body').animate({
+                    scrollTop: $("#banners").offset().top
+                }, 1000);
+                //window.scrollTo(0, 1100);
                 Cookies.set("scrollDown", 'undefined');
             }
+        }
+
+        function scrollDown() {
+            $('html, body').animate({
+                scrollTop: $("#banners").offset().top
+            }, 1000);
         }
     </script>
     <script>
@@ -438,6 +449,7 @@
                     console.log("yes");
                     window.location = "/Home/Challenge?postcode=" + text
                     Cookies.set("currentPostcode", text);
+                    document.getElementById("postcodeText").disabled = true;
                 }
                 else {
                     document.getElementById("postcode_line1").innerHTML = "Hey, the postcode you gave us is invalid! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
@@ -458,6 +470,8 @@
             document.getElementById("postcodeValidation").style.display = "none";
             window.location = "/Home/Challenge?postcode=3162";
             Cookies.set("currentPostcode", 3162);
+            document.getElementById("postcodeText").value = "3162";
+            document.getElementById("postcodeText").disabled = true;
         }
     </script>
 </body>

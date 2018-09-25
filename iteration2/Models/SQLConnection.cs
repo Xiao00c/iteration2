@@ -9,7 +9,7 @@ namespace iteration2.Models
 {
     public static class SQLConnection
     {
-       
+        
 
         //get all questions
         public static DataTable getQuestions()

@@ -1,6 +1,4 @@
-﻿//testing
-
-var flag;
+﻿var flag;
 var currentEvent = 0;
 var currentScore = 0;
 var maxEvent;
@@ -11,36 +9,15 @@ checkPostcodeChanged();
 function checkPostcodeChanged() {
     //if first time access
     if (Cookies.get("previousPostcode") == 'undefined') {
-        //if through navigation bar
-        if (Cookies.get("currentPostcode") == 'undefined') {
-            //set previous postcode to the Viewbag one
-            Cookies.set("previousPostcode", postcode+"");
-            //console.log("first in nagivation");
-        }
-        //if through homepage
-        else {
-            Cookies.set("previousPostcode", Cookies.get("currentPostcode"));
-            //console.log("first through home");
-        }
-        //reset current Postcode
-        Cookies.set("currentPostcode", 'undefined');
+        Cookies.set("previousPostcode", postcode + "");
     }
-    //if not first time
+    //if not first time but same postcode
+    else if (Cookies.get("previousPostcode") == postcode) {
+    }
+    //not the same
     else {
-        //if through navigation bar
-        if (Cookies.get("currentPostcode") == 'undefined') {
-            //set previous postcode to the Viewbag one
-            Cookies.set("previousPostcode", postcode);
-            //console.log("second through navigation");
-        }
-        //if through homepage
-        else if (Cookies.get("currentPostcode") != Cookies.get("previousPostcode")) {
-            Cookies.set("previousPostcode", Cookies.get("currentPostcode"));
-            restartChallenge();
-            //console.log("second through home page");
-        }
-        //reset current Postcode
-        Cookies.set("currentPostcode", 'undefined');
+        restartChallenge();
+        Cookies.set("previousPostcode", postcode + "");
     }
 }
 
@@ -91,7 +68,7 @@ function level2() {
     document.getElementById("introduction_line1").innerHTML = "SPEEDING";
     document.getElementById("introduction_line2").innerHTML = "The postcode you entered belongs to " + LGAs + " council(s).";
     document.getElementById("introduction_line3").innerHTML = "One of the major causes of accidents is driving the car over the speed-limit. Speeding affects other road users as they become unsure of what to do when they see a speeding car.";
-    document.getElementById("introduction_line4").innerHTML = "It looks like problems due to Speeding is "+ speeding_imp + " compared to the other factors in your area.";
+    document.getElementById("introduction_line4").innerHTML = "It looks like problems due to Speeding is " + speeding_imp + " compared to the other factors in your area.";
     document.getElementById("introduction_line5").innerHTML = "";
 
     document.getElementById("drunk").style.display = "none";
@@ -111,7 +88,7 @@ function level3() {
     document.getElementById("introduction_line1").innerHTML = "DISTRACTION";
     document.getElementById("introduction_line2").innerHTML = "";
     document.getElementById("introduction_line3").innerHTML = "Distracted drivers have become a huge problem all over the world. Drivers get distracted by using their mobile phones, talking while driving and watching videos.";
-    document.getElementById("introduction_line4").innerHTML = "It looks like problems due to Distraction is HIGH compared to the other factors in your area.";
+    document.getElementById("introduction_line4").innerHTML = "It seems like the problems due to distraction are increasing in Australia";
     document.getElementById("introduction_line5").innerHTML = "";
 
 
@@ -196,12 +173,12 @@ function next() {
     }
     else {
         Cookies.set(flag, currentScore);
-        Cookies.set(flag + "Finish", "1");
+        Cookies.set(flag + "Finish", 1);
         console.log(flag + "," + currentScore);
         document.getElementById("ques").style.display = "none";
         document.getElementById("finish").style.display = "block";
 
-        unlock(flag);
+        //unlock(flag);
 
         //return to factors page after 5 seconds
         //var time = 5;
@@ -213,14 +190,19 @@ function next() {
         //    }
         //}, 1000);
     }
-    
+
 }
 
-function unlock(flag) {
-    document.getElementById(flag + 1 + "Locked").style.display = "none";
-    document.getElementById(flag + 1 + "Factor").style.display = "block";
-    console.log(flag + 1);
-}
+//function unlock(flag) {
+//    if (flag <= 4) {
+//        document.getElementById(flag + 1 + "Locked").style.display = "none";
+//        document.getElementById(flag + 1 + "Factor").style.display = "block";
+//        console.log(flag + 1);
+//    }
+//    else if (flag == 5) {
+//        document.getElementById()
+//    }
+//}
 
 
 function clickChoice1() {
@@ -292,7 +274,7 @@ function continueChallenge() {
 }
 
 function updateProgress() {
-    var progressString = "NO." + (currentEvent + 1) + 
+    var progressString = "NO." + (currentEvent + 1) +
         " / NO." + maxEvent;
     document.getElementById("progress").innerHTML = progressString;
     //set Cookies for section total score
@@ -313,11 +295,11 @@ function getTreasure() {
         parseInt(Cookies.get("4"));
 
     //check if all done
-    if (Cookies.get("2Finish") == "1" &&
-        Cookies.get("1Finish") == "1" &&
-        Cookies.get("3Finish") == "1" &&
-        Cookies.get("5Finish") == "1" &&
-        Cookies.get("4Finish") == "1") {
+    if (Cookies.get("2Finish") == 1 &&
+        Cookies.get("1Finish") == 1 &&
+        Cookies.get("3Finish") == 1 &&
+        Cookies.get("5Finish") == 1 &&
+        Cookies.get("4Finish") == 1) {
         displayFinish();
     }
 }
@@ -330,100 +312,72 @@ function checkProgress() {
     //!= "1" => not finished.
 
     //1
-    if (Cookies.get("1Finish") != "1") {
+    if (Cookies.get("1Finish") != 1) {
         document.getElementById("1Factor").style.display = "block";
         document.getElementById("1Done").style.display = "none";
-    } else {
+        document.getElementById("final").style.display = "none";
+        document.getElementById("Locked0Trophy").style.display = "block";
+    }
+    //2
+    else if (Cookies.get("2Finish") != 1) {
         document.getElementById("1Factor").style.display = "none";
         document.getElementById("1Done").style.display = "block";
+        document.getElementById("Locked0Trophy").style.display = "none";
+        document.getElementById("Locked1Trophy").style.display = "block";
+        document.getElementById("2Locked").style.display = "none";
+        document.getElementById("2Factor").style.display = "block";
+        document.getElementById("2Done").style.display = "none";
     }
-
-    //2
-    if (Cookies.get("2Finish") != "1") {
-        //if 1 is finished
-        if (Cookies.get("1Finish") == "1") {
-            document.getElementById("2Locked").style.display = "none";
-            document.getElementById("2Factor").style.display = "block";
-            document.getElementById("2Done").style.display = "none";
-        }
-        //if 1 is not finished
-        else {
-            document.getElementById("2Locked").style.display = "block";
-            document.getElementById("2Factor").style.display = "none";
-            document.getElementById("2Done").style.display = "none";
-        }
-    } else {
+    //3
+    else if (Cookies.get("3Finish") != 1) {
         document.getElementById("2Locked").style.display = "none";
         document.getElementById("2Factor").style.display = "none";
         document.getElementById("2Done").style.display = "block";
-    } 
-
-    //3
-    if (Cookies.get("3Finish") != "1") {
-        //if 2 is finished
-        if (Cookies.get("2Finish") == "1") {
-            document.getElementById("3Locked").style.display = "none";
-            document.getElementById("3Factor").style.display = "block";
-            document.getElementById("3Done").style.display = "none";
-        }
-        //if 2 is not finished
-        else {
-            document.getElementById("3Locked").style.display = "block";
-            document.getElementById("3Factor").style.display = "none";
-            document.getElementById("3Done").style.display = "none";
-        }
-    } else {
+        document.getElementById("Locked1Trophy").style.display = "none";
+        document.getElementById("Locked2Trophy").style.display = "block";
+        document.getElementById("3Locked").style.display = "none";
+        document.getElementById("3Factor").style.display = "block";
+        document.getElementById("3Done").style.display = "none";
+    }
+    //4
+    else if (Cookies.get("4Finish") != 1) {
         document.getElementById("3Locked").style.display = "none";
         document.getElementById("3Factor").style.display = "none";
         document.getElementById("3Done").style.display = "block";
+        document.getElementById("Locked2Trophy").style.display = "none";
+        document.getElementById("Locked3Trophy").style.display = "block";
+        document.getElementById("4Locked").style.display = "none";
+        document.getElementById("4Factor").style.display = "block";
+        document.getElementById("4Done").style.display = "none";
     }
-
-    //4
-    if (Cookies.get("4Finish") != "1") {
-        //if 3 is finished
-        if (Cookies.get("3Finish") == "1") {
-            document.getElementById("4Locked").style.display = "none";
-            document.getElementById("4Factor").style.display = "block";
-            document.getElementById("4Done").style.display = "none";
-        }
-        //if 3 is not finishe
-        else {
-            document.getElementById("4Locked").style.display = "block";
-            document.getElementById("4Factor").style.display = "none";
-            document.getElementById("4Done").style.display = "none";
-        }
-    } else {
+    //5
+    else if (Cookies.get("5Finish") != 1) {
         document.getElementById("4Locked").style.display = "none";
         document.getElementById("4Factor").style.display = "none";
         document.getElementById("4Done").style.display = "block";
+        document.getElementById("Locked3Trophy").style.display = "none";
+        document.getElementById("Locked4Trophy").style.display = "block";
+        document.getElementById("5Locked").style.display = "none";
+        document.getElementById("5Factor").style.display = "block";
+        document.getElementById("5Done").style.display = "none";
     }
-    //5
-    if (Cookies.get("5Finish") != "1") {
-        //if 4 is finished
-        if (Cookies.get("4Finish") == "1") {
-            document.getElementById("5Locked").style.display = "none";
-            document.getElementById("5Factor").style.display = "block";
-            document.getElementById("5Done").style.display = "none";
-        }
-        //if 4 is not finished
-        else {
-            document.getElementById("5Locked").style.display = "block";
-            document.getElementById("5Factor").style.display = "none";
-            document.getElementById("5Done").style.display = "none";
-        }
-    } else {
+    //final
+    else {
+        //grey out 5
         document.getElementById("5Locked").style.display = "none";
         document.getElementById("5Factor").style.display = "none";
         document.getElementById("5Done").style.display = "block";
-    }
 
-    //final
-    if (Cookies.get("5Finish") != "1") {
-        document.getElementById("6Locked").style.display = "block";
-        document.getElementById("final").style.display = "none";
-    }
-    else {
-        document.getElementById("6Locked").style.display = "none";
+        //grey out 1
+        document.getElementById("1Factor").style.display = "none";
+        document.getElementById("1Done").style.display = "block";
+
+        //display final
+        document.getElementById("Locked0Trophy").style.display = "none";
+        document.getElementById("Locked1Trophy").style.display = "none";
+        document.getElementById("Locked2Trophy").style.display = "none";
+        document.getElementById("Locked3Trophy").style.display = "none";
+        document.getElementById("Locked4Trophy").style.display = "none";
         document.getElementById("final").style.display = "block";
     }
 }
@@ -432,17 +386,24 @@ function displayFinish() {
     document.getElementById("challengeResult").style.display = "block";
     document.getElementById("challengeScore").innerHTML =
         "Congratulations! You have successfully finished the SAFETY CHALLENGE with a final score of " + score + ".";
+    if (Cookies.get("inserted") == 'undefined') {
+        SaveDocument();
+        Cookies.set("inserted", 1);
+    }
+    
 }
 
 function restartChallenge() {
+    Cookies.set("inserted", 'undefined');
+
     document.getElementById("challengeResult").style.display = "none";
 
     //reset all scores
-    Cookies.set("2Finish", "0");
-    Cookies.set("1Finish", "0");
-    Cookies.set("3Finish", "0");
-    Cookies.set("5Finish", "0");
-    Cookies.set("4Finish", "0");
+    Cookies.set("1Finish", 0);
+    Cookies.set("2Finish", 0);
+    Cookies.set("3Finish", 0);
+    Cookies.set("4Finish", 0);
+    Cookies.set("5Finish", 0);
 
     //display all factor again
     document.getElementById("1Factor").style.display = "block";
@@ -464,15 +425,23 @@ function restartChallenge() {
     document.getElementById("5Locked").style.display = "block";
     document.getElementById("5Factor").style.display = "none";
     document.getElementById("5Done").style.display = "none";
-    
+
+    //lock treasure
+    document.getElementById("Locked1Trophy").style.display = "none";
+    document.getElementById("Locked2Trophy").style.display = "none";
+    document.getElementById("Locked3Trophy").style.display = "none";
+    document.getElementById("Locked4Trophy").style.display = "none";
+    document.getElementById("final").style.display = "none";
+    document.getElementById("Locked0Trophy").style.display = "block";
+
 }
 
 function notNow() {
     document.getElementById("challengeResult").style.display = "none";
 }
 
-console.log("2 score: " + Cookies.get("2"));
 console.log("1 score: " + Cookies.get("1"));
+console.log("2 score: " + Cookies.get("2"));
 console.log("3 score: " + Cookies.get("3"));
-console.log("5 score: " + Cookies.get("5"));
 console.log("4 score: " + Cookies.get("4"));
+console.log("5 score: " + Cookies.get("5"));

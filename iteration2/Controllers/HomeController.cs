@@ -61,7 +61,8 @@ namespace iteration2.Controllers
 
             //get LGA by postcode
             string[] LGAs = SQLConnection.getLGAByPostcode(postcode).Split(',');
-            
+            LGAs = LGAs.Take(LGAs.Count() - 1).ToArray();
+
             //get each alcohol related by each lga.
             for (int i = 0; i < LGAs.Length; i++)
             {
@@ -98,15 +99,7 @@ namespace iteration2.Controllers
 
             //put data in viewbag
             ViewBag.LGAs = string.Join(",", LGAs);
-            ViewBag.alcohol_lga = String.Format("{0:0.00}", alcohol_lga);
-            ViewBag.alcohol_total = String.Format("{0:0.00}", alcohol_total);
-            ViewBag.alcohol_imp = ChallengerHelper.getFullImportanceName(alcohol_imp);
-
-            ViewBag.speeding_imp = ChallengerHelper.getFullImportanceName(speeding_imp);
-            ViewBag.speedingData = speeding.Skip(13);
-
-            ViewBag.fatigue_imp = ChallengerHelper.getFullImportanceName(fatigue_imp);
-            ViewBag.fatigueData = fatigue.Skip(13);
+            ViewBag.distributions = string.Join(",", distributions);
 
 
             //four factors and get weight for specific factor.
@@ -216,6 +209,17 @@ namespace iteration2.Controllers
 
             return View(mappedQuestions);
         }
+        
+        //insert into database
+        //[HttpPost]
+        public ActionResult InsertIntoDatabase(Score score
+            //string postcode, string council_name, string year, string month, string day, string week, 
+            //string drunk_score, string speeding_score, string distraction_score, string fatigue_score, string total_score
+            )
+        {
+            SQLConnection.insertScore(score);
+            return null;
+        }
 
         //generate pdf for challenge
         public ActionResult PrintViewToPdf()
@@ -239,6 +243,12 @@ namespace iteration2.Controllers
         public ActionResult Test()
         {
             return View();
+        }
+
+        public ActionResult Ranking()
+        {
+            RankingList rankingList = SQLConnection.getRankingByAll();
+            return View(rankingList);
         }
     }
 }

@@ -183,7 +183,7 @@
                                                 <ul class="nav sf-menu clearfix">
                                                     <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
                                                     <li class="active" style="cursor:pointer;"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Explore">Safety Intelligence<span class="over1"></span></a></li>
                                                     @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
                                             </div>
@@ -225,8 +225,9 @@
                             <div class="box2">
                                 <div class="pages_title" style="color:white;">SAFETY CHALLENGE</div>
                                 <h5>Click on the dancing cars below to know what factors contributes to car accidents in your neighbourhood. Complete the questions that follow each factor to <b>unlock your prize!</b></h5>
-                                <p>To restart the challenge, go to the HOME page and enter in a postcode</p>
-                                <p>Remember, it is important to <i>think and act responsibly</i> while on the road</p>
+                                <p>To restart the challenge, go to the HOME page and enter in a new postcode.</p>
+                                <p>If you enter the same postcode, you can continue your previous challenge.</p>
+                                <p>Remember, it is important to <i>think and act responsibly</i> while on the road.</p>
                             </div>
                             <div id="map" style="height:600px;">
                                 <ul class="thumbnails thumbnails-iisotope" id="isotope-items">
@@ -236,13 +237,13 @@
                                                 @*<a href="~/Content/images/gallery/1.jpg">*@
                                                 <figure id="1Factor" onclick="level1()">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/1drunk.jpg" alt="Lorem" />
+                                                        <img src="~/Content/images/challenge/1drunk.jpg" alt="Level 1 Drunk" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
                                                 <figure id="1Done" style="display:none;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/1trophy.jpg" alt="Lorem" />
+                                                        <img src="~/Content/images/challenge/1drunk.jpg" alt="Level 1 Drunk" style="opacity: 0.4; filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
@@ -266,13 +267,37 @@
                                         <div class="thumb-isotope">
                                             <div class="thumbnail clearfix">
                                                 @*<a href="~/Content/images/gallery/1.jpg">*@
-                                                <figure id="6Locked" style="display:block;">
+                                                <figure id="Locked0Trophy" style="display:block;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/5trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                        <img src="~/Content/images/challenge/0trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
-                                                <figure id="final" onclick="getTreasure()">
+                                                <figure id="Locked1Trophy" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/1trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="Locked2Trophy" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/2trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="Locked3Trophy" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/3trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="Locked4Trophy" style="display:none;">
+                                                    <span>
+                                                        <img src="~/Content/images/challenge/4trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                    </span>
+                                                    <em></em>
+                                                </figure>
+                                                <figure id="final" onclick="getTreasure()" style="display:none">
                                                     <span class="fasize">
                                                         <img src="~/Content/images/challenge/5trophy.jpg" alt="Lorem">
                                                     </span>
@@ -306,19 +331,19 @@
                                                 @*<a href="~/Content/images/gallery/2.jpg">*@
                                                 <figure id="2Locked" style="display:block;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/2speeding.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                        <img src="~/Content/images/challenge/2speeding.jpg" alt="Level 2 Speeding locked" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
                                                 <figure id="2Factor" onclick="level2()" style="display:none;">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/2speeding.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/2speeding.jpg" alt="Level 2 Speeding">
                                                         <em></em>
                                                     </span>
                                                 </figure>
                                                 <figure id="2Done" style="display:none;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/2trophy.jpg" alt="Lorem" />
+                                                        <img src="~/Content/images/challenge/2speeding.jpg" alt="Level 2 Speeding greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
@@ -341,19 +366,19 @@
                                                 @*<a href="~/Content/images/gallery/2.jpg">*@
                                                 <figure id="5Locked" style="display:block;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/5general.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                        <img src="~/Content/images/challenge/5general.jpg" alt="Level 5 General locked" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
                                                 <figure id="5Factor" onclick="level5()" style="display:none;">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/5general.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/5general.jpg" alt="Level 5 General">
                                                         <em></em>
                                                     </span>
                                                 </figure>
                                                 <figure id="5Done" style="display:none;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/5trophy.jpg" alt="Lorem" />
+                                                        <img src="~/Content/images/challenge/5general.jpg" alt="Level 5 General greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
@@ -376,19 +401,19 @@
                                                 @*<a href="~/Content/images/gallery/2.jpg">*@
                                                 <figure id="3Locked" style="display:block;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction locked" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
                                                 <figure id="3Factor" onclick="level3()" style="display:none;">
                                                     <span id="3Factor" class="fasize">
-                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction">
                                                         <em></em>
                                                     </span>
                                                 </figure>
                                                 <figure id="3Done" style="display:none;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/3trophy.jpg" alt="Lorem" />
+                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
@@ -402,19 +427,19 @@
                                                 @*<a href="~/Content/images/gallery/1.jpg">*@
                                                 <figure id="4Locked" style="display:block;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/4fatigue.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" />
+                                                        <img src="~/Content/images/challenge/4fatigue.jpg" alt="Level 4 Fatigue locked" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
                                                 <figure id="4Factor" onclick="level4()" style="display:none;">
                                                     <span class="fasize">
-                                                        <img src="~/Content/images/challenge/4fatigue.jpg" alt="Lorem">
+                                                        <img src="~/Content/images/challenge/4fatigue.jpg" alt="Level 4 Fatigue">
                                                         <em></em>
                                                     </span>
                                                 </figure>
                                                 <figure id="4Done" style="display:none;">
                                                     <span>
-                                                        <img src="~/Content/images/challenge/4trophy.jpg" alt="Lorem" />
+                                                        <img src="~/Content/images/challenge/4fatigue.jpg" alt="Level 4 Fatigue greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" />
                                                     </span>
                                                     <em></em>
                                                 </figure>
@@ -452,17 +477,22 @@
                                 <p id="introduction_line4"></p>
                                 <p id="introduction_line5"></p>
                                 <div id="drunk" style="display:none; width:auto; height:auto; margin: 0 auto;">
-                                    <div class='tableauPlaceholder' id='viz1537176328691' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbySpeeding&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarCrashesbySpeeding&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbySpeeding&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
-                                    <script type='text/javascript'>var divElement = document.getElementById('viz1537176328691'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '827px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                                    <div class='tableauPlaceholder' id='viz1537867787709' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarAccidentbyDrunkDriving&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarAccidentbyDrunkDriving&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarAccidentbyDrunkDriving&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                    <script type='text/javascript'>var divElement = document.getElementById('viz1537867787709'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '800px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                 </div>
-                                <div id="speeding" style="display:none; width:400px; height:400px; margin: 0 auto;">
-                                    <canvas id="speedingChart" width="100" height="100"></canvas>
+                                <div id="speeding" style="display:none; width:auto; height:auto; margin: 0 auto;">
+                                    <div class='tableauPlaceholder' id='viz1537867812391' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbySpeeding&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarCrashesbySpeeding&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbySpeeding&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                    <script type='text/javascript'>var divElement = document.getElementById('viz1537867812391'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '800px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                 </div>
-                                <div id="fatigue" style="display:none; width:400px; height:400px; margin: 0 auto;">
-                                    <canvas id="fatigueChart" width="100" height="100"></canvas>
+                                <div id="fatigue" style="display:none; width:auto; height:auto; margin: 0 auto;">
+                                    <div class='tableauPlaceholder' id='viz1537867834083' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbyFatiguedDriving&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarCrashesbyFatiguedDriving&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbyFatiguedDriving&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                    <script type='text/javascript'>var divElement = document.getElementById('viz1537867834083'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '800px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                                 </div>
                                 <div id="distraction" style="display:none; margin: 0 auto;"></div>
-                                    <div id="general" style="display:none; margin: 0 auto;"></div>
+                                <div id="general" style="display:none; width:auto; height:auto; margin: 0 auto;">
+                                    <div class='tableauPlaceholder' id='viz1537867854499' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbyDefectiveVehicle&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarCrashesbyDefectiveVehicle&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbyDefectiveVehicle&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                    <script type='text/javascript'>var divElement = document.getElementById('viz1537867854499'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '800px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                                </div>
                                 <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="continueToChallenge()"> Continue </a>
                             </div>
 
@@ -489,7 +519,7 @@
 
                         </div>
 
-                        <div id="finish" style="display:none; width:100%; height:600px;">
+                        <div id="finish" style="display:none; width:100%; height:auto;">
                             <div style="color:black;font-size:20px;">
                                 Congratulation! You have finished this Factor!
                             </div>
@@ -545,7 +575,7 @@
     <script src="~/Scripts/templateJS/jquery.isotope.min.js"></script>
     <script src="~/Scripts/templateJS/bootstrap.js"></script>
     <script src="~/Scripts/templateJS/touchTouch.jquery.js"></script>
-    <script src="~/Scripts/Chart.min.js"></script>
+    
     <script>
         // CAROUFSEDSEL SLIDER 1
         $(document).ready(function () {
@@ -648,9 +678,6 @@
         }
     </script>
 
-
-
-
     <link href="~/Content/customCSS/Challenge.css" rel="stylesheet" />
 
     <script>
@@ -658,154 +685,57 @@
         var speeding_imp = "@ViewBag.speeding_imp";
         var fatigue_imp = "@ViewBag.fatigue_imp";
         var data = @Html.Raw(Json.Encode(Model));
-        var speedingData = @Html.Raw(Json.Encode(ViewBag.speedingData)) + "";
-        var speedingDataArray = speedingData.split(',').map(Number);
 
-        var fatigueData = @Html.Raw(Json.Encode(ViewBag.fatigueData)) + "";
-        var fatigueDataArray = fatigueData.split(',').map(Number);
+        var LGAs = "@ViewBag.LGAs".split(",");
 
-        var drunk_lga = @ViewBag.alcohol_lga;
-        var drunk_total = @ViewBag.alcohol_total;
-
-        var LGAs = "@ViewBag.LGAs";
-        LGAs = LGAs.slice(0, -1);
+        var distributions = "@ViewBag.distributions".split(",");
         var postcode = @ViewBag.postcode;
-        //console.log(postcode)
-        //console.log(speedingDataArray);
 
-        //test
-        //var test = @Html.Raw(Json.Encode(ViewBag.test));
-        console.log(alcohol_imp);
-        console.log(speeding_imp);
-        console.log(fatigue_imp);
-        //console.log(test);
-    console.log(data);
+        console.log(data);
     </script>
-    <script>
-        var ctx = document.getElementById("speedingChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["2013", "2014", "2015", "2016", "2017"],
-                datasets: [{
-                    label: 'Number of car accidents related to factor',
-                    data: speedingDataArray,//[12, 19, 3, 5, 2],
-                    backgroundColor:
-                        'rgba(255, 99, 132, 1)'//,
-                    //'rgba(54, 162, 235, 0.2)',
-                    //'rgba(255, 206, 86, 0.2)',
-                    //'rgba(75, 192, 192, 0.2)',
-                    //'rgba(153, 102, 255, 0.2)',
-                    //'rgba(255, 159, 64, 0.2)'
-                    ,
-                    borderColor:
-                        'rgba(255,99,132,1)'//,
-                    //'rgba(54, 162, 235, 1)',
-                    //'rgba(255, 206, 86, 1)',
-                    //'rgba(75, 192, 192, 1)',
-                    //'rgba(153, 102, 255, 1)',
-                    //'rgba(255, 159, 64, 1)'
-                    ,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
-    <script>
-        var ctx = document.getElementById("fatigueChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["2013", "2014", "2015", "2016", "2017"],
-                datasets: [{
-                    label: 'Number of car accidents related to factor',
-                    data: fatigueDataArray,//[12, 19, 3, 5, 2],
-                    backgroundColor:
-                        'rgba(255, 99, 132, 1)'
-                    //'rgba(54, 162, 235, 0.2)',
-                    //'rgba(255, 206, 86, 0.2)',
-                    //'rgba(75, 192, 192, 0.2)',
-                    //'rgba(153, 102, 255, 0.2)',
-                    //'rgba(255, 159, 64, 0.2)'
-                    ,
-                    borderColor:
-                        'rgba(255,99,132,1)'
-                    //'rgba(54, 162, 235, 1)',
-                    //'rgba(255, 206, 86, 1)',
-                    //'rgba(75, 192, 192, 1)',
-                    //'rgba(153, 102, 255, 1)',
-                    //'rgba(255, 159, 64, 1)'
-                    ,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
-    <script>
-        var ctx = document.getElementById("drunkChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["Victoria", "Current Council(s)"],
-                datasets: [{
-                    label: 'Percentage',
-                    data: [drunk_total, drunk_lga],
-                    backgroundColor:
-                        'rgba(255, 99, 132, 1)'
-                    //'rgba(54, 162, 235, 0.2)',
-                    //'rgba(255, 206, 86, 0.2)',
-                    //'rgba(75, 192, 192, 0.2)',
-                    //'rgba(153, 102, 255, 0.2)',
-                    //'rgba(255, 159, 64, 0.2)'
-                    ,
-                    borderColor:
-                        'rgba(255,99,132,1)'
-                    //'rgba(54, 162, 235, 1)',
-                    //'rgba(255, 206, 86, 1)',
-                    //'rgba(75, 192, 192, 1)',
-                    //'rgba(153, 102, 255, 1)',
-                    //'rgba(255, 159, 64, 1)'
-                    ,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    @*<script src="~/Scripts/customJS/Challenge.js"></script>*@
     <script src="~/Scripts/customJS/Challenge.js"></script>
     <script>
         function backHome() {
             Cookies.set("scrollDown", "1");
             window.location = "/Home/Index";
 
+        }
+
+        function SaveDocument() {
+            if (Array.isArray(LGAs)) {
+                LGAs = LGAs[0];
+            }
+            var record = {
+                "postcode": postcode,
+                "council_name": LGAs,
+                "year": "@DateTime.Now.Year",
+                "month": "@DateTime.Now.Month",
+                "day": "@DateTime.Now.Day",
+                "week": "@DateTime.Now.DayOfYear",
+                "drunk_score": Cookies.get("1") / distributions[0] + "",
+                "speeding_score": Cookies.get("2") / distributions[1] + "",
+                "distraction_score": Cookies.get("3") / distributions[2] + "",
+                "fatigue_score": Cookies.get("4") / distributions[3] + "",
+                "general_score": Cookies.get("5") / distributions[4] + "",
+                "total_score": score + ""
+            };
+            $.ajax({
+                url: "/Home/InsertIntoDatabase",
+                type: "POST",
+                contentType: "application/json;",
+                data: "{score:" + JSON.stringify(record) + "}",
+                success: function (mydata) {
+                    //alert("Saved");
+                    console.log(mydata);
+                },
+                error: function (xhr, textStatus, error) {
+                    console.log(xhr.statusText);
+                    console.log(textStatus);
+                    console.log(error);
+                }
+            });
         }
     </script>
 </body>

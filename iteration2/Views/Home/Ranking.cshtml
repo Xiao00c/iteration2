@@ -1,0 +1,439 @@
+﻿@model iteration2.Models.RankingList
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ranking</title>
+</head>
+<body>
+    <div id="total">
+        <h2>Total Ranking</h2>
+        <table>
+            <tr>
+                <th>Ranking</th>
+                <th>Council Name</th>
+                <th>Ranking</th>
+            </tr>
+            <tr>
+                <td>No.1</td>
+                <td id="Trank1">Total No.1</td>
+                <td id="Trank1S">1</td>
+            </tr>
+            <tr>
+                <td>No.2</td>
+                <td id="Trank2">Total No.2</td>
+                <td id="Trank2S">2</td>
+            </tr>
+            <tr>
+                <td>No.3</td>
+                <td id="Trank3">Total No.3</td>
+                <td id="Trank3S">3</td>
+            </tr>
+            <tr>
+                <td>No.4</td>
+                <td id="Trank4">Total No.4</td>
+                <td id="Trank4S">4</td>
+            </tr>
+            <tr>
+                <td>No.5</td>
+                <td id="Trank5">Total No.5</td>
+                <td id="Trank5S">5</td>
+            </tr>
+        </table>
+    </div>
+    <div id="this week">
+        <h2>This week ranking</h2>
+        <table>
+            <tr>
+                <th>Ranking</th>
+                <th>Council Name</th>
+                <th>Ranking</th>
+            </tr>
+            <tr>
+                <td>No.1</td>
+                <td id="Wrank1">This week No.1</td>
+                <td id="Wrank1S">1</td>
+            </tr>
+            <tr>
+                <td>No.2</td>
+                <td id="Wrank2">This week No.2</td>
+                <td id="Wrank2S">2</td>
+            </tr>
+            <tr>
+                <td>No.3</td>
+                <td id="Wrank3">This week No.3</td>
+                <td id="Wrank3S">3</td>
+            </tr>
+            <tr>
+                <td>No.4</td>
+                <td id="Wrank4">This week No.4</td>
+                <td id="Wrank4S">4</td>
+            </tr>
+            <tr>
+                <td>No.5</td>
+                <td id="Wrank5">This week No.5</td>
+                <td id="Wrank5S">5</td>
+            </tr>
+        </table>
+    </div>
+    <div class="date1 clearfix" id="postcodeInput">
+        <div ng-app="myapp" ng-controller="postcodeController">
+            <h2>Check your council ranking</h2>
+            <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" placeholder="e.g. 3162" />
+            <br />
+            <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+                <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
+            </ul>
+            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" class="button1"> check </a>
+        </div>
+        <div id="postcodeRanking">
+            
+        </div>
+    </div>
+    <div class="date1 clearfix" id="postcodeValidation" style="display:none">
+        <p id="postcode_line1">Well, we did not found any data based on your input postcode. Would you like to input again?</p>
+        <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="inputAgain()"> Input Again </a>
+    </div>
+
+    <div id="control">
+        <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('drunk')" class="button1" id="btn_drunk">drunk</a>
+        <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('speeding')" class="button1" id="btn_speeding">speeding</a>
+        <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('distraction')" class="button1" id="btn_distraction">distraction</a>
+        <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('fatigue')" class="button1" id="btn_fatigue">fatigue</a>
+        <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('general')" class="button1" id="btn_general">general</a>
+    </div>
+    <div id="sections">
+        <h2 id="factorDesc"> drunk barchart </h2>
+        <div id="drunk" style="width:500px; height:500px; display:block;" class="chart">
+            <canvas id="drunkChart"></canvas>
+        </div>
+        <div id="speeding" style="width:500px; height:500px; display:none;" class="chart">
+            <canvas id="speedingChart"></canvas>
+        </div>
+        <div id="distraction" style="width:500px; height:500px; display:none;" class="chart">
+            <canvas id="distractionChart"></canvas>
+        </div>
+        <div id="fatigue" style="width:500px; height:500px; display:none;" class="chart">
+            <canvas id="fatigueChart"></canvas>
+        </div>
+        <div id="general" style="width:500px; height:500px; display:none;" class="chart">
+            <canvas id="generalChart"></canvas>
+        </div>
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/customJS/postcodes.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("postcodeController", function ($scope) {
+            $scope.postcodeList = postcodeString;
+            $scope.complete = function (string) {
+                var output = [];
+                angular.forEach($scope.postcodeList, function (input) {
+                    if (input.indexOf(string) >= 0) {
+                        output.push(input);
+                    }
+                });
+                $scope.filterPostcode = output;
+            }
+            $scope.fillTextbox = function (string) {
+                $scope.postcode = string;
+                $scope.hidethis = true;
+            }
+        })
+    </script>
+    <script>
+        function checkPostcode() {
+            var text = document.getElementById("postcodeText").value;
+            if (text == "") {
+                document.getElementById("postcode_line1").innerHTML = "Hey, you gave us nothing! We need a postcode! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
+                document.getElementById("postcodeInput").style.display = "none";
+                document.getElementById("postcodeValidation").style.display = "block";
+            }
+            //if input 4 digit and is valid
+            else if (3000 <= parseInt(text, 10) || parseInt(text, 10) <= 3999 || 8000 <= parseInt(text, 10) || parseInt(text, 10) <= 8999) {
+                if (postcodes.includes(parseInt(text))) {
+                    checkInRankingList(text);
+                }
+                else {
+                    document.getElementById("postcode_line1").innerHTML = "Sorry, we could not find any data based on given postcode. Please input a neighbourhood postcode instead.";
+                    document.getElementById("postcodeInput").style.display = "none";
+                    document.getElementById("postcodeValidation").style.display = "block";
+                }
+            }
+            else {
+                document.getElementById("postcode_line1").innerHTML = "Hey, the postcode you gave us is invalid! Please input a valid postcode.";
+                document.getElementById("postcodeInput").style.display = "none";
+                document.getElementById("postcodeValidation").style.display = "block";
+            }
+
+        }
+
+        function inputAgain() {
+            document.getElementById("postcodeText").value = "";
+            document.getElementById("postcodeInput").style.display = "block";
+            document.getElementById("postcodeValidation").style.display = "none";
+        }
+
+        function checkInRankingList(postcode) {
+            var inList = false;
+            for (var i = 0; i < data.total.length; i++) {
+                if (data.total[i].postcodes.includes(text)) {
+                    document.getElementById("postcodeRanking").innerHTML = "Your input postcode relates to Council " + data.total[i].council_name + ", and its ranking is " + (i + 1) + ".";
+                    inList = true;
+                }
+            }
+            if (!inList) {
+                document.getElementById("postcodeRanking").innerHTML = "We cannot find your postcode.";
+            }
+
+        }
+    </script>
+    <script>
+        var data = @Html.Raw(Json.Encode(Model));
+        console.log(data);
+
+        //set total and week ranking
+        var total = data.total;
+        for (var i = 0; i < total.length && i < 5; i++) {
+            document.getElementById("Trank" + (i + 1)).innerHTML = total[i].council_name;
+            document.getElementById("Trank" + (i + 1) + "S").innerHTML = total[i].score;
+        };
+
+        var week = data.week;
+        for (var i = 0; i < week.length && i < 5; i++) {
+            document.getElementById("Wrank" + (i + 1)).innerHTML = week[i].council_name;
+            document.getElementById("Wrank" + (i + 1) + "S").innerHTML = week[i].score;
+        };
+
+        //set sections
+        //drunk
+        var drunk = data.drunk;
+        var drunkCouncils = [];
+        var drunkScores = [];
+        for (var i = 0; i < drunk.length && i < 5; i++) {
+            drunkCouncils.push(drunk[drunk.length - 1 - i].council_name);
+        }
+        for (var i = 0; i < drunk.length && i < 5; i++) {
+            drunkScores.push(drunk[drunk.length - 1 - i].score);
+        }
+
+        //speeding
+        var speeding = data.speeding;
+        var speedingCouncils = [];
+        var speedingScores = [];
+        for (var i = 0; i < speeding.length && i < 5; i++) {
+            speedingCouncils.push(speeding[speeding.length - 1 - i].council_name);
+        }
+        for (var i = 0; i < speeding.length && i < 5; i++) {
+            speedingScores.push(speeding[speeding.length - 1 - i].score);
+        }
+
+
+        //distraction
+        var distraction = data.distraction;
+        var distractionCouncils = [];
+        var distractionScores = [];
+        for (var i = 0; i < distraction.length && i < 5; i++) {
+            distractionCouncils.push(distraction[distraction.length - 1 - i].council_name);
+        }
+        for (var i = 0; i < distraction.length && i < 5; i++) {
+            distractionScores.push(distraction[distraction.length - 1 - i].score);
+        }
+
+        //fatigue
+        var fatigue = data.fatigue;
+        var fatigueCouncils = [];
+        var fatigueScores = [];
+        for (var i = 0; i < fatigue.length && i < 5; i++) {
+            fatigueCouncils.push(fatigue[fatigue.length - 1 - i].council_name);
+        }
+        for (var i = 0; i < fatigue.length && i < 5; i++) {
+            fatigueScores.push(fatigue[fatigue.length - 1 - i].score);
+        }
+
+        //general
+        var general = data.general;
+        var generalCouncils = [];
+        var generalScores = [];
+        for (var i = 0; i < general.length && i < 5; i++) {
+            generalCouncils.push(general[general.length - 1 - i].council_name);
+        }
+        for (var i = 0; i < general.length && i < 5; i++) {
+            generalScores.push(general[general.length - 1 - i].score);
+        }
+    </script>
+    <script>
+        function selectFactor(factor) {
+            //display chart title
+            document.getElementById("factorDesc").innerHTML = factor + " barchart";
+
+            //hide charts and display factor
+            var charts = document.getElementsByClassName("chart");
+            for (var i = 0; i < charts.length; i++) {
+                charts[i].style.display = "none";
+            }
+            document.getElementById(factor).style.display = "block";
+        }
+    </script>
+
+
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script>
+        var ctx = document.getElementById("drunkChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: drunkCouncils,
+                datasets: [{
+                    label: 'Score',
+                    data: drunkScores,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById("speedingChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: speedingCouncils,
+                datasets: [{
+                    label: 'Score',
+                    data: speedingScores,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById("distractionChart").getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: distractionCouncils,
+                datasets: [{
+                    label: 'Score',
+                    data: distractionScores,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById("fatigueChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: fatigueCouncils,
+                datasets: [{
+                    label: 'Score',
+                    data: fatigueScores,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById("generalChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: generalCouncils,
+                datasets: [{
+                    label: 'Score',
+                    data: generalScores,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

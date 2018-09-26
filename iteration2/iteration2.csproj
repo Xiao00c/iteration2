@@ -158,6 +158,9 @@
     <Compile Include="Models\ChallengerHelper.cs" />
     <Compile Include="Models\MappedQuestions.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Ranking.cs" />
+    <Compile Include="Models\RankingList.cs" />
+    <Compile Include="Models\Score.cs" />
     <Compile Include="Models\SQLConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,6 +193,7 @@
     <Content Include="Content\images\background4.jpg" />
     <Content Include="Content\images\bicycle.png" />
     <Content Include="Content\images\certificate.jpg" />
+    <Content Include="Content\images\challenge\0trophy.jpg" />
     <Content Include="Content\images\challenge\1drunk.jpg" />
     <Content Include="Content\images\challenge\1trophy.jpg" />
     <Content Include="Content\images\challenge\2speeding.jpg" />
@@ -1164,6 +1168,8 @@
     <Content Include="Views\Home\Certificate.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\InsertIntoDatabase.cshtml" />
+    <Content Include="Views\Home\Ranking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

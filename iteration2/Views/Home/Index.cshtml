@@ -154,7 +154,7 @@
                                                 <ul class="nav sf-menu clearfix">
                                                     <li class="active"><a href="/Home/Index">Home<span class="over1"></span></a></li>
                                                     <li><a onclick='scrollDown()' style="cursor: pointer;">Challenge<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
+                                                    <li><a href="/Home/Explore">Safety Intelligence<span class="over1"></span></a></li>
                                                     @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
                                             </div>
@@ -234,7 +234,7 @@
                             <div class="date1 clearfix" id="postcodeInput">
                                 <br />
                                 <div class="txt2" style="text-align:center;" ng-app="myapp" ng-controller="postcodeController">
-                                    <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" />
+                                    <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" placeholder="e.g. 3162"/>
                                     <br />
                                     <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
                                         <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
@@ -244,7 +244,7 @@
                                 </div>
                             </div>
                             <div class="date1 clearfix" id="postcodeValidation" style="display:none">
-                                <p id="postcode_line1">Well, we have found out that your input postcode is invalid. Would you like to input again? or use a default postcode instead? (default postcode is 3162, which is caulfield campus)</p>
+                                <p id="postcode_line1">Well, we did not found any data based on your input postcode. Would you like to input again? or use a default postcode instead? (default postcode is 3162, which is caulfield campus)</p>
                                 <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="inputAgain()"> Input Again </a><a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="useDefault()"> Use Default </a>
                             </div>
 
@@ -435,7 +435,6 @@
             }, 500);
         }
     </script>
-    <script src="~/Scripts/customJS/postcodes.js"></script>
     <script>
         function checkPostcode() {
             var text = document.getElementById("postcodeText").value;
@@ -444,19 +443,25 @@
                 document.getElementById("postcodeInput").style.display = "none";
                 document.getElementById("postcodeValidation").style.display = "block";
             }
-            else {
+            //if input 4 digit and is valid
+            else if (3000 <= parseInt(text, 10) || parseInt(text, 10) <= 3999 || 8000 <= parseInt(text, 10) || parseInt(text, 10) <= 8999) {
                 if (postcodes.includes(parseInt(text))) {
-                    console.log("yes");
                     window.location = "/Home/Challenge?postcode=" + text
                     Cookies.set("currentPostcode", text);
                     document.getElementById("postcodeText").disabled = true;
                 }
                 else {
-                    document.getElementById("postcode_line1").innerHTML = "Hey, the postcode you gave us is invalid! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
+                    document.getElementById("postcode_line1").innerHTML = "Sorry, we could not find any data based on given postcode. Input a neighbourhood postcode or use the default one? (default postcode is 3162, which is caulfield campus)";
                     document.getElementById("postcodeInput").style.display = "none";
                     document.getElementById("postcodeValidation").style.display = "block";
                 }
             }
+            else {
+                document.getElementById("postcode_line1").innerHTML = "Hey, the postcode you gave us is invalid! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
+                document.getElementById("postcodeInput").style.display = "none";
+                document.getElementById("postcodeValidation").style.display = "block";
+            }
+
         }
 
         function inputAgain() {

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using iteration2.Models;
@@ -162,38 +164,6 @@ namespace iteration2.Controllers
             fatigueQuestions = fatigueQuestions.GetRange(0, Int32.Parse(weights[3]) / 10);
             generalQuestions = generalQuestions.GetRange(0, Int32.Parse(weights[4]) / 10);
 
-            //sort all questionlists
-            //List<List<Question>> shuffledQuestions = new List<List<Question>>();
-            //string[] descs = { };
-            //for (int i = 4; i > -1; i--)
-            //{
-            //    if (disDic.Values[i] == "drunk")
-            //    {
-            //        shuffledQuestions.Add(drunkQuestions);
-            //        descs[5 - i] = "drunk";
-            //    }
-            //    else if (disDic.Values[i] == "speeding")
-            //    {
-            //        shuffledQuestions.Add(speedingQuestions);
-            //        descs[5 - i] = "speeding";
-            //    }
-            //    else if (disDic.Values[i] == "distraction")
-            //    {
-            //        shuffledQuestions.Add(distractionQuestions);
-            //        descs[5 - i] = "distraction";
-            //    }
-            //    else if (disDic.Values[i] == "fatigue")
-            //    {
-            //        shuffledQuestions.Add(fatigueQuestions);
-            //        descs[5 - i] = "fatigue";
-            //    }
-            //    else if (disDic.Values[i] == "general")
-            //    {
-            //        shuffledQuestions.Add(generalQuestions);
-            //        descs[5 - i] = "general";
-            //    }
-            //}
-
             //hardcoded
             List<List<Question>> shuffledQuestions = new List<List<Question>>();
             shuffledQuestions.Add(drunkQuestions);
@@ -211,11 +181,7 @@ namespace iteration2.Controllers
         }
         
         //insert into database
-        //[HttpPost]
-        public ActionResult InsertIntoDatabase(Score score
-            //string postcode, string council_name, string year, string month, string day, string week, 
-            //string drunk_score, string speeding_score, string distraction_score, string fatigue_score, string total_score
-            )
+        public ActionResult InsertIntoDatabase(Score score)
         {
             SQLConnection.insertScore(score);
             return null;
@@ -249,6 +215,21 @@ namespace iteration2.Controllers
         {
             RankingList rankingList = SQLConnection.getRankingByAll();
             return View(rankingList);
+        }
+
+        //Notice the parameter that you can now pass in
+        public FileStreamResult SaveData(string note)
+        {
+
+            //todo: add some data from your database into that string:
+            var string_with_your_data = note;
+
+            //Build your stream
+            var byteArray = Encoding.ASCII.GetBytes(string_with_your_data);
+            var stream = new MemoryStream(byteArray);
+
+            //Returns a file that will match your value passed in (ie TestID2.txt)
+            return File(stream, "text/plain", String.Format("{0}.txt", "note"));
         }
     }
 }

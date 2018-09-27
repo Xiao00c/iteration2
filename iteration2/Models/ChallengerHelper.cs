@@ -8,6 +8,7 @@ namespace iteration2.Models
 {
     public static class ChallengerHelper
     {
+        private static Random rng = new Random();
 
         public static List<Question> generateDataFromDataTable(DataTable data)
         {
@@ -47,6 +48,7 @@ namespace iteration2.Models
                     int qid = Int32.Parse(data.Rows[i].ItemArray[0].ToString());
                     string qdesc = data.Rows[i].ItemArray[1].ToString();
                     string qfactor = data.Rows[i].ItemArray[2].ToString();
+                    answers = shuffleAnswers(answers);
 
                     Question ques = new Question(qid, qdesc, qfactor, answers);
                     questions.Add(ques);
@@ -59,10 +61,24 @@ namespace iteration2.Models
             return questions;
         }
 
+        //shuffle answers
+        public static List<Answer> shuffleAnswers(List<Answer> answers)
+        {
+            int n = answers.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Answer value = answers[k];
+                answers[k] = answers[n];
+                answers[n] = value;
+            }
+            return answers;
+        }
+
         //shuffle questions
         public static List<Question> shuffleQuestions(List<Question> questions)
         {
-            Random rng = new Random();
             int n = questions.Count;
             while (n > 1)
             {

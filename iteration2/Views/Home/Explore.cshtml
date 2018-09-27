@@ -32,10 +32,6 @@
             border-radius: 15px;
         }
 
-        .exp_hover:hover {
-            color: #c2d1b8;
-        }
-
         #myBtn {
             display: none;
             position: fixed;
@@ -54,6 +50,29 @@
 
             #myBtn:hover {
                 background-color: #aec5a5;
+            }
+
+        .exp_tab {
+            font-size: 32px;
+            position: relative;
+            line-height: 40px;
+            font-family: 'Baloo Bhaijaan', cursive;
+            color: #ffeed4;
+            margin: 10px 0 0px 0;
+            display: inline-block;
+            cursor: pointer;
+            background-color: rgb(220, 148, 139);
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .exp_tab_active {
+            background-color: #ffeed4;
+            color: rgb(220, 148, 139);
+        }
+
+            .exp_tab:hover {
+                background-color: #ebc3b1;
             }
     </style>
 </head>
@@ -127,9 +146,10 @@
                                             <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
-                                                    <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Index">Home<span class="over1"></span></a></li>
                                                     <li style="cursor:pointer;"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
-                                                    <li class="active"><a href="/Home/Explore">Safety Intelligence<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Ranking">Ranking<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;" class="active"><a href="/Home/Explore">Safety Intelligence<span class="over1"></span></a></li>
                                                     @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
                                             </div>
@@ -211,14 +231,18 @@
                             <div class="col-md-12">
                             </div>
                         </div>
+                        <div>
+                            <input id="notes" type="text" value=""/>
+                        </div>
+                        <button type="button" onclick="download(document.getElementById('notes').value)"> download txt. </button>
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- START ANNOUNCEMENTS -->
                                 <div class="announcements">
                                     <div>
-                                        <div id="heatMapTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #ffeed4; color: #dc948b;margin:10px 0 0px 0" onclick="displayMap('heatMap')">Heat Map </div>
-                                        <div id="StatisticsTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #dc948b; color: #ffeed4;margin:10px 0 0px 0" onclick="displayMap('Statistics')">Statistics </div>
-                                        <div id="bubbleMapTab" class="announcements_title exp_hover" style="display:inline-block;cursor:pointer;background-color: #dc948b; color: #ffeed4;margin:10px 0 0px 0" onclick="displayMap('bubbleMap')">Bubble Map </div>
+                                        <div id="heatMapTab"    class="exp_tab"  onclick="displayMap('heatMap')"   > Heat Map </div>
+                                        <div id="StatisticsTab" class="exp_tab"  onclick="displayMap('Statistics')"> Statistics </div>
+                                        <div id="bubbleMapTab"  class="exp_tab"  onclick="displayMap('bubbleMap')" > Bubble Map </div>
                                     </div>
                                     <div id="heatMap" style="display:block;">
                                         <div class='tableauPlaceholder' id='viz1537856998058' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinVictoria&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='views&#47;ExploringNumberofInjuredorFatalityinVictoria&#47;Dashboard1?:embed=y&amp;:display_count=y' /> <param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinVictoria&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
@@ -265,18 +289,21 @@
     <script src="~/Scripts/templateJS/bootstrap.js"></script>
 
     <script>
-        function displayMap(id) {
-            //display tab
-            document.getElementById("heatMapTab").style.backgroundColor = "#dc948b";
-            document.getElementById("StatisticsTab").style.backgroundColor = "#dc948b";
-            document.getElementById("bubbleMapTab").style.backgroundColor = "#dc948b";
-            document.getElementById(id + "Tab").style.backgroundColor = "#ffeed4";
+        window.onload = defaultMap;
 
-            //display text
-            document.getElementById("heatMapTab").style.color = "#ffeed4";
-            document.getElementById("StatisticsTab").style.color = "#ffeed4";
-            document.getElementById("bubbleMapTab").style.color = "#ffeed4";
-            document.getElementById(id + "Tab").style.color = "#dc948b";
+        function defaultMap() {
+            document.getElementById("heatMapTab").classList.add("exp_tab_active");
+        }
+
+        function displayMap(id) {
+            //remove all tab class
+            var tabs = document.getElementsByClassName("exp_tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("exp_tab_active");
+            }
+
+            //add active to id
+            document.getElementById(id + "Tab").classList.add("exp_tab_active");
 
             //display tableau
             document.getElementById("heatMap").style.display = "none";
@@ -327,38 +354,7 @@
         });
         $(window).on('load', function () { });
     </script>
-    <script type="text/javascript">
-
-        document.onmousemove = animateCircles;
-
-        var colors = ['#ccc', '#6cf', '#eba13a'];
-
-        function animateCircles(event) {
-            let circle = document.createElement("div");
-            circle.setAttribute("class", "circle");
-            document.body.appendChild(circle);
-
-            circle.style.left = event.clientX + 'px';
-            circle.style.top = event.clientY + 'px';
-
-            var color = colors[Math.floor(Math.random() * colors.length)];
-            circle.style.borderColor = color;
-
-            circle.style.transition = "all 0.5s linear 0s";
-
-            circle.style.left = circle.offsetLeft - 20 + 'px';
-            circle.style.top = circle.offsetTop - 20 + 'px';
-
-            circle.style.width = "50px";
-            circle.style.height = "50px";
-            circle.style.borderWidth = "5px";
-            circle.style.opacity = 0;
-
-            setTimeout(function () {
-                circle.remove();
-            }, 500);
-        }
-    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
         function backHome() {
@@ -366,6 +362,52 @@
             window.location = "/Home/Index";
 
         }
+
+        function download(text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', "note.txt");
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+            //document.getElementById('notes').value = "";
+        }
     </script>
+    <script type="text/javascript">
+
+    document.onmousemove = animateCircles;
+
+    var colors = ['#ccc', '#6cf', '#eba13a'];
+
+    function animateCircles(event) {
+        let circle = document.createElement("div");
+        circle.setAttribute("class", "circle");
+        document.body.appendChild(circle);
+
+        circle.style.left = event.clientX + 'px';
+        circle.style.top = event.clientY + 'px';
+
+        var color = colors[Math.floor(Math.random() * colors.length)];
+        circle.style.borderColor = color;
+
+        circle.style.transition = "all 0.5s linear 0s";
+
+        circle.style.left = circle.offsetLeft - 20 + 'px';
+        circle.style.top = circle.offsetTop - 20 + 'px';
+
+        circle.style.width = "50px";
+        circle.style.height = "50px";
+        circle.style.borderWidth = "5px";
+        circle.style.opacity = 0;
+
+        setTimeout(function () {
+            circle.remove();
+        }, 500);
+    }
+</script>
 </body>
 </html>

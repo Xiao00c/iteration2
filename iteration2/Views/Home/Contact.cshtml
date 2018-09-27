@@ -136,10 +136,11 @@
                                             <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
-                                                    <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Challenge?postcode=3162">Challenge<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
-                                                    <li class="active"><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Index">Home<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Explore">Exploration<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Ranking">Ranking<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;" class="active"><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -310,6 +311,7 @@
     <script src="~/Scripts/templateJS/bootstrap.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe2q1gFSd75jKUnTDPq0nZWaMlEu6vL30"></script>
     <script src="~/Scripts/templateJS/map.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
     <script>
         // CAROUFSEDSEL SLIDER
@@ -381,6 +383,13 @@
             setTimeout(function () {
                 circle.remove();
             }, 500);
+        }
+    </script>
+    <script>
+        function backHome() {
+            Cookies.set("scrollDown", "1");
+            window.location = "/Home/Index";
+
         }
     </script>
 </body>

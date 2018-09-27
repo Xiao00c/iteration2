@@ -181,9 +181,10 @@
                                             <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
-                                                    <li><a href="/Home/Index">Home<span class="over1"></span></a></li>
-                                                    <li class="active" style="cursor:pointer;"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
-                                                    <li><a href="/Home/Explore">Safety Intelligence<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Index">Home<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;" class="active"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Ranking">Ranking<span class="over1"></span></a></li>
+                                                    <li style="cursor:pointer;"><a href="/Home/Explore">Safety Intelligence<span class="over1"></span></a></li>
                                                     @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
                                                 </ul>
                                             </div>
@@ -463,10 +464,31 @@
 
                         <div id="ques" class="container">
                             <div id="question_desc" class="question"></div>
-                            <div class="button4" onclick="clickChoice1()" style="cursor:pointer;"><span id="option1">Default choice 1 description</span></div>
-                            <div class="button4" onclick="clickChoice2()" style="cursor:pointer;"><span id="option2">Default choice 2 description</span></div>
-                            <div class="button4" onclick="clickChoice3()" style="cursor:pointer;"><span id="option3">Default choice 3 description</span></div>
-                            <div class="challengeProgress" id="progress">Your Challenge Progress</div>
+                            <div id="choices">
+                                <div class="button4" onclick="clickChoice(1)" style="cursor:pointer;"><span id="option1">Default choice 1 description</span></div>
+                                <div class="button4" onclick="clickChoice(2)" style="cursor:pointer;"><span id="option2">Default choice 2 description</span></div>
+                                <div class="button4" onclick="clickChoice(3)" style="cursor:pointer;"><span id="option3">Default choice 3 description</span></div>
+                                <div class="challengeProgress" id="progress">Your Challenge Progress</div>
+                            </div>
+                            <div id="result" style="display:none;">
+                                <h2>Check This Out</h2>
+                                <div style="display:inline-block;">
+                                    <div id="correct" style="display:block;">
+                                        <img style="height:200px;" src="~/Content/GIFs/quiz-good.gif" />
+                                    </div>
+                                    <div id="incorrect" style="display:block;">
+                                        <img style="height:200px;" src="~/Content/GIFs/quiz-hide.gif" />
+                                    </div>
+                                </div>
+                                <div style="display:inline-block;">
+                                    <p id="explanation" style="font-size:20px;width:400px">
+                                        This is the result div. only show when incorrect answer.
+                                    </p>
+                                    <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" class="explanation-btn" onclick="continueChallenge()">
+                                        Got it!
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                         <div id="introduction" class="container" style="display:none">
@@ -498,27 +520,6 @@
 
                         </div>
 
-                        <div id="result" class="explanation container">
-                            <h2>Check This Out</h2>
-                            <div style="display:inline-block;">
-                                <div id="correct" style="display:block;">
-                                    <img style="height:200px;" src="~/Content/GIFs/quiz-good.gif" />
-                                </div>
-                                <div id="incorrect" style="display:block;">
-                                    <img style="height:200px;" src="~/Content/GIFs/quiz-hide.gif" />
-                                </div>
-                            </div>
-                            <div style="display:inline-block;">
-                                <p id="explanation" style="font-size:20px;width:400px">
-                                    This is the result div. only show when incorrect answer.
-                                </p>
-                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" class="explanation-btn" onclick="continueChallenge()">
-                                    Got it!
-                                </a>
-                            </div>
-
-                        </div>
-
                         <div id="finish" style="display:none; width:100%; height:auto;">
                             <div style="color:black;font-size:20px;">
                                 Congratulation! You have finished this Factor!
@@ -530,7 +531,7 @@
                             </p>
                         </div>
 
-                        <div id="challengeResult" class="challengeResult">
+                        <div id="challengeResult" style="display:none;">
                             <h2>Congratulation!</h2>
                             <p id="challengeScore" style="font-size:20px;">
                                 default result.

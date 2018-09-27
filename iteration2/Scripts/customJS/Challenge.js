@@ -177,77 +177,24 @@ function next() {
         console.log(flag + "," + currentScore);
         document.getElementById("ques").style.display = "none";
         document.getElementById("finish").style.display = "block";
-
-        //unlock(flag);
-
-        //return to factors page after 5 seconds
-        //var time = 5;
-        //setInterval(function () {
-        //    time--;
-        //    document.getElementById("countDown").innerHTML = time;
-        //    if (time == 0) {
-        //        window.location = "Factors";
-        //    }
-        //}, 1000);
     }
 
 }
 
-//function unlock(flag) {
-//    if (flag <= 4) {
-//        document.getElementById(flag + 1 + "Locked").style.display = "none";
-//        document.getElementById(flag + 1 + "Factor").style.display = "block";
-//        console.log(flag + 1);
-//    }
-//    else if (flag == 5) {
-//        document.getElementById()
-//    }
-//}
-
-
-function clickChoice1() {
+//click an option
+function clickChoice(id) {
     //display explanation.
     document.getElementById("result").style.display = "block";
+    document.getElementById("explanation").innerHTML = getQuestions(flag)[currentEvent]["answers"][id]["explanation"];
 
-    document.getElementById("explanation").innerHTML = getQuestions(flag)[currentEvent]["answers"][0]["explanation"];
-
-    if (getQuestions(flag)[currentEvent]["answers"][0]["correct"] == 0) {
+    //hide choices
+    document.getElementById("choices").style.display = "none";
+    if (getQuestions(flag)[currentEvent]["answers"][id]["correct"] == 0) {
         //incorrect
         displayWrong();
     } else {
         displayCorrect();
         currentScore = currentScore + 10;
-        //next();
-    }
-}
-
-function clickChoice2() {
-    //display explanation.
-    document.getElementById("result").style.display = "block";
-    document.getElementById("explanation").innerHTML = getQuestions(flag)[currentEvent]["answers"][1]["explanation"];
-
-    if (getQuestions(flag)[currentEvent]["answers"][1]["correct"] == 0) {
-        //incorrect
-        displayWrong();
-    } else {
-        displayCorrect();
-        currentScore = currentScore + 10;
-        //next();
-    }
-}
-
-function clickChoice3() {
-    //display explanation.
-    document.getElementById("result").style.display = "block";
-    document.getElementById("explanation").innerHTML = getQuestions(flag)[currentEvent]["answers"][1]["explanation"];
-
-    if (getQuestions(flag)[currentEvent]["answers"][1]["correct"] == 0) {
-        //incorrect
-        displayWrong();
-    } else {
-        displayCorrect();
-        currentScore = currentScore + 10;
-        //next();
     }
 }
 
@@ -270,6 +217,7 @@ function displayCorrect() {
 
 function continueChallenge() {
     document.getElementById("result").style.display = "none";
+    document.getElementById("choices").style.display = "block";
     next();
 }
 
@@ -383,6 +331,7 @@ function checkProgress() {
 }
 
 function displayFinish() {
+    document.getElementById("map").style.display = "none";
     document.getElementById("challengeResult").style.display = "block";
     document.getElementById("challengeScore").innerHTML =
         "Congratulations! You have successfully finished the SAFETY CHALLENGE with a final score of " + score + ".";
@@ -396,6 +345,7 @@ function displayFinish() {
 function restartChallenge() {
     Cookies.set("inserted", 'undefined');
 
+    document.getElementById("map").style.display = "block";
     document.getElementById("challengeResult").style.display = "none";
 
     //reset all scores
@@ -437,6 +387,7 @@ function restartChallenge() {
 }
 
 function notNow() {
+    document.getElementById("map").style.display = "block";
     document.getElementById("challengeResult").style.display = "none";
 }
 

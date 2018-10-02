@@ -50,13 +50,15 @@ namespace iteration2.Controllers
         //new version: map, challenge all in one page.
         public ActionResult Challenge(string postcode)
         {
-            ViewBag.postcode = postcode;
+            
+            
             //if no postcode
             if (null == postcode)
             {
                 //default
                 postcode = "3162";
             }
+            ViewBag.postcode = postcode;
 
             double alcohol_lga = 0.00;
             double alcohol_total = SQLConnection.getAlhocolPercentageByLGA("");

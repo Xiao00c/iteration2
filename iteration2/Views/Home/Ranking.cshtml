@@ -60,9 +60,40 @@
             }
 
         .chart {
-            width:auto; 
-            height:auto; 
-            display:none;
+            width: auto;
+            height: auto;
+            display: none;
+            overflow: auto;
+            overflow-y: hidden;
+        }
+
+        .list-group {
+            z-index: 999;
+            position: absolute;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .list-group-item {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .active {
+            background-color: #dc948b;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        td {
+            font-size: 20px;
         }
     </style>
 
@@ -128,7 +159,7 @@
                                 <!-- START LOGO -->
                                 <div class="logo_wrapper">
                                     <a href="/Home/Index" class="logo">
-                                        <img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo (test)" />
+                                        <img src="~/Content/images/gallery/nav.png" alt="Safetychampion Logo" />
                                     </a>
                                 </div>
                                 <!-- END LOGO -->
@@ -161,10 +192,10 @@
                             <div class="caroufredsel_slider1_wrapper">
                                 <a class="prev1" href="index.html#"></a>
                                 <a class="next1" href="index.html#"></a>
-                                <ul id="caroufredsel_slider1" class="clearfix">
+                                <ul id="caroufredsel_slider1" class="clearfix" style="cursor:default;" >
                                     <li>
-                                        <div class="caroufredsel_slide1">
-                                            <img src="~/Content/images/challenge/challengeHome2.jpg" alt="Slider2" class="img" />
+                                        <div class="caroufredsel_slide1"  style="cursor:default;">
+                                            <img src="~/Content/images/ranking2.jpg" alt="Slider2" class="img" style="cursor:default;" />
                                             <div class="txt1">Scroll Down and View Rankings</div>
                                         </div>
                                     </li>
@@ -181,48 +212,142 @@
             <div class="container">
                 <div class="row">
                     <div class="span12">
-                        <div id="total">
-                            <h2>Total Ranking</h2>
-                            <table>
-                                <tr>
-                                    <th>Ranking</th>
-                                    <th>Council Name</th>
-                                    <th>Ranking</th>
-                                </tr>
-                                <tr>
-                                    <td>No.1</td>
-                                    <td id="Trank1">Total No.1</td>
-                                    <td id="Trank1S">1</td>
-                                </tr>
-                                <tr>
-                                    <td>No.2</td>
-                                    <td id="Trank2">Total No.2</td>
-                                    <td id="Trank2S">2</td>
-                                </tr>
-                                <tr>
-                                    <td>No.3</td>
-                                    <td id="Trank3">Total No.3</td>
-                                    <td id="Trank3S">3</td>
-                                </tr>
-                                <tr>
-                                    <td>No.4</td>
-                                    <td id="Trank4">Total No.4</td>
-                                    <td id="Trank4S">4</td>
-                                </tr>
-                                <tr>
-                                    <td>No.5</td>
-                                    <td id="Trank5">Total No.5</td>
-                                    <td id="Trank5S">5</td>
-                                </tr>
-                            </table>
+                        <div class="col-md-12">
+                            <!-- START TOTAL RANKING -->
+                            <div class="school-classes">
+                                <div class="school-classes_title">TOTAL RANKING</div>
+                                <table style="width:55%">
+                                    <tr>
+                                        <th></th>
+                                        <th><h5>COUNCIL NAME</h5></th>
+                                        <th><h5>SCORE</h5></th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 float-right">1</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="txt2">
+                                                <p id="Trank1">Total No.1</p>
+                                            </div>
+                                        </td>
+                                        <td id="Trank1S">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">2</div>
+                                            </div>
+                                        </td>
+                                        <td id="Trank2">Total No.2</td>
+                                        <td id="Trank2S">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">3</div>
+                                            </div>
+                                        </td>
+                                        <td id="Trank3">Total No.3</td>
+                                        <td id="Trank3S">3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">4</div>
+                                            </div>
+                                        </td>
+                                        <td id="Trank4">Total No.4</td>
+                                        <td id="Trank4S">4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">5</div>
+                                            </div>
+                                        </td>
+                                        <td id="Trank5">Total No.5</td>
+                                        <td id="Trank5S">5</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- END TOTAL RANKING -->
                         </div>
-                        <div id="this week">
+                        <div class="col-md-12">
+                            <!-- START WEEKLY RANKING -->
+                            <div class="school-classes">
+                                <div class="school-classes_title">WEEKLY RANKING</div>
+                                <table style="width:55%">
+                                    <tr>
+                                        <th></th>
+                                        <th><h5>COUNCIL NAME</h5></th>
+                                        <th><h5>SCORE</h5></th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 float-right">1</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="txt2">
+                                                <p id="Wrank1">Total No.1</p>
+                                            </div>
+                                        </td>
+                                        <td id="Wrank1S">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">2</div>
+                                            </div>
+                                        </td>
+                                        <td id="Wrank2">Total No.2</td>
+                                        <td id="Wrank2S">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">3</div>
+                                            </div>
+                                        </td>
+                                        <td id="Wrank3">Total No.3</td>
+                                        <td id="Wrank3S">3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">4</div>
+                                            </div>
+                                        </td>
+                                        <td id="Wrank4">Total No.4</td>
+                                        <td id="Wrank4S">4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="date2 clearfix">
+                                                <div class="txt1 c4">5</div>
+                                            </div>
+                                        </td>
+                                        <td id="Wrank5">Total No.5</td>
+                                        <td id="Wrank5S">5</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- END WEEKLY RANKING -->
+                        </div>
+
+                        
+
+                        @*<div id="this week">
                             <h2>This week ranking</h2>
                             <table>
                                 <tr>
                                     <th>Ranking</th>
                                     <th>Council Name</th>
-                                    <th>Ranking</th>
+                                    <th>Score</th>
                                 </tr>
                                 <tr>
                                     <td>No.1</td>
@@ -250,16 +375,17 @@
                                     <td id="Wrank5S">5</td>
                                 </tr>
                             </table>
-                        </div>
+                        </div>*@
                         <div class="date1 clearfix" id="postcodeInput">
                             <div ng-app="myapp" ng-controller="postcodeController">
                                 <h2>Check your council ranking</h2>
+                                <p>We can check if your suburb has completed challenges before based on your given postcode.</p>
                                 <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" placeholder="e.g. 3162" />
                                 <br />
                                 <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
                                     <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
                                 </ul>
-                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" class="button1"> check </a>
+                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" class="button1"> Check </a>
                             </div>
                             <div id="postcodeRanking">
 
@@ -271,14 +397,14 @@
                         </div>
 
                         <div id="control">
-                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('drunk')" class="button1" id="btn_drunk">drunk</a>
-                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('speeding')" class="button1" id="btn_speeding">speeding</a>
-                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('distraction')" class="button1" id="btn_distraction">distraction</a>
-                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('fatigue')" class="button1" id="btn_fatigue">fatigue</a>
-                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('general')" class="button1" id="btn_general">general</a>
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('drunk')" class="button1 factor active" id="btn_drunk">Drinking and Driving</a>
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('speeding')" class="button1 factor" id="btn_speeding">Speeding</a>
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('distraction')" class="button1 factor" id="btn_distraction">Distraction</a>
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('fatigue')" class="button1 factor" id="btn_fatigue">Fatigue</a>
+                            <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="selectFactor('general')" class="button1 factor" id="btn_general">General Safety</a>
                         </div>
                         <div id="sections">
-                            <h2 id="factorDesc"> drunk barchart </h2>
+                            <h2 id="factorDesc"> Drunk barchart </h2>
                             <div id="drunk" class="chart" style="display:block;">
                                 <canvas id="drunkChart"></canvas>
                             </div>
@@ -332,7 +458,14 @@
             }
         })
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
+        function backHome() {
+            Cookies.set("scrollDown", "1");
+            window.location = "/Home/Index";
+
+        }
+
         function checkPostcode() {
             var text = document.getElementById("postcodeText").value;
             if (text == "") {
@@ -368,13 +501,14 @@
         function checkInRankingList(postcode) {
             var inList = false;
             for (var i = 0; i < data.total.length; i++) {
-                if (data.total[i].postcodes.includes(text)) {
+                if (data.total[i].postcodes.includes(postcode)) {
                     document.getElementById("postcodeRanking").innerHTML = "Your input postcode relates to Council " + data.total[i].council_name + ", and its ranking is " + (i + 1) + ".";
                     inList = true;
+                    break;
                 }
             }
             if (!inList) {
-                document.getElementById("postcodeRanking").innerHTML = "We cannot find your postcode.";
+                document.getElementById("postcodeRanking").innerHTML = "You are the first from your Suburb to take up our challenge! Complete the challenge and view your rank. ";
             }
 
         }
@@ -406,7 +540,7 @@
             drunkCouncils.push(drunk[drunk.length - 1 - i].council_name);
         }
         for (var i = 0; i < drunk.length && i < showMax; i++) {
-            drunkScores.push(drunk[drunk.length - 1 - i].score);
+            drunkScores.push(drunk[drunk.length - 1 - i].score * 100);
         }
 
         //speeding
@@ -417,7 +551,7 @@
             speedingCouncils.push(speeding[speeding.length - 1 - i].council_name);
         }
         for (var i = 0; i < speeding.length && i < showMax; i++) {
-            speedingScores.push(speeding[speeding.length - 1 - i].score);
+            speedingScores.push(speeding[speeding.length - 1 - i].score * 100);
         }
 
 
@@ -429,7 +563,7 @@
             distractionCouncils.push(distraction[distraction.length - 1 - i].council_name);
         }
         for (var i = 0; i < distraction.length && i < showMax; i++) {
-            distractionScores.push(distraction[distraction.length - 1 - i].score);
+            distractionScores.push(distraction[distraction.length - 1 - i].score * 100);
         }
 
         //fatigue
@@ -440,7 +574,7 @@
             fatigueCouncils.push(fatigue[fatigue.length - 1 - i].council_name);
         }
         for (var i = 0; i < fatigue.length && i < showMax; i++) {
-            fatigueScores.push(fatigue[fatigue.length - 1 - i].score);
+            fatigueScores.push(fatigue[fatigue.length - 1 - i].score * 100);
         }
 
         //general
@@ -451,13 +585,29 @@
             generalCouncils.push(general[general.length - 1 - i].council_name);
         }
         for (var i = 0; i < general.length && i < showMax; i++) {
-            generalScores.push(general[general.length - 1 - i].score);
+            generalScores.push(general[general.length - 1 - i].score * 100);
         }
     </script>
     <script>
         function selectFactor(factor) {
             //display chart title
-            document.getElementById("factorDesc").innerHTML = factor + " barchart";
+            switch (factor) {
+                case "drunk": document.getElementById("factorDesc").innerHTML = "Drinking and Driving"; break;
+                case "speeding": document.getElementById("factorDesc").innerHTML = "Speeding"; break;
+                case "distraction": document.getElementById("factorDesc").innerHTML = "Distraction"; break;
+                case "fatigue": document.getElementById("factorDesc").innerHTML = "Fatigue"; break;
+                case "general": document.getElementById("factorDesc").innerHTML = "General Safety"; break;
+            }
+            //document.getElementById("factorDesc").innerHTML = factor + " barchart";
+
+            //remove all active class
+            var buttons = document.getElementsByClassName("factor");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            //active selected button
+            document.getElementById("btn_" + factor).classList.add("active");
 
             //hide charts and display factor
             var charts = document.getElementsByClassName("chart");
@@ -477,7 +627,7 @@
             data: {
                 labels: drunkCouncils,
                 datasets: [{
-                    label: 'Score',
+                    label: 'Awareness',
                     data: drunkScores,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255,99,132,1)',
@@ -499,15 +649,14 @@
                 }
             }
         });
-    </script>
-    <script>
+
         var ctx = document.getElementById("speedingChart").getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: speedingCouncils,
                 datasets: [{
-                    label: 'Score',
+                    label: 'Awareness',
                     data: speedingScores,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255,99,132,1)',
@@ -529,8 +678,7 @@
                 }
             }
         });
-    </script>
-    <script>
+
         var ctx = document.getElementById("distractionChart").getContext('2d');
 
         var myChart = new Chart(ctx, {
@@ -538,7 +686,7 @@
             data: {
                 labels: distractionCouncils,
                 datasets: [{
-                    label: 'Score',
+                    label: 'Awareness',
                     data: distractionScores,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255,99,132,1)',
@@ -560,15 +708,14 @@
                 }
             }
         });
-    </script>
-    <script>
+
         var ctx = document.getElementById("fatigueChart").getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: fatigueCouncils,
                 datasets: [{
-                    label: 'Score',
+                    label: 'Awareness',
                     data: fatigueScores,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255,99,132,1)',
@@ -590,15 +737,14 @@
                 }
             }
         });
-    </script>
-    <script>
+
         var ctx = document.getElementById("generalChart").getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: generalCouncils,
                 datasets: [{
-                    label: 'Score',
+                    label: 'Awareness',
                     data: generalScores,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255,99,132,1)',

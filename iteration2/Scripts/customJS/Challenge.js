@@ -335,6 +335,8 @@ function displayFinish() {
     document.getElementById("challengeResult").style.display = "block";
     document.getElementById("challengeScore").innerHTML =
         "Congratulations! You have successfully finished the SAFETY CHALLENGE with a final score of " + score + ".";
+    document.getElementById("inputName").style.display = "block";
+    //document.getElementById("downloadCertificate_btn").style.display = "block";
     if (Cookies.get("inserted") == 'undefined') {
         SaveDocument();
         Cookies.set("inserted", 1);
@@ -343,6 +345,9 @@ function displayFinish() {
 }
 
 function restartChallenge() {
+    document.getElementById("nameText").innerHTML = "What about have your certificate? But we need your name to personalize it.";
+    document.getElementById("inputName").style.display = "block";
+    //document.getElementById("downloadCertificate_btn").style.display = "block";
     Cookies.set("inserted", 'undefined');
 
     document.getElementById("map").style.display = "block";

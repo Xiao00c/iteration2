@@ -226,7 +226,7 @@
     <Content Include="Content\images\done.jpeg" />
     <Content Include="Content\images\Drunk.png" />
     <Content Include="Content\images\Echo.png" />
-    <Content Include="Content\images\exploration\exploreHome.jpg" />
+    <Content Include="Content\images\exploration\exploreHome1.jpg" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\images\gallery\1.jpg" />
     <Content Include="Content\images\gallery\2.jpg" />
@@ -264,6 +264,7 @@
     <Content Include="Content\images\Peter.jpg" />
     <Content Include="Content\images\px1.png" />
     <Content Include="Content\images\px2.png" />
+    <Content Include="Content\images\ranking2.jpg" />
     <Content Include="Content\images\Sarvesh.jpg" />
     <Content Include="Content\images\slider\slide01.png" />
     <Content Include="Content\images\Speeding.png" />

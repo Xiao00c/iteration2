@@ -22,70 +22,79 @@
         }
 
         .background {
-            background-image:url('../../Content/images/certificate.jpg');
-            width:100%;
-            height:100%;
-            background-repeat:no-repeat;
-            background-size:cover;
+            background-image: url('../../Content/images/certificate.jpg');
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
-        
+
         .words {
-            padding-top:40%;
-            font-size:25px;
-            align-self:center;
+            padding-top: 25%;
+            font-size: 25px;
+            align-self: center;
+            padding-bottom:20%
         }
     </style>
 </head>
 <body>
     <div class="background">
         <div class="words">
-            <h1>Congratulation you have completed all sections.</h1>
-
-            <h1 id="total" >
+            <h1 id="nameLine">Congratulation you have completed all sections.</h1>
+            <h3>
+                You have successfully completed the Safety Challenge.
+            </h3>
+            <h3>
+                You are now a Safety Champion.
+            </h3>
+            <h3 id="total">
                 default total
-            </h1>
-            <div id="factor1" >
-                default factor 1
-            </div>
-            <div id="factor2" >
-                default factor 2
-            </div>
-            <div id="factor3" >
-                default factor 3
-            </div>
-            <div id="factor4">
-                default factor 4
-            </div>
-            <div id="factor5">
-                default factor 5
-            </div>
+            </h3>
+            @*<div id="factor1">
+                    default factor 1
+                </div>
+                <div id="factor2">
+                    default factor 2
+                </div>
+                <div id="factor3">
+                    default factor 3
+                </div>
+                <div id="factor4">
+                    default factor 4
+                </div>
+                <div id="factor5">
+                    default factor 5
+                </div>*@
         </div>
     </div>
     <script>
         window.onload = check;
 
         function check() {
+            //nameLine
+            document.getElementById("nameLine").innerHTML = "Congratulations " + Cookies.get("name") + "!";
+
             //total
             var total = parseInt(Cookies.get("1")) + parseInt(Cookies.get("2")) + parseInt(Cookies.get("3")) + parseInt(Cookies.get("4")) + parseInt(Cookies.get("5"));
             var maxTotal = parseInt(Cookies.get("1FactorT")) + parseInt(Cookies.get("2FactorT")) + parseInt(Cookies.get("3FactorT")) + parseInt(Cookies.get("4FactorT")) + parseInt(Cookies.get("5FactorT"))
             //test
             console.log(total);
-            document.getElementById("total").innerHTML = "Your Total score is: " + total + "/" + maxTotal;
+            document.getElementById("total").innerHTML = "Your Score is: " + total + "/" + maxTotal;
 
-            //1:
-            document.getElementById("factor1").innerHTML = "Your Drunk section score is: " + Cookies.get("1") + "/" + Cookies.get("1FactorT");
+            ////1:
+            //document.getElementById("factor1").innerHTML = "Your Drunk section score is: " + Cookies.get("1") + "/" + Cookies.get("1FactorT");
 
-            //2
-            document.getElementById("factor2").innerHTML = "Your Speeding section score is: " + Cookies.get("2") + "/" + Cookies.get("2FactorT");
+            ////2
+            //document.getElementById("factor2").innerHTML = "Your Speeding section score is: " + Cookies.get("2") + "/" + Cookies.get("2FactorT");
 
-            //3
-            document.getElementById("factor3").innerHTML = "Your Distraction section score is: " + Cookies.get("3") + "/" + Cookies.get("3FactorT");
+            ////3
+            //document.getElementById("factor3").innerHTML = "Your Distraction section score is: " + Cookies.get("3") + "/" + Cookies.get("3FactorT");
 
-            //4
-            document.getElementById("factor4").innerHTML = "Your Fatigue section score is: " + Cookies.get("4") + "/" + Cookies.get("4FactorT");
+            ////4
+            //document.getElementById("factor4").innerHTML = "Your Fatigue section score is: " + Cookies.get("4") + "/" + Cookies.get("4FactorT");
 
-            //5
-            document.getElementById("factor5").innerHTML = "Your General section score is: " + Cookies.get("5") + "/" + Cookies.get("5FactorT");
+            ////5
+            //document.getElementById("factor5").innerHTML = "Your General section score is: " + Cookies.get("5") + "/" + Cookies.get("5FactorT");
         }
     </script>
 </body>

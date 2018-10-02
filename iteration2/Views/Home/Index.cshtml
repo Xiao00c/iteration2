@@ -139,7 +139,7 @@
                                 <!-- START LOGO -->
                                 <div class="logo_wrapper">
                                     <a href="/Home/Index" class="logo">
-                                        <img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo (test)" />
+                                        <img src="~/Content/images/gallery/nav.png" alt="Safetychampion Logo" />
                                     </a>
                                 </div>
                                 <!-- END LOGO -->
@@ -172,9 +172,9 @@
                             <div class="caroufredsel_slider1_wrapper">
                                 <a class="prev1" href="index.html#"></a>
                                 <a class="next1" href="index.html#"></a>
-                                <ul id="caroufredsel_slider1" class="clearfix">
+                                <ul id="caroufredsel_slider1" class="clearfix" style="cursor:default;">
                                     <li>
-                                        <div class="caroufredsel_slide1">
+                                        <div class="caroufredsel_slide1" style="cursor:default;">
                                             <img src="~/Content/images/homeHome6.jpg" alt="Slider2" class="img" />
                                             <div class="txt1">Hello There!</div>
                                         </div>
@@ -189,7 +189,7 @@
             </div>
         </div>
         <!-- START WELCOME -->
-        <div class="welcome_wrapper">
+        <div class="pages_wrapper" style="margin-top:35px;">
             <div class="container">
                 <div class="row">
                     <div class="span12">
@@ -197,7 +197,7 @@
                             <div class="row" align="center">
                                 <div class="span6" style="text-align:center; float:none;">
                                     <div class="welcome_title"><i>"The price of independence is responsibility."</i></div>
-                                    <h5>Welcome to YoungSafetyChampion website</h5>
+                                    <h2>Welcome to Young Safety Champions.</h2>
                                     <p>Children today are more responsible than they are given credit for. This is a place for children to learn about safe practices on the road and prove that they are champions of road safety.</p>
                                     <p>Explore our website and begin your journey to becoming an independent and safe road user.</p>
                                 </div>
@@ -209,7 +209,7 @@
         </div>
         <!-- END WELCOME -->
         <!-- START BANNERS -->
-        <div id="banners" style="margin-top:0px;">
+        @*<div id="banners" style="margin-top:0px;background-color:#fff3e0;padding-bottom:0px;">
             <div class="container">
                 <div name="autoScroll" class="row" style="margin-bottom:50px;">
                     <div class="span5 offset1">
@@ -235,18 +235,17 @@
                             <div class="date1 clearfix" id="postcodeInput">
                                 <br />
                                 <div class="txt2" style="text-align:center;" ng-app="myapp" ng-controller="postcodeController">
-                                    <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" placeholder="e.g. 3162"/>
+                                    <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" placeholder="e.g. 3162" />
                                     <br />
                                     <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
                                         <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
                                     </ul>
                                     <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" class="button1"> start challenge </a>
-                                    @*<h5><a href="#">Convallis inter</a></h5>*@
                                 </div>
                             </div>
                             <div class="date1 clearfix" id="postcodeValidation" style="display:none">
                                 <p id="postcode_line1">Well, we did not found any data based on your input postcode. Would you like to input again? or use a default postcode instead? (default postcode is 3162, which is caulfield campus)</p>
-                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="inputAgain()"> Input Again </a><a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="useDefault()"> Use Default </a>
+                                <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="inputAgain()" class="button1"> Input Again </a><a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="useDefault()" class="button1"> Use Default </a>
                             </div>
 
                         </div>
@@ -271,35 +270,110 @@
                                                 <h6>2. Click "Start Exploration"</h6>
                                             </div>
                                         </div>
-                                        </div>
-                                    </div>
-                                    <div class="date1 clearfix">
-                                        <div class="txt2" style="text-align:center;">
-                                            @*<h5><a href="#"> Explore by yourself. </a></h5>*@
-                                            <br />
-                                            <br />
-                                            <a href="/Home/Explore" class="button3" style="font-size:22px;font-family: 'Baloo Bhaijaan', cursive;"> Explore Now!</a>
-                                            <br />
-                                        </div>
                                     </div>
                                 </div>
+                                <div class="date1 clearfix">
+                                    <div class="txt2" style="text-align:center;">
+                                        @*<h5><a href="#"> Explore by yourself. </a></h5>
+                                        <br />
+                                        <br />
+                                        <a href="/Home/Explore" class="button3" style="font-size:22px;font-family: 'Baloo Bhaijaan', cursive;"> Explore Now!</a>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
                             <!-- END ANNOUNCEMENTS -->
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- END BANNERS -->
-            <!-- START FOOTER -->
-            <footer>
-                <div class="social_wrapper">
-                    <ul class="social clearfix">
-                        <li><a href="https://www.facebook.com/pg/Young-Safety-Champions-326344201469443/about/?ref=page_internal"><i class="fa fa-facebook"></i></a></li>
-                    </ul>
+        </div>*@
+        <!-- END BANNERS -->
+        <!-- START BANNERS 1-->
+        <div class="banners" id="sections" >
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="row">
+                            <div class="span5"> 
+                            <img src="~/Content/images/challenge/challengeHome2.jpg" class="img-responsive" alt=""> 
+                            </div>
+                            <div class="span5 offset1">
+                                <h3>Safety Challenge</h3>
+                                <p>Are you a Safety Champion?</p>
+                                <p id="postcode_line1"> Our Safety Challenge will test you with safety issues in your neighbourhood. Complete all levels to unlock your prize!</p>
+                                <div class="date1 clearfix" id="postcodeInput">
+                                    <div class="txt2" style="text-align:center;" ng-app="myapp" ng-controller="postcodeController">
+                                        <input style="margin: 0 auto;" id="postcodeText" type="text" name="postcode" ng-model="postcode" ng-keyup="complete(postcode)" placeholder="e.g. 3162" />
+                                        <br />
+                                        <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+                                            <li class="list-group-item" ng-repeat="postcodedata in filterPostcode" ng-click="fillTextbox(postcodedata)">{{ postcodedata }}</li>
+                                        </ul>
+                                        <a id="startChallenge_btn" style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="checkPostcode()" class="button1"> start challenge </a>
+                                    </div>
+                                </div>
+                                <div class="date1 clearfix" id="postcodeValidation" style="display:none">
+                                    @*<p id="postcode_line1">Well, we did not found any data based on your input postcode. Would you like to input again? or use a default postcode instead? (default postcode is 3162, which is caulfield campus)</p>*@
+                                    <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="inputAgain()" class="button1"> Input Again </a><a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="useDefault()" class="button1"> Use Default </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="copyright">Joeys on the road © 2018</div>
-            </footer>
-            <!-- END FOOTER -->
+            </div>
         </div>
+        <!-- END BANNERS 1-->
+        <!-- START BANNERS 2 -->
+        <div class="banners" >
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="row">
+                            <div class="span6">
+                                <h3>Find out how well your suburb is aware of road safety.</h3>
+                                <p>Find problem areas and help prevent accidents.</p>
+                                <a href="/Home/Ranking" class="button1" style="font-size:22px;font-family: 'Baloo Bhaijaan', cursive;"> Check Ranking!</a>
+                            </div>
+                            <div class="span5 offset1"> 
+                            <img src="~/Content/images/ranking2.jpg" class="img-responsive" alt=""> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END BANNERS 2-->
+        <!-- START BANNERS 3 -->
+        <div class="banners">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="row">
+                            <div class="span6"> 
+                            <img src="~/Content/images/exploration/exploreHome1.jpg" class="img-responsive" alt=""> 
+                            </div>
+                            <div class="span5">
+                                <h3>How well do you know your neighbourhood?</h3>
+                                <p>Explore you locality with our Safety Intelligence Tool.</p>
+                                <a href="/Home/Explore" class="button1" style="font-size:22px;font-family: 'Baloo Bhaijaan', cursive;"> Explore Now!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END BANNERS3 -->
+        <!-- START FOOTER -->
+        <footer>
+            <div class="social_wrapper">
+                <ul class="social clearfix">
+                    <li><a href="https://www.facebook.com/pg/Young-Safety-Champions-326344201469443/about/?ref=page_internal"><i class="fa fa-facebook"></i></a></li>
+                </ul>
+            </div>
+            <div class="copyright">Joeys on the road © 2018</div>
+        </footer>
+        <!-- END FOOTER -->
     </div>
 
     <!-- JS -->
@@ -351,7 +425,7 @@
             else if (Cookies.get("scrollDown") == "1") {
                 console.log("not from home");
                 $('html, body').animate({
-                    scrollTop: $("#banners").offset().top
+                    scrollTop: $("#sections").offset().top
                 }, 1000);
                 //window.scrollTo(0, 1100);
                 Cookies.set("scrollDown", 'undefined');
@@ -360,7 +434,7 @@
 
         function scrollDown() {
             $('html, body').animate({
-                scrollTop: $("#banners").offset().top
+                scrollTop: $("#sections").offset().top
             }, 1000);
         }
     </script>
@@ -404,7 +478,7 @@
         });
         $(window).on('load', function () { });
     </script>
-    <script type="text/javascript">
+    @*<script type="text/javascript">
 
         document.onmousemove = animateCircles;
 
@@ -435,12 +509,12 @@
                 circle.remove();
             }, 500);
         }
-    </script>
+    </script>*@
     <script>
         function checkPostcode() {
             var text = document.getElementById("postcodeText").value;
             if (text == "") {
-                document.getElementById("postcode_line1").innerHTML = "Hey, you gave us nothing! We need a postcode! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
+                document.getElementById("postcode_line1").innerHTML = "Hey, We need a postcode! Input again or use the default one? (default postcode is 3162, which is caulfield campus)";
                 document.getElementById("postcodeInput").style.display = "none";
                 document.getElementById("postcodeValidation").style.display = "block";
             }
@@ -450,9 +524,11 @@
                     window.location = "/Home/Challenge?postcode=" + text
                     Cookies.set("currentPostcode", text);
                     document.getElementById("postcodeText").disabled = true;
+                    document.getElementById("postcodeText").innerHTML = "challenge page description";
+                    document.getElementById("startChallenge_btn").style.display = "none";
                 }
                 else {
-                    document.getElementById("postcode_line1").innerHTML = "Sorry, we could not find any data based on given postcode. Input a neighbourhood postcode or use the default one? (default postcode is 3162, which is caulfield campus)";
+                    document.getElementById("postcode_line1").innerHTML = "Sorry, we can't find any data based on given postcode. A neighbourhood postcode or use the default one? (default postcode is 3162, which is caulfield campus)";
                     document.getElementById("postcodeInput").style.display = "none";
                     document.getElementById("postcodeValidation").style.display = "block";
                 }
@@ -478,6 +554,7 @@
             Cookies.set("currentPostcode", 3162);
             document.getElementById("postcodeText").value = "3162";
             document.getElementById("postcodeText").disabled = true;
+            document.getElementById("startChallenge_btn").style.display = "none";
         }
     </script>
 </body>

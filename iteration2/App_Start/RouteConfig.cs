@@ -14,16 +14,18 @@ namespace iteration2
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "ChallengeWithPostcode",
+                url: "Home/Challenge/",
+                defaults: new { controller = "Home", action = "Challenge", postcode = 3162 }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: "ChallengeWithPostcode",
-                url: "{controller}/{action}/{postcode}",
-                defaults: new { controller = "Home", action = "Challenge", postcode = UrlParameter.Optional }
-            );
+            
         }
     }
 }

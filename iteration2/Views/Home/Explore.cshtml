@@ -134,7 +134,7 @@
                             <header>
                                 <!-- START LOGO -->
                                 <div class="logo_wrapper">
-                                    <a href="/Home/Index" class="logo"><img src="~/Content/images/gallery/nav.png" alt="Kinder Garten Logo"></a>
+                                    <a href="/Home/Index" class="logo"><img src="~/Content/images/gallery/nav.png" alt="Safetychampion Logo"></a>
                                 </div>
                                 <!-- END LOGO -->
                             </header>
@@ -166,10 +166,10 @@
                             <div class="caroufredsel_slider1_wrapper">
                                 <a class="prev1" href="index.html#"></a>
                                 <a class="next1" href="index.html#"></a>
-                                <ul id="caroufredsel_slider1" class="clearfix">
+                                <ul id="caroufredsel_slider1" class="clearfix" style="cursor:default;">
                                     <li>
-                                        <div class="caroufredsel_slide1">
-                                            <img src="~/Content/images/exploration/exploreHome.jpg" alt="Slider2" class="img">
+                                        <div class="caroufredsel_slide1" style="cursor:default;">
+                                            <img src="~/Content/images/exploration/exploreHome1.jpg" alt="Slider2" class="img" style="cursor:default;" />
                                             <div class="txt1">Scroll down to explore Fuuuun! </div>
                                         </div>
                                     </li>
@@ -231,18 +231,18 @@
                             <div class="col-md-12">
                             </div>
                         </div>
-                        <div>
-                            <input id="notes" type="text" value=""/>
+                        @*<div>
+                            <input id="notes" type="text" value="" />
                         </div>
-                        <button type="button" onclick="download(document.getElementById('notes').value)"> download txt. </button>
+                        <a onclick="download(document.getElementById('notes').value)" class="button1"> download txt. </a>*@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- START ANNOUNCEMENTS -->
                                 <div class="announcements">
                                     <div>
-                                        <div id="heatMapTab"    class="exp_tab"  onclick="displayMap('heatMap')"   > Heat Map </div>
-                                        <div id="StatisticsTab" class="exp_tab"  onclick="displayMap('Statistics')"> Statistics </div>
-                                        <div id="bubbleMapTab"  class="exp_tab"  onclick="displayMap('bubbleMap')" > Bubble Map </div>
+                                        <div id="heatMapTab" class="exp_tab" onclick="displayMap('heatMap')"> Heat Map </div>
+                                        <div id="StatisticsTab" class="exp_tab" onclick="displayMap('Statistics')"> Statistics </div>
+                                        <div id="bubbleMapTab" class="exp_tab" onclick="displayMap('bubbleMap')"> Bubble Map </div>
                                     </div>
                                     <div id="heatMap" style="display:block;">
                                         <div class='tableauPlaceholder' id='viz1537856998058' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinVictoria&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='views&#47;ExploringNumberofInjuredorFatalityinVictoria&#47;Dashboard1?:embed=y&amp;:display_count=y' /> <param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringNumberofInjuredorFatalityinVictoria&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
@@ -258,6 +258,20 @@
                                     </div>
                                 </div>
                                 <!-- END ANNOUNCEMENTS -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- START ANNOUNCEMENTS -->
+                                <div class="announcements">
+                                    <div>
+                                        <div class="exp_tab" > Fines Involved with speeding and offence red light. </div>
+                                    </div>
+                                    <div id="financial">
+                                        <div class='tableauPlaceholder' id='viz1538311557401' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringAmountofFines&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ExploringAmountofFines&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploringAmountofFines&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+                                        <script type='text/javascript'>var divElement = document.getElementById('viz1538311557401'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '800px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -377,7 +391,7 @@
             //document.getElementById('notes').value = "";
         }
     </script>
-    <script type="text/javascript">
+    @*<script type="text/javascript">
 
     document.onmousemove = animateCircles;
 
@@ -408,6 +422,6 @@
             circle.remove();
         }, 500);
     }
-</script>
+</script>*@
 </body>
 </html>

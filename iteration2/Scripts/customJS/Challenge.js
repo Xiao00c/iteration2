@@ -278,6 +278,9 @@ function checkProgress() {
     }
     //3
     else if (Cookies.get("3Finish") != 1) {
+        document.getElementById("1Factor").style.display = "none";
+        document.getElementById("1Done").style.display = "block";
+        document.getElementById("Locked0Trophy").style.display = "none";
         document.getElementById("2Locked").style.display = "none";
         document.getElementById("2Factor").style.display = "none";
         document.getElementById("2Done").style.display = "block";
@@ -289,6 +292,13 @@ function checkProgress() {
     }
     //4
     else if (Cookies.get("4Finish") != 1) {
+        document.getElementById("1Factor").style.display = "none";
+        document.getElementById("1Done").style.display = "block";
+        document.getElementById("Locked0Trophy").style.display = "none";
+        document.getElementById("2Locked").style.display = "none";
+        document.getElementById("2Factor").style.display = "none";
+        document.getElementById("2Done").style.display = "block";
+        document.getElementById("Locked1Trophy").style.display = "none";
         document.getElementById("3Locked").style.display = "none";
         document.getElementById("3Factor").style.display = "none";
         document.getElementById("3Done").style.display = "block";
@@ -300,6 +310,17 @@ function checkProgress() {
     }
     //5
     else if (Cookies.get("5Finish") != 1) {
+        document.getElementById("1Factor").style.display = "none";
+        document.getElementById("1Done").style.display = "block";
+        document.getElementById("Locked0Trophy").style.display = "none";
+        document.getElementById("2Locked").style.display = "none";
+        document.getElementById("2Factor").style.display = "none";
+        document.getElementById("2Done").style.display = "block";
+        document.getElementById("Locked1Trophy").style.display = "none";
+        document.getElementById("3Locked").style.display = "none";
+        document.getElementById("3Factor").style.display = "none";
+        document.getElementById("3Done").style.display = "block";
+        document.getElementById("Locked2Trophy").style.display = "none";
         document.getElementById("4Locked").style.display = "none";
         document.getElementById("4Factor").style.display = "none";
         document.getElementById("4Done").style.display = "block";
@@ -347,7 +368,9 @@ function displayFinish() {
 function restartChallenge() {
     document.getElementById("nameText").innerHTML = "What about have your certificate? But we need your name to personalize it.";
     document.getElementById("inputName").style.display = "block";
-    //document.getElementById("downloadCertificate_btn").style.display = "block";
+    document.getElementById("inputName").disabled = false;
+    document.getElementById("downloadCertificate_btn").style.display = "";
+
     Cookies.set("inserted", 'undefined');
 
     document.getElementById("map").style.display = "block";

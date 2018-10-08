@@ -264,6 +264,13 @@
     <Content Include="Content\images\Peter.jpg" />
     <Content Include="Content\images\px1.png" />
     <Content Include="Content\images\px2.png" />
+    <Content Include="Content\images\quicklinks\Hackathon.png" />
+    <Content Include="Content\images\quicklinks\opendata.png" />
+    <Content Include="Content\images\quicklinks\PTV_BRAND_POS_CMYK.jpg" />
+    <Content Include="Content\images\quicklinks\TAC-Logo.png" />
+    <Content Include="Content\images\quicklinks\VicRoad-Open_Data-Logo.png" />
+    <Content Include="Content\images\quicklinks\VicRoads-Logo-Large-1--1-.png" />
+    <Content Include="Content\images\quicklinks\vicroads2.png" />
     <Content Include="Content\images\ranking2.jpg" />
     <Content Include="Content\images\Sarvesh.jpg" />
     <Content Include="Content\images\slider\slide01.png" />

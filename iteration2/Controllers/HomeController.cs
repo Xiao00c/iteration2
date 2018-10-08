@@ -15,39 +15,22 @@ namespace iteration2.Controllers
         //home page
         public ActionResult Index()
         {
-            //test
-            System.Diagnostics.Debug.WriteLine(SQLConnection.getLGAByPostcode("3008"));
             return View();
         }
 
+        //safety intelligence
         public ActionResult Explore()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Contact()
         {
-            ViewBag.Message = "Your application description page.";
-            SQLConnection.getQuestions();
 
             return View();
         }
 
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
-
-        public ActionResult Factors()
-        {
-
-
-            return View();
-        }
-
-        //new version: map, challenge all in one page.
+        //challenge
         public ActionResult Challenge(string postcode)
         {
             
@@ -72,9 +55,11 @@ namespace iteration2.Controllers
             {
                 alcohol_lga = alcohol_lga + SQLConnection.getAlhocolPercentageByLGA(LGAs[i]);
             }
+            
             alcohol_lga = alcohol_lga / LGAs.Length;
 
             string alcohol_imp = ChallengerHelper.comparePercentage(alcohol_lga, alcohol_total);
+            ViewBag.alcohol_imp = ChallengerHelper.getFullImportanceName(alcohol_imp);
 
             //get Speeding from Queensland
             string[] speeding = SQLConnection.getCrashesByFactor("speeding").Split(',');
@@ -85,7 +70,7 @@ namespace iteration2.Controllers
                 speedingPrevious = int.Parse(speeding[i]) + speedingPrevious;
             }
             string speeding_imp =  ChallengerHelper.calcualteWeightBasedOnYear(speedingPrevious, speedingCurrent);
-
+            ViewBag.speeding_imp = ChallengerHelper.getFullImportanceName(speeding_imp);
 
             //get Fatigue from Queensland
             string[] fatigue = SQLConnection.getCrashesByFactor("fatigue").Split(',');
@@ -96,7 +81,7 @@ namespace iteration2.Controllers
                 fatiguePrevious = int.Parse(fatigue[i]) + fatiguePrevious;
             }
             string fatigue_imp = ChallengerHelper.calcualteWeightBasedOnYear(fatiguePrevious, fatigueCurrent);
-
+            ViewBag.fatigue_imp = ChallengerHelper.getFullImportanceName(fatigue_imp);
 
             //get distribution
             string distributions = SQLConnection.getDistribution(alcohol_imp, speeding_imp, fatigue_imp);
@@ -104,18 +89,11 @@ namespace iteration2.Controllers
             //put data in viewbag
             ViewBag.LGAs = string.Join(",", LGAs);
             ViewBag.distributions = string.Join(",", distributions);
+            
 
 
             //four factors and get weight for specific factor.
             string[] weights = distributions.Split(',');
-        
-            //sort factor distributions with value of factor name.
-            //SortedList<int, string> disDic = new SortedList<int, string>();
-            //disDic.Add(Int32.Parse(weights[0]) / 10, "drunk");
-            //disDic.Add(Int32.Parse(weights[1]) / 10, "speeding");
-            //disDic.Add(Int32.Parse(weights[2]) / 10, "distraction");
-            //disDic.Add(Int32.Parse(weights[3]) / 10, "fatigue");
-            //disDic.Add(Int32.Parse(weights[4]) / 10, "general");
 
             //get questions based on distribution
             List<Question> orderedQuestions = ChallengerHelper.generateDataFromDataTable(SQLConnection.getQuestionsOrderByFactor());
@@ -203,16 +181,13 @@ namespace iteration2.Controllers
             return view;
         }
 
+        //certificate page
         public ActionResult Certificate()
         {
             return View();
         }
 
-        public ActionResult Test()
-        {
-            return View();
-        }
-
+        //ranking page
         public ActionResult Ranking()
         {
             RankingList rankingList = SQLConnection.getRankingByAll();
@@ -220,6 +195,7 @@ namespace iteration2.Controllers
         }
 
         //Notice the parameter that you can now pass in
+        //not used.
         public FileStreamResult SaveData(string note)
         {
 

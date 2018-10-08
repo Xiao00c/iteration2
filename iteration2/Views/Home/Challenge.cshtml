@@ -110,6 +110,7 @@
         .choice_bgc_white {
             background-color: white;
             color:black;
+            padding-left:50px;
         }
 
         table {
@@ -120,6 +121,7 @@
 
         td {
             font-size: 20px;
+            width:20%;
         }
     </style>
 </head>
@@ -201,7 +203,7 @@
                                                     <li style="cursor:pointer;" class="active"><a onclick="backHome()">Challenge<span class="over1"></span></a></li>
                                                     <li style="cursor:pointer;"><a href="/Home/Ranking">Ranking<span class="over1"></span></a></li>
                                                     <li style="cursor:pointer;"><a href="/Home/Explore">Safety Intelligence<span class="over1"></span></a></li>
-                                                    @*<li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>*@
+                                                    <li><a href="/Home/Contact">About Us<span class="over1"></span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -252,80 +254,80 @@
                                         <table style="width:100%">
                                             <tr>
                                                 <td>
-                                                    <figure id="1Factor" onclick="level1()">
+                                                    <div id="1Factor" onclick="level1()">
                                                         <span class="shaking">
                                                             <img src="~/Content/images/challenge/1drunk.jpg" alt="Level 1 Drunk" height="200" width="200" />
                                                         </span>
-                                                    </figure>
-                                                    <figure id="1Done" style="display:none;">
+                                                    </div>
+                                                    <div id="1Done" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/1drunk.jpg" alt="Level 1 Drunk" style="opacity: 0.4; filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
-                                                    </figure>
+                                                    </div>
                                                 </td>
                                                 <td></td>
                                                 <td>
-                                                    <figure id="Locked0Trophy" style="display:block;">
+                                                    <div id="Locked0Trophy" style="display:block;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/0trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="Locked1Trophy" style="display:none;">
+                                                    </div>
+                                                    <div id="Locked1Trophy" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/1trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="Locked2Trophy" style="display:none;">
+                                                    </div>
+                                                    <div id="Locked2Trophy" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/2trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="Locked3Trophy" style="display:none;">
+                                                    </div>
+                                                    <div id="Locked3Trophy" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/3trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="Locked4Trophy" style="display:none;">
+                                                    </div>
+                                                    <div id="Locked4Trophy" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/4trophy.jpg" alt="Lorem" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="final" onclick="getTreasure()" style="display:none">
-                                                        <span class="fasize">
+                                                    </div>
+                                                    <div id="final" onclick="getTreasure()" style="display:none">
+                                                        <span class="shaking">
                                                             <img src="~/Content/images/challenge/5trophy.jpg" alt="Lorem" height="200" width="200">
                                                         </span>
                                                         <em></em>
-                                                    </figure>
+                                                    </div>
                                                 </td>
                                                 <td></td>
                                                 <td>
-                                                    <figure id="5Locked" style="display:block;">
+                                                    <div id="5Locked" style="display:block;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/5general.jpg" alt="Level 5 General locked" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="5Factor" onclick="level5()" style="display:none;">
-                                                        <span class="fasize">
+                                                    </div>
+                                                    <div id="5Factor" onclick="level5()" style="display:none;">
+                                                        <span class="shaking">
                                                             <img src="~/Content/images/challenge/5general.jpg" alt="Level 5 General" height="200" width="200">
                                                             <em></em>
                                                         </span>
-                                                    </figure>
-                                                    <figure id="5Done" style="display:none;">
+                                                    </div>
+                                                    <div id="5Done" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/5general.jpg" alt="Level 5 General greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td height="150" width="200"></td>
+                                                <td height="150"></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -334,50 +336,50 @@
                                             <tr>
                                                 <td></td>
                                                 <td>
-                                                    <figure id="2Locked" style="display:block;">
+                                                    <div id="2Locked" style="display:block;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/2speeding.jpg" alt="Level 2 Speeding locked" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="2Factor" onclick="level2()" style="display:none;">
-                                                        <span class="fasize">
+                                                    </div>
+                                                    <div id="2Factor" onclick="level2()" style="display:none;">
+                                                        <span class="shaking">
                                                             <img src="~/Content/images/challenge/2speeding.jpg" alt="Level 2 Speeding" height="200" width="200">
                                                             <em></em>
                                                         </span>
-                                                    </figure>
-                                                    <figure id="2Done" style="display:none;">
+                                                    </div>
+                                                    <div id="2Done" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/2speeding.jpg" alt="Level 2 Speeding greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
+                                                    </div>
                                                 </td>
                                                 <td></td>
                                                 <td>
-                                                    <figure id="4Locked" style="display:block;">
+                                                    <div id="4Locked" style="display:block;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/4fatigue.jpg" alt="Level 4 Fatigue locked" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="4Factor" onclick="level4()" style="display:none;">
-                                                        <span class="fasize">
+                                                    </div>
+                                                    <div id="4Factor" onclick="level4()" style="display:none;">
+                                                        <span class="shaking">
                                                             <img src="~/Content/images/challenge/4fatigue.jpg" alt="Level 4 Fatigue" height="200" width="200">
                                                             <em></em>
                                                         </span>
-                                                    </figure>
-                                                    <figure id="4Done" style="display:none;">
+                                                    </div>
+                                                    <div id="4Done" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/4fatigue.jpg" alt="Level 4 Fatigue greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
+                                                    </div>
                                                 </td>
                                                 <td></td>
                                             </tr>
                                             <tr>
-                                                <td height="150" width="200"></td>
+                                                <td height="150"></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -387,24 +389,24 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <figure id="3Locked" style="display:block;">
+                                                    <div id="3Locked" style="display:block;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction locked" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
-                                                    <figure id="3Factor" onclick="level3()" style="display:none;">
-                                                        <span id="3Factor" class="fasize">
+                                                    </div>
+                                                    <div id="3Factor" onclick="level3()" style="display:none;">
+                                                        <span id="3Factor" class="shaking">
                                                             <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction" height="200" width="200">
                                                             <em></em>
                                                         </span>
-                                                    </figure>
-                                                    <figure id="3Done" style="display:none;">
+                                                    </div>
+                                                    <div id="3Done" style="display:none;">
                                                         <span>
                                                             <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" height="200" width="200" />
                                                         </span>
                                                         <em></em>
-                                                    </figure>
+                                                    </div>
                                                 </td>
                                                 <td></td>
                                                 <td></td>
@@ -413,131 +415,6 @@
                                     </div>
                                 </div>
                             </div>
-                                @*<ul class="thumbnails thumbnails-iisotope" id="isotope-items">
-                                    <li class="isotope-element isotope-filter1">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter3">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                <!-- <a href="~/Content/images/gallery/2.jpg"> -->
-                                                <figure>
-                                                    <img src="~/Content/images/challenge/sun.jpg" alt="Lorem" />
-                                                    <em></em>
-                                                </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter2">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter1">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                <!-- <a href="~/Content/images/gallery/2.jpg"> -->
-                                                <figure> <img src="~/Content/images/challenge/background.jpg" alt="Lorem"><em></em> </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter2">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                <!-- <a href="~/Content/images/gallery/1.jpg"> -->
-                                                <figure> <img src="~/Content/images/challenge/beach.jpg" alt="Lorem"><em></em> </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter3">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                
-                                                
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter2">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                <!-- <a href="~/Content/images/gallery/1.jpg"> -->
-                                                <figure> <img src="~/Content/images/challenge/background.jpg" alt="Lorem"><em></em> </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter1">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter3">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                <!-- <a href="~/Content/images/gallery/1.jpg"> -->
-                                                <figure> <img src="~/Content/images/challenge/background.jpg" alt="Lorem"><em></em> </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter1">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                
-                                                <figure id="3Locked" style="display:block;">
-                                                    <span>
-                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction locked" style="opacity: 0.4;filter: alpha(opacity=40);" />
-                                                    </span>
-                                                    <em></em>
-                                                </figure>
-                                                <figure id="3Factor" onclick="level3()" style="display:none;">
-                                                    <span id="3Factor" class="fasize">
-                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction">
-                                                        <em></em>
-                                                    </span>
-                                                </figure>
-                                                <figure id="3Done" style="display:none;">
-                                                    <span>
-                                                        <img src="~/Content/images/challenge/3distraction.jpg" alt="Level 3 Distraction greyed out" style="opacity: 0.4;filter: alpha(opacity=40);" />
-                                                    </span>
-                                                    <em></em>
-                                                </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter2">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                
-                                                
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="isotope-element isotope-filter3">
-                                        <div class="thumb-isotope">
-                                            <div class="thumbnail clearfix">
-                                                <!-- <a href="~/Content/images/gallery/2.jpg"> -->
-                                                <figure> <img src="~/Content/images/challenge/tree.jpg" alt="Lorem"><em></em> </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>*@
-                            
                             <!-- End Gallery -->
                         </div>
 
@@ -549,9 +426,9 @@
                                 <div class="button4 choice_bgc_white" onclick="clickChoice(2)" style="cursor:pointer;"><span id="option3">Default choice 3 description</span></div>
                                 <div class="challengeProgress" id="progress">Your Challenge Progress</div>
                             </div>
-                            <div id="result" style="display:none;">
+                            <div id="result" style="display:none; text-align:center;" class="col-md-12">
                                 <h2>Check This Out</h2>
-                                <div style="display:inline-block;">
+                                <div style="display:inline-block;" class="col-md-6">
                                     <div id="correct" style="display:block;">
                                         <img style="height:200px;" src="~/Content/GIFs/quiz-good.gif" />
                                     </div>
@@ -559,7 +436,8 @@
                                         <img style="height:200px;" src="~/Content/GIFs/quiz-hide.gif" />
                                     </div>
                                 </div>
-                                <div style="display:inline-block;">
+                                <div style="display:inline-block; text-align:left;" class="col-md-6">
+                                    
                                     <p id="explanation" style="font-size:20px;width:400px">
                                         This is the result div. only show when incorrect answer.
                                     </p>
@@ -571,13 +449,13 @@
                         </div>
 
                         <div id="introduction" class="container" style="display:none">
-                            <div style="align-content:center;text-align:center;">
+                            <div style="text-align:center;">
                                 <h5 id="introduction_line1">Introduction to </h5>
                                 <p id="introduction_line2">Your Council is </p>
                                 <p id="introduction_line3"> is </p>
                                 <p id="introduction_line4"></p>
                                 <p id="introduction_line5"></p>
-                                <div style="text-align:center; align-content:center;">
+                                <div style="width:700px; margin:0 auto;">
                                     <div id="drunk" style="display:none; width:auto; height:auto; margin: 0 auto;">
                                         <div class='tableauPlaceholder' id='viz1538394498653' style='position: relative;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbyDrunkDriving&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarCrashesbyDrunkDriving&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarCrashesbyDrunkDriving&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
                                         <script type='text/javascript'>var divElement = document.getElementById('viz1538394498653'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '700px'; vizElement.style.height = '560px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
@@ -601,19 +479,18 @@
 
                         </div>
 
-                        <div id="finish" style="display:none; width:100%; height:auto;">
-                            <div style="color:black;font-size:20px;">
-                                Congratulation! You have finished this Factor!
-                            </div>
+                        <div id="finish" style="display:none; width:100%; height:auto; text-align:center">
+                            <h1>
+                                Congratulations! You have finished this Factor!
+                            </h1>
                             <br />
                             <p style="color:black; font-size:20px;">
-                                @**@
                                 <a style="cursor: pointer;margin:0 auto;font-size:22px;font-family: 'Baloo Bhaijaan', cursive;" onmouseover="" onclick="backToMap()" class="button1"> Go Back </a>
                             </p>
                         </div>
 
                         <div id="challengeResult" style="display:none;">
-                            <h2>Congratulation!</h2>
+                            <h2>Congratulations!</h2>
                             <p id="challengeScore" style="font-size:20px;">
                                 default result.
                             </p>
@@ -835,7 +712,7 @@
                 Cookies.set("name", name);
                 location.href = '@Url.Action("PrintViewToPdf", "Home")'
                 document.getElementById("nameText").innerHTML = "Thank you for your downloading.";
-                document.getElementById("inputName").style.display = "none";
+                document.getElementById("inputName").disabled = true;
                 document.getElementById("downloadCertificate_btn").style.display = "none";
             }
         }

@@ -109,8 +109,6 @@ namespace iteration2.Models
             double percentage = 0;
             using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
-                //"server=localhost;user id=root;password=Peter@1993;database=" + DATABASE + ";"
-                //"server=saferchampion.mysql.database.azure.com;user id=peter@saferchampion;password=Xiao00c.xu;database=" + DATABASE + ";SslMode = MySqlSslMode.Preferred;"
                 conn.Open();
 
                 var cmd = new SqlCommand(query, conn);
@@ -295,7 +293,7 @@ namespace iteration2.Models
                     if (reader[2] != null)
                     {
                         List<string> temp = reader[2].ToString().Split(',').Distinct().ToList();
-                        Ranking ranking = new Ranking(reader[0].ToString(), Double.Parse(reader[1].ToString()), temp, "total");
+                        Ranking ranking = new Ranking(reader[0].ToString(), Math.Round(Double.Parse(reader[1].ToString()),2), temp, "total");
                         total.Add(ranking);
                     }
                     else
@@ -320,7 +318,7 @@ namespace iteration2.Models
                     if (reader[2] != null)
                     {
                         List<string> temp = reader[2].ToString().Split(',').Distinct().ToList();
-                        Ranking ranking = new Ranking(reader[0].ToString(), Double.Parse(reader[1].ToString()), temp, "week");
+                        Ranking ranking = new Ranking(reader[0].ToString(), Math.Round(Double.Parse(reader[1].ToString()),2), temp, "week");
                         week.Add(ranking);
                     }
                     else
@@ -345,7 +343,7 @@ namespace iteration2.Models
                     if (reader[2] != null)
                     {
                         List<string> temp = reader[2].ToString().Split(',').Distinct().ToList();
-                        Ranking ranking = new Ranking(reader[0].ToString(), Double.Parse(reader[1].ToString()), temp, "drunk");
+                        Ranking ranking = new Ranking(reader[0].ToString(), Math.Round(Double.Parse(reader[1].ToString()),2), temp, "drunk");
                         drunk.Add(ranking);
                     }
                     else
@@ -370,7 +368,7 @@ namespace iteration2.Models
                     if (reader[2] != null)
                     {
                         List<string> temp = reader[2].ToString().Split(',').Distinct().ToList();
-                        Ranking ranking = new Ranking(reader[0].ToString(), Double.Parse(reader[1].ToString()), temp, "speeding");
+                        Ranking ranking = new Ranking(reader[0].ToString(), Math.Round(Double.Parse(reader[1].ToString()),2), temp, "speeding");
                         speeding.Add(ranking);
                     }
                     else
@@ -395,7 +393,7 @@ namespace iteration2.Models
                     if (reader[2] != null)
                     {
                         List<string> temp = reader[2].ToString().Split(',').Distinct().ToList();
-                        Ranking ranking = new Ranking(reader[0].ToString(), Double.Parse(reader[1].ToString()), temp, "distraction");
+                        Ranking ranking = new Ranking(reader[0].ToString(), Math.Round(Double.Parse(reader[1].ToString()),2), temp, "distraction");
                         distraction.Add(ranking);
                     }
                     else
@@ -420,7 +418,7 @@ namespace iteration2.Models
                     if (reader[2] != null)
                     {
                         List<string> temp = reader[2].ToString().Split(',').Distinct().ToList();
-                        Ranking ranking = new Ranking(reader[0].ToString(), Double.Parse(reader[1].ToString()), temp, "fatigue");
+                        Ranking ranking = new Ranking(reader[0].ToString(), Math.Round(Double.Parse(reader[1].ToString()),2), temp, "fatigue");
                         fatigue.Add(ranking);
                     }
                     else
@@ -445,7 +443,7 @@ namespace iteration2.Models
                     if (reader[2] != null)
                     {
                         List<string> temp = reader[2].ToString().Split(',').Distinct().ToList();
-                        Ranking ranking = new Ranking(reader[0].ToString(), Double.Parse(reader[1].ToString()), temp, "general");
+                        Ranking ranking = new Ranking(reader[0].ToString(), Math.Round(Double.Parse(reader[1].ToString()),2), temp, "general");
                         general.Add(ranking);
                     }
                     else
